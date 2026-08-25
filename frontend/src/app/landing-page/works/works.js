@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-export default function Projects() {
+export default function Works() {
   return (
     <section className="portfolio-three-area py-120 position-relative z-1">
       <div className="portfolio-three-shape position-absolute top-0 z-n1" aria-hidden="true">
@@ -39,7 +39,7 @@ export default function Projects() {
                         </a>
                       </h2>
                       <p className="tw-text-gray-400 tw-mb-4" style={{ maxWidth: '600px' }}>
-                        A modern and immersive e-commerce platform designed for premium gaming gear. 
+                        A modern and immersive e-commerce platform designed for premium gaming gear.
                         Features an interactive UI, product showcases, and a seamless shopping experience.
                       </p>
                     </div>
@@ -98,7 +98,7 @@ export default function Projects() {
               <div className="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
                 <div className="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
                   <div className="tw-mb-6">
-                    <div>
+                    <div >
                       <h2 className="tw-text-605 fw-medium tw-mb-4">
                         <a
                           className="hover-text-main-two-600"

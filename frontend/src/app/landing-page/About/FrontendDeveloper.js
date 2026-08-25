@@ -246,7 +246,7 @@ export default function FrontendDeveloperSection() {
             }}
           >
             {isDownloading ? "Downloading..." : "Resume"}
-            <i className={`ph ${isDownloading ? "ph-spinner spinner-animation" : "ph-arrow-down"}`} style={{ fontSize: "14px" }}></i>
+            <i className={`ph ${isDownloading ? "ph-spinner spinner-animation" : "ph-file-text"}`} style={{ fontSize: "14px" }}></i>
           </a>
         </div>
       </div>

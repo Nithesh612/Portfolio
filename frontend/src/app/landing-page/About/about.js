@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import FrontendDeveloperSection from "./FrontendDeveloper";
-import { TechnoDome } from "./Showcase";
+import { TechnoDome } from "../Projects/project";
 
 export default function About() {
   return (

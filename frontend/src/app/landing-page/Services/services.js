@@ -310,9 +310,8 @@ export default function Services() {
           flex-shrink: 0;
         }
         .service-three-thumb img {
-          max-width: 400px;
+          max-width: 552px;
           height: auto;
-          border-radius: 24px;
           object-fit: contain;
           transition: transform 0.3s ease;
         }

@@ -196,7 +196,7 @@ export default function WelcomeScreen() {
             }}
             style={{ display: "inline-block", overflow: "hidden", whiteSpace: "nowrap" }}
           >
-            www.nithesh.dev
+            www.nithesh-kumar.vercel.app
           </motion.span>
 
           <motion.span
@@ -211,7 +211,7 @@ export default function WelcomeScreen() {
         {/* New Glowing Loading Bar */}
         <div style={{ marginTop: "40px", width: "320px", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
           <span style={{ color: "#60a5fa", fontSize: "12px", letterSpacing: "0.3em", fontWeight: 600 }}>LOADING</span>
-          
+
           <div style={{ display: "flex", alignItems: "center", gap: "16px", width: "100%" }}>
             {/* Bar Track */}
             <div
@@ -231,8 +231,8 @@ export default function WelcomeScreen() {
                   duration: 4.2,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                style={{ 
-                  height: "100%", 
+                style={{
+                  height: "100%",
                   background: "linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #93c5fd 100%)",
                   borderRadius: "9999px",
                   position: "relative",
@@ -240,7 +240,7 @@ export default function WelcomeScreen() {
                 }}
               >
                 {/* Glowing Dot at the tip */}
-                <div 
+                <div
                   style={{
                     position: "absolute",
                     right: "-3px",

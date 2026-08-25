@@ -8,7 +8,6 @@ export default function HeroSection() {
   const lineRef = useRef(null);
   const roleRef = useRef(null);
   const tagRef = useRef(null);
-  const socialsRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -47,15 +46,6 @@ export default function HeroSection() {
             duration: 0.9,
           },
           "-=0.6"
-        )
-        .from(
-          socialsRef.current,
-          {
-            opacity: 0,
-            x: -20,
-            duration: 0.8,
-          },
-          "-=0.5"
         );
     }, containerRef);
 
@@ -178,110 +168,6 @@ export default function HeroSection() {
             <div>DEVELOPER</div>
           </div>
         </div>
-      </div>
-
-      {/* Left Social Icons */}
-      <div
-        ref={socialsRef}
-        style={{
-          position: "absolute",
-          left: "clamp(20px, 4vw, 48px)",
-          bottom: "clamp(24px, 4vh, 40px)",
-          display: "flex",
-          flexDirection: "column",
-          gap: "18px",
-          zIndex: 20,
-        }}
-      >
-        <a
-          href="https://github.com/nithesh612"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            color: "#9ca3af",
-            fontSize: "22px",
-            transition: "color 0.2s, transform 0.2s",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = "#f59e0b";
-            e.currentTarget.style.transform = "translateY(-3px)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = "#9ca3af";
-            e.currentTarget.style.transform = "translateY(0)";
-          }}
-          aria-label="GitHub"
-        >
-          <i className="ph ph-github-logo"></i>
-        </a>
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            color: "#9ca3af",
-            fontSize: "22px",
-            transition: "color 0.2s, transform 0.2s",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = "#f59e0b";
-            e.currentTarget.style.transform = "translateY(-3px)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = "#9ca3af";
-            e.currentTarget.style.transform = "translateY(0)";
-          }}
-          aria-label="Instagram"
-        >
-          <i className="ph ph-instagram-logo"></i>
-        </a>
-        <a
-          href="https://linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            color: "#9ca3af",
-            fontSize: "22px",
-            transition: "color 0.2s, transform 0.2s",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = "#f59e0b";
-            e.currentTarget.style.transform = "translateY(-3px)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = "#9ca3af";
-            e.currentTarget.style.transform = "translateY(0)";
-          }}
-          aria-label="LinkedIn"
-        >
-          <i className="ph ph-linkedin-logo"></i>
-        </a>
-      </div>
-
-      {/* Bottom Center Version / Tag */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "24px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          color: "#6b7280",
-          fontSize: "12px",
-          fontFamily: "'Inter', monospace",
-          letterSpacing: "0.15em",
-          zIndex: 10,
-        }}
-      >
-        v 2.1.0
       </div>
 
       {/* Right Scroll Indicator */}

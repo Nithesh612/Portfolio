@@ -3,16 +3,16 @@ import React, { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import WelcomeScreen from "../components/Preloader/WelcomeScreen";
 import VelocityMarquee from "../components/Marquee/VelocityMarquee";
-import ShowcaseSection from "./About/Showcase";
-import Header from "./Header/header";
+import Project from "./Projects/project";
+import Header from "./header";
 import HeroSection from "./hero-section";
 import About from "./About/about";
 import Skills from "./Skills/skills";
 import Services from "./Services/services";
-import Projects from "./Projects/projects";
+import Works from "./works/works";
 import Contact from "./Contact/contact";
-import Footer from "./Footer/footer";
-import ToolsMarquee from "./components/ToolsMarquee";
+import Footer from "./footer";
+import ToolsMarquee from "../components/ToolsMarquee";
 
 const MARQUEE_ROWS = [
   {
@@ -72,9 +72,9 @@ export default function PortfolioPage() {
           <ToolsMarquee />
           <About />
           <VelocityMarquee rows={MARQUEE_ROWS} />
-          <ShowcaseSection />
+          <Project />
           <Services />
-          <Projects />
+          <Works />
           <Skills />
 
           <Contact />

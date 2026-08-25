@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import Link from "next/link";
 
 const techStack = [
   { name: "HTML5", icon: "https://cdn.simpleicons.org/html5/E34F26", color: "#E34F26" },
@@ -110,7 +111,6 @@ export function TechnoDome({ theme = "dark" }) {
   }
 
   useEffect(() => {
-    const els = itemEls.current;
     function render() {
       if (!isDragging.current) {
         rotY.current += velY.current;
@@ -178,8 +178,6 @@ export function TechnoDome({ theme = "dark" }) {
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
-
-
       <div
         ref={containerRef}
         onMouseDown={onMouseDown}
@@ -233,7 +231,7 @@ export function TechnoDome({ theme = "dark" }) {
   );
 }
 
-export default function ShowcaseSection() {
+export default function Project() {
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 6;
 
@@ -255,7 +253,7 @@ export default function ShowcaseSection() {
     >
       <div style={{ position: "relative", zIndex: 10, display: "flex", flexDirection: "column", alignItems: "center", maxWidth: "1150px", margin: "0 auto", width: "100%" }}>
         {/* Label */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", marginBottom: "20px", animation: "fadeSlideDown 0.8s ease forwards" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", marginBottom: "16px", animation: "fadeSlideDown 0.8s ease forwards" }}>
           <div style={{ position: "relative", overflow: "hidden", width: "40px", height: "1px" }}>
             <div style={{ width: "100%", height: "100%", backgroundColor: "rgba(255,255,255,0.2)" }} />
             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, transparent, rgba(255,255,255,0.8), transparent)", animation: "lineMove 2s linear infinite" }} />
@@ -269,20 +267,32 @@ export default function ShowcaseSection() {
           </div>
         </div>
 
-        {/* Heading */}
-        <div style={{ overflow: "hidden", marginBottom: "40px", textAlign: "center" }}>
+        {/* Heading & Sub-content */}
+        <div style={{ marginBottom: "48px", textAlign: "center", maxWidth: "800px" }}>
           <h2
             style={{
               fontSize: "clamp(36px, 6vw, 80px)",
               fontWeight: 900,
-              lineHeight: 1,
+              lineHeight: 1.05,
               letterSpacing: "-0.03em",
-              margin: 0,
+              margin: "0 0 14px 0",
               color: "#ffffff",
             }}
           >
             Projects
           </h2>
+          <p
+            style={{
+              fontSize: "clamp(14px, 1.6vw, 16px)",
+              color: "rgba(255, 255, 255, 0.6)",
+              lineHeight: "1.5",
+              margin: "0 auto",
+              fontFamily: "'Inter', sans-serif",
+              letterSpacing: "0.01em",
+            }}
+          >
+            A curated showcase of full-stack web applications and digital experiences.
+          </p>
         </div>
 
         {/* Tab Content */}
@@ -404,7 +414,7 @@ export default function ShowcaseSection() {
               <img src="/assets/empty-states/online-business.svg" alt="Empty Category" style={{ width: "100%", maxWidth: "320px", marginBottom: "24px" }} />
               <h3 style={{ fontSize: "26px", fontWeight: "700", color: "#ffffff", marginBottom: "12px" }}>No Projects Found</h3>
               <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "16px", maxWidth: "420px", margin: "0 auto", lineHeight: "1.6" }}>
-                There are currently no projects in the <span style={{ color: "#ff5722", fontWeight: 600 }}>{activeCategory}</span> category. Please check back later!
+                There are currently no projects in this category. Please check back later!
               </p>
             </div>
           )}
