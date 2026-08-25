@@ -25,12 +25,12 @@ export default function Skills() {
                   <div style={{ flex: "1 1 320px" }}>
                     <span
                       className="feature-three-text tw-text-605 fw-semibold text-white tw-transition-3 d-inline-block"
-                    >AI Full Stack Developer</span>
+                    >Frontend Development</span>
                   </div>
                   <div style={{ flex: "2 1 400px" }}>
                     <span
                       className="feature-three-text tw-text-base fw-normal text-white-50 tw-transition-3 d-inline-block"
-                    >Next.js, React, Node.js & AI Integration</span>
+                    >React.js, Next.js, JavaScript, TypeScript, HTML5, CSS3</span>
                   </div>
                   <div style={{ width: "70px", display: "flex", justifyContent: "flex-end", flexShrink: 0 }}>
                     <div className="hover-circle-arrow">
@@ -61,12 +61,12 @@ export default function Skills() {
                   <div style={{ flex: "1 1 320px" }}>
                     <span
                       className="feature-three-text tw-text-605 fw-semibold text-white tw-transition-3 d-inline-block"
-                    >Frontend Developer</span>
+                    >Backend & API Development</span>
                   </div>
                   <div style={{ flex: "2 1 400px" }}>
                     <span
                       className="feature-three-text tw-text-base fw-normal text-white-50 tw-transition-3 d-inline-block"
-                    >Modern UI/UX, Framer Motion & Responsive Web</span>
+                    >Node.js, Express.js, Python, REST APIs & JWT</span>
                   </div>
                   <div style={{ width: "70px", display: "flex", justifyContent: "flex-end", flexShrink: 0 }}>
                     <div className="hover-circle-arrow">
@@ -97,12 +97,12 @@ export default function Skills() {
                   <div style={{ flex: "1 1 320px" }}>
                     <span
                       className="feature-three-text tw-text-605 fw-semibold text-white tw-transition-3 d-inline-block"
-                    >Backend & API Developer</span>
+                    >Database Management</span>
                   </div>
                   <div style={{ flex: "2 1 400px" }}>
                     <span
                       className="feature-three-text tw-text-base fw-normal text-white-50 tw-transition-3 d-inline-block"
-                    >Node.js, Express, REST APIs & Databases</span>
+                    >MySQL, MongoDB & Data Modeling</span>
                   </div>
                   <div style={{ width: "70px", display: "flex", justifyContent: "flex-end", flexShrink: 0 }}>
                     <div className="hover-circle-arrow">
@@ -133,12 +133,12 @@ export default function Skills() {
                   <div style={{ flex: "1 1 320px" }}>
                     <span
                       className="feature-three-text tw-text-605 fw-semibold text-white tw-transition-3 d-inline-block"
-                    >AI & Automation</span>
+                    >Modern UI & Styling</span>
                   </div>
                   <div style={{ flex: "2 1 400px" }}>
                     <span
                       className="feature-three-text tw-text-base fw-normal text-white-50 tw-transition-3 d-inline-block"
-                    >LLM Integration, Python & Workflow Automation (n8n)</span>
+                    >Tailwind CSS & Responsive UI Design</span>
                   </div>
                   <div style={{ width: "70px", display: "flex", justifyContent: "flex-end", flexShrink: 0 }}>
                     <div className="hover-circle-arrow">
@@ -169,12 +169,12 @@ export default function Skills() {
                   <div style={{ flex: "1 1 320px" }}>
                     <span
                       className="feature-three-text tw-text-605 fw-semibold text-white tw-transition-3 d-inline-block"
-                    >Application Design</span>
+                    >Tools & Technologies</span>
                   </div>
                   <div style={{ flex: "2 1 400px" }}>
                     <span
                       className="feature-three-text tw-text-base fw-normal text-white-50 tw-transition-3 d-inline-block"
-                    >Figma, Design Systems & Modern Prototypes</span>
+                    >Git, GitHub, Postman & Version Control</span>
                   </div>
                   <div style={{ width: "70px", display: "flex", justifyContent: "flex-end", flexShrink: 0 }}>
                     <div className="hover-circle-arrow">
@@ -205,12 +205,12 @@ export default function Skills() {
                   <div style={{ flex: "1 1 320px" }}>
                     <span
                       className="feature-three-text tw-text-605 fw-semibold text-white tw-transition-3 d-inline-block"
-                    >DevOps & Tools</span>
+                    >Deployment & Hosting</span>
                   </div>
                   <div style={{ flex: "2 1 400px" }}>
                     <span
                       className="feature-three-text tw-text-base fw-normal text-white-50 tw-transition-3 d-inline-block"
-                    >Git, GitHub, Vercel, Netlify & Deployment</span>
+                    >Vercel, Render & CI/CD Workflows</span>
                   </div>
                   <div style={{ width: "70px", display: "flex", justifyContent: "flex-end", flexShrink: 0 }}>
                     <div className="hover-circle-arrow">

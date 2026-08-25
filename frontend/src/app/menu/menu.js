@@ -12,18 +12,25 @@ export default function Menu({ offcanvasOpen, setOffcanvasOpen }) {
 
   const handleScroll = (e, targetId) => {
     e.preventDefault();
-    setOffcanvasOpen(false);
+    setOffcanvasOpen(false); // Close menu
+
     if (typeof window !== "undefined") {
-      if (window.ScrollSmoother) {
-        const smoother = window.ScrollSmoother.get();
-        if (smoother) {
-          smoother.scrollTo(targetId, true);
-          return;
-        }
-      }
       const element = document.querySelector(targetId);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        // Use GSAP's ScrollToPlugin if available (smooth and robust)
+        if (window.gsap) {
+          window.gsap.to(window, {
+            duration: 1,
+            scrollTo: { y: targetId, autoKill: false },
+            ease: "power3.inOut"
+          });
+        } 
+        // Fallback for native smoothly if GSAP isn't loaded
+        else {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      } else {
+        window.location.href = `/portfolio${targetId}`;
       }
     }
   };
@@ -91,8 +98,9 @@ export default function Menu({ offcanvasOpen, setOffcanvasOpen }) {
                 <ul>
                   <li className="has-dropdown">
                     <a
-                      href="/"
+                      href="#home"
                       className={openSubmenu === "home" ? "expanded" : ""}
+                      onClick={(e) => handleScroll(e, '#home')}
                     >
                       Home
                       <button
@@ -108,72 +116,74 @@ export default function Menu({ offcanvasOpen, setOffcanvasOpen }) {
                       style={{ display: openSubmenu === "home" ? "block" : "none" }}
                     >
                       <div className="row gx-6 row-cols-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2">
+                        {/* 1. Thunder E-Commerce */}
                         <div className="col homemenu">
-                          <div className="homemenu-thumb tw-mb-4">
-                            <img src="/assets/thumbs/home1.jpg" alt="home-one" />
+                          <div className="homemenu-thumb tw-mb-4" style={{ borderRadius: "10px", overflow: "hidden" }}>
+                            <img src="/assets/thumbs/ecommerce-thumb.png" alt="Thunder E-Commerce" style={{ width: "100%", height: "140px", objectFit: "cover" }} />
                             <div className="homemenu-btn w-100">
                               <div className="tw-mb-2">
                                 <a
                                   className="bg-main-two-600 text-white fw-semibold tw-py-3 tw-text-sm d-inline-block hover-bg-white hover-text-heading menu-btn show-1"
-                                  href="/"
+                                  href="https://nithesh612.github.io/E-commerce-1/"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
                                   onClick={() => setOffcanvasOpen(false)}
                                 >
-                                  Multi Page
+                                  Live Demo ↗
                                 </a>
                               </div>
                             </div>
                           </div>
                           <div className="homemenu-content text-center">
                             <h4 className="homemenu-title">
-                              <a href="/" onClick={() => setOffcanvasOpen(false)}>Creative Agency</a>
+                              <a 
+                                href="https://nithesh612.github.io/E-commerce-1/" 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => setOffcanvasOpen(false)}
+                              >
+                                Thunder E-Commerce
+                              </a>
                             </h4>
                           </div>
                         </div>
+
+                        {/* 2. BookShelf Management System */}
                         <div className="col homemenu">
-                          <div className="homemenu-thumb tw-mb-4">
-                            <img src="/assets/thumbs/home2.jpg" alt="home-two" />
+                          <div className="homemenu-thumb tw-mb-4" style={{ borderRadius: "10px", overflow: "hidden" }}>
+                            <img src="/assets/thumbs/Book-management-system.png" alt="BookShelf Management System" style={{ width: "100%", height: "140px", objectFit: "cover" }} />
                             <div className="homemenu-btn w-100">
                               <div className="tw-mb-2">
                                 <a
                                   className="bg-main-two-600 text-white fw-semibold tw-py-3 tw-text-sm d-inline-block hover-bg-white hover-text-heading menu-btn show-1"
-                                  href="/"
+                                  href="https://book-management-system-r1.vercel.app/"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
                                   onClick={() => setOffcanvasOpen(false)}
                                 >
-                                  Multi Page
+                                  Live Demo ↗
                                 </a>
                               </div>
                             </div>
                           </div>
                           <div className="homemenu-content text-center">
                             <h4 className="homemenu-title">
-                              <a href="/" onClick={() => setOffcanvasOpen(false)}>Digital Studio</a>
+                              <a 
+                                href="https://book-management-system-r1.vercel.app/" 
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => setOffcanvasOpen(false)}
+                              >
+                                BookShelf — Management System
+                              </a>
                             </h4>
                           </div>
                         </div>
+
+                        {/* 3. Coming Soon */}
                         <div className="col homemenu">
-                          <div className="homemenu-thumb tw-mb-4">
-                            <img src="/assets/thumbs/home3.jpg" alt="home-three" />
-                            <div className="homemenu-btn w-100">
-                              <div className="tw-mb-2">
-                                <a
-                                  className="bg-main-two-600 text-white fw-semibold tw-py-3 tw-text-sm d-inline-block hover-bg-white hover-text-heading menu-btn show-1"
-                                  href="/"
-                                  onClick={() => setOffcanvasOpen(false)}
-                                >
-                                  Multi Page
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="homemenu-content text-center">
-                            <h4 className="homemenu-title">
-                              <a href="/" onClick={() => setOffcanvasOpen(false)}>Personal Portfolio</a>
-                            </h4>
-                          </div>
-                        </div>
-                        <div className="col homemenu">
-                          <div className="homemenu-thumb tw-mb-4">
-                            <img src="/assets/thumbs/coming-soon-img.png" alt="coming-soon" />
+                          <div className="homemenu-thumb tw-mb-4" style={{ borderRadius: "10px", overflow: "hidden" }}>
+                            <img src="/assets/thumbs/coming-soon-img.png" alt="coming-soon" style={{ width: "100%", height: "140px", objectFit: "cover" }} />
                           </div>
                           <div className="homemenu-content text-center">
                             <h4 className="homemenu-title">

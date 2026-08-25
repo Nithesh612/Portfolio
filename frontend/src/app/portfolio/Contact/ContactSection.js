@@ -54,7 +54,7 @@ export default function ContactSection() {
         {/* Label */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", marginBottom: "16px" }}>
           <div style={{ height: "1px", width: "40px", background: "linear-gradient(to right, transparent, rgba(255,255,255,0.3))" }} />
-          <span style={{ fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.45em", color: "rgba(255,255,255,0.4)", fontFamily: "monospace" }}>
+          <span style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.3em", color: "rgba(255,255,255,0.75)", fontFamily: "var(--font-mono, monospace)" }}>
             Contact
           </span>
           <div style={{ height: "1px", width: "40px", background: "linear-gradient(to left, transparent, rgba(255,255,255,0.3))" }} />
@@ -62,7 +62,7 @@ export default function ContactSection() {
 
         {/* Heading */}
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
-          <h1
+          <h2
             style={{
               fontSize: "clamp(36px, 7vw, 90px)",
               fontWeight: 900,
@@ -73,7 +73,7 @@ export default function ContactSection() {
             }}
           >
             Let's Build Together
-          </h1>
+          </h2>
         </div>
 
         {/* 2-Column Grid */}

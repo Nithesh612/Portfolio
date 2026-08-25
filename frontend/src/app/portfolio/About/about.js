@@ -49,49 +49,23 @@ export default function About() {
                   data-aos-delay="300"
                 >
                   <div>
-                    <div style={{ position: "relative", paddingLeft: "50px", marginTop: "0px" }}>
-                      {/* Item 1 */}
-                      <div style={{ position: "relative", marginBottom: "24px" }}>
-                        <div style={{ position: "absolute", left: "-50px", top: "0" }}>
-                          <div style={{ width: "32px", height: "32px", borderRadius: "8px", backgroundColor: "rgba(90, 55, 251, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#5A37FB" }}>
-                            <i className="ph ph-user" style={{ fontSize: "18px" }}></i>
-                          </div>
-                        </div>
-                        <h4 style={{ color: "#000000", fontSize: "15px", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px", letterSpacing: "1px" }}>Who I Am</h4>
-                        <p style={{ color: "#4B5563", fontSize: "16px", lineHeight: "1.7", margin: 0 }}>
-                          I'm Nithesh Kumar R, an MCA graduate and a passionate Full Stack Developer who loves building modern, responsive and user-friendly web applications.
-                        </p>
-                      </div>
-
-                      {/* Item 2 */}
-                      <div style={{ position: "relative", marginBottom: "24px" }}>
-                        <div style={{ position: "absolute", left: "-50px", top: "0" }}>
-                          <div style={{ width: "32px", height: "32px", borderRadius: "8px", backgroundColor: "rgba(90, 55, 251, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#5A37FB" }}>
-                            <i className="ph ph-code" style={{ fontSize: "18px" }}></i>
-                          </div>
-                        </div>
-                        <h4 style={{ color: "#000000", fontSize: "15px", fontWeight: "700", textTransform: "uppercase", marginBottom: "12px", letterSpacing: "1px" }}>What I Do</h4>
-                        <p style={{ color: "#4B5563", fontSize: "16px", lineHeight: "1.7", margin: 0 }}>
-                          I design and develop digital solutions using Next.js, React, Node.js and modern technologies. I enjoy turning complex problems into simple, intuitive and impactful applications.
-                        </p>
-                      </div>
-
-                      {/* Item 3 */}
-                      <div style={{ position: "relative" }}>
-                        <div style={{ position: "absolute", left: "-50px", top: "0" }}>
-                          <div style={{ width: "32px", height: "32px", borderRadius: "8px", backgroundColor: "rgba(90, 55, 251, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#5A37FB" }}>
-                            <i className="ph ph-target" style={{ fontSize: "18px" }}></i>
-                          </div>
-                        </div>
-                        <h4 style={{ color: "#000000", fontSize: "15px", fontWeight: "700", textTransform: "uppercase", marginBottom: "8px", letterSpacing: "1px" }}>My Approach</h4>
-                        <p style={{ color: "#4B5563", fontSize: "16px", lineHeight: "1.7", margin: 0 }}>
-                          I believe in writing clean, maintainable and efficient code. I focus on performance, accessibility and great user experience while continuously learning and improving.
-                        </p>
-                      </div>
+                    <div style={{ paddingLeft: "20px", marginTop: "0px" }}>
+                      <h3 style={{ color: "#000000", fontSize: "32px", fontWeight: "800", letterSpacing: "-0.5px", marginBottom: "16px", fontFamily: "'Inter', sans-serif" }}>
+                        Hello! I am Nithesh Kumar R.
+                      </h3>
+                      <h4 style={{ color: "#00C696", fontSize: "18px", fontWeight: "600", marginBottom: "20px", fontFamily: "'Inter', sans-serif" }}>
+                        Greetings ladies & gentlemen.
+                      </h4>
+                      <p style={{ color: "#4B5563", fontSize: "16px", lineHeight: "1.8", margin: "0 0 20px 0", fontWeight: "500" }}>
+                        I'm a creative and motivated Full Stack Developer with a strong passion for building modern, responsive, and user-friendly web applications. I thrive on exploring new challenges and opportunities that push the boundaries of my coding skills. Known for bridging the gap between elegant frontend interfaces and robust backend architectures, I focus on delivering impactful digital solutions.
+                      </p>
+                      <p style={{ color: "#4B5563", fontSize: "16px", lineHeight: "1.8", margin: "0 0 24px 0", fontWeight: "500" }}>
+                        With experience across Next.js, React, Node.js, and modern databases, my approach is clean, strategic, and performance-focused. I am constantly exploring new technologies like Cloud Architectures and AI integrations to sharpen my technical thinking. Let's work together to bring your vision to life.
+                      </p>
                     </div>
                   </div>
                   <div className="about-three-counter d-inline-block">
-                    <div className="tw-hover-btn-wrapper d-inline-block" style={{ transform: "scale(0.55)", transformOrigin: "left center", marginTop: "-20px", marginLeft: "50px" }}>
+                    <div className="tw-hover-btn-wrapper d-inline-block" style={{ transform: "scale(0.45)", transformOrigin: "left center", marginTop: "-80px", marginLeft: "20px" }}>
                       <a
                         className="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden border border-1 border-neutral-200"
                         href="about.html"

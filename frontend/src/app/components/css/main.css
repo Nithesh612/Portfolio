@@ -7066,7 +7066,7 @@ input:focus-visible {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.9s;
+  transition-delay: 0.2s;
 }
 .tw-offcanvas-2-area.opened .tw-offcanvas__right-info,
 .tw-offcanvas-2-area.opened .tw-offcanvas__social-link,
@@ -7076,13 +7076,13 @@ input:focus-visible {
   transform: translateY(0);
 }
 .tw-offcanvas-2-area.opened .tw-offcanvas__right-info {
-  transition-delay: 0.9s;
+  transition-delay: 0.2s;
 }
 .tw-offcanvas-2-area.opened .tw-offcanvas__social-link {
-  transition-delay: 0.7s;
+  transition-delay: 0.1s;
 }
 .tw-offcanvas-2-area.opened .tw-offcanvas__logo {
-  transition-delay: 0.3s;
+  transition-delay: 0.1s;
 }
 .tw-offcanvas-2-area.opened .tw-offcanvas__logo img {
   flex: 0 0 auto;
@@ -7229,7 +7229,7 @@ input:focus-visible {
   top: 0;
   height: 100%;
   width: 60%;
-  transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 1111;
 }
 @media screen and (max-width: 767px) {
@@ -7242,7 +7242,7 @@ input:focus-visible {
   top: 0;
   height: 100%;
   width: 40%;
-  transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 1111;
 }
 .tw-offcanvas-2-bg.is-left {
@@ -7250,14 +7250,14 @@ input:focus-visible {
   transform: scale(1, 0);
   transform-origin: top center;
   background: hsl(var(--heading-color));
-  transition-delay: 1s;
+  transition-delay: 0.2s;
 }
 .tw-offcanvas-2-bg.is-right {
   right: 0;
   transform-origin: bottom center;
   transform: scale(1, 0);
   background-color: #171717;
-  transition-delay: 1s;
+  transition-delay: 0.2s;
 }
 .tw-offcanvas-2-wrapper .tw-offcanvas-2-left {
   overflow-y: scroll;

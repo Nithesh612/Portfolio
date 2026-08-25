@@ -6,21 +6,31 @@ import BandCard from "./BandCard";
 export default function FrontendDeveloperSection() {
   const [showCard, setShowCard] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const fullText = "✦ AVAILABLE FOR WORK";
+  const [typedText, setTypedText] = useState("");
+  const [isDownloading, setIsDownloading] = useState(false);
+  const fullText = "✦ ABOUT ME";
 
   useEffect(() => {
-    // Reveal and drop the 3D card into view right after the loading screen completes
-    const timer = setTimeout(() => {
-      setMounted(true);
-      setShowCard(true);
-    }, 4900);
+    let index = 0;
+    const typingInterval = setInterval(() => {
+      if (index < fullText.length) {
+        setTypedText(fullText.slice(0, index + 1));
+        index++;
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 150); // Adjust speed here
 
-    return () => clearTimeout(timer);
+    return () => clearInterval(typingInterval);
+  }, []);
+
+  useEffect(() => {
+    setMounted(true);
   }, []);
 
   return (
     <section
-      id="about"
+      id="frontend-dev"
       style={{
         position: "relative",
         width: "100%",
@@ -35,7 +45,7 @@ export default function FrontendDeveloperSection() {
         borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
       }}
     >
-      <div style={{ position: "relative", zIndex: 10, maxWidth: "750px", width: "100%", marginLeft: "4vw", marginTop: "2vh" }}>
+      <div style={{ position: "relative", zIndex: 40, maxWidth: "750px", width: "100%", marginLeft: "4vw", marginTop: "2vh", pointerEvents: "auto" }}>
         {/* Availability Badge */}
         <div style={{ display: "flex", alignItems: "center", marginBottom: "24px" }}>
           <span
@@ -44,19 +54,19 @@ export default function FrontendDeveloperSection() {
               display: "inline-block",
               overflow: "hidden",
               whiteSpace: "nowrap",
-              fontSize: "11px",
-              letterSpacing: "0.3em",
+              fontSize: "12px",
+              letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "rgba(255, 255, 255, 0.6)",
-              fontFamily: "monospace",
+              color: "rgba(255, 255, 255, 0.85)",
+              fontFamily: "var(--font-mono, monospace)",
             }}
           >
-            {fullText}
+            {typedText}
           </span>
           <span
             style={{
-              color: "rgba(255, 255, 255, 0.6)",
-              fontFamily: "monospace",
+              color: "rgba(255, 255, 255, 0.85)",
+              fontFamily: "var(--font-mono, monospace)",
               marginLeft: "2px",
               animation: "blink 1s infinite",
             }}
@@ -67,9 +77,9 @@ export default function FrontendDeveloperSection() {
 
         {/* Big Titles */}
         <div style={{ marginBottom: "24px", position: "relative", zIndex: 20 }}>
-          <h1
+          <h2
             style={{
-              fontFamily: "'Anton', sans-serif",
+              fontFamily: "var(--font-display, 'Anton', sans-serif)",
               fontWeight: 400,
               lineHeight: 1.05,
               letterSpacing: "0.02em",
@@ -80,7 +90,7 @@ export default function FrontendDeveloperSection() {
             }}
           >
             Full Stack Developer
-          </h1>
+          </h2>
         </div>
 
         {/* Paragraph with animated gradient shine */}
@@ -105,11 +115,10 @@ export default function FrontendDeveloperSection() {
         <div style={{ position: "relative", zIndex: 20, display: "flex", flexWrap: "wrap", gap: "14px", marginTop: "24px" }}>
           {[
             { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
-            { name: "React.js", icon: "https://cdn.simpleicons.org/react/61DAFB" },
-            { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/5FA04E" },
+            { name: "Vite", icon: "https://cdn.simpleicons.org/vite/646CFF" },
+            { name: "WordPress", icon: "https://cdn.simpleicons.org/wordpress/21759B" },
             { name: "Express", icon: "https://cdn.simpleicons.org/express/FFFFFF" },
             { name: "Python", icon: "https://cdn.simpleicons.org/python/3776AB" },
-            { name: "WordPress", icon: "https://cdn.simpleicons.org/wordpress/21759B" },
           ].map((tech) => (
             <div
               key={tech.name}
@@ -139,7 +148,7 @@ export default function FrontendDeveloperSection() {
         </div>
 
         {/* CTA Buttons */}
-        <div style={{ position: "relative", zIndex: 20, marginTop: "36px", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px" }}>
+        <div style={{ position: "relative", zIndex: 40, marginTop: "36px", display: "flex", flexWrap: "wrap", alignItems: "center", gap: "16px" }}>
           {/* Show Card Button */}
           <button
             onClick={() => setShowCard((s) => !s)}
@@ -201,6 +210,44 @@ export default function FrontendDeveloperSection() {
           >
             Projects
           </a>
+
+          {/* Resume Button */}
+          <a
+            href="/Nithesh_Kumar_Resume.pdf" download="Nithesh_Kumar_Resume.pdf" target="_blank" rel="noopener noreferrer"
+            onClick={() => {
+              setIsDownloading(true);
+              setTimeout(() => setIsDownloading(false), 800);
+            }}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              border: isDownloading ? "1.5px solid #22c55e" : "1.5px solid rgba(255, 255, 255, 0.3)",
+              color: isDownloading ? "#22c55e" : "#ffffff",
+              padding: "12px 28px",
+              fontSize: "11px",
+              textTransform: "uppercase",
+              fontWeight: 700,
+              borderRadius: "9999px",
+              background: isDownloading ? "rgba(34, 197, 94, 0.1)" : "transparent",
+              textDecoration: "none",
+              transition: "all 0.25s ease",
+              transform: isDownloading ? "scale(0.95)" : "scale(1)",
+            }}
+            onMouseEnter={(e) => {
+              if (isDownloading) return;
+              e.currentTarget.style.backgroundColor = "#ffffff";
+              e.currentTarget.style.color = "#000000";
+            }}
+            onMouseLeave={(e) => {
+              if (isDownloading) return;
+              e.currentTarget.style.backgroundColor = "transparent";
+              e.currentTarget.style.color = "#ffffff";
+            }}
+          >
+            {isDownloading ? "Downloading..." : "Resume"}
+            <i className={`ph ${isDownloading ? "ph-spinner spinner-animation" : "ph-arrow-down"}`} style={{ fontSize: "14px" }}></i>
+          </a>
         </div>
       </div>
 
@@ -258,6 +305,12 @@ export default function FrontendDeveloperSection() {
         @keyframes blink {
           0%, 100% { opacity: 1; }
           50% { opacity: 0; }
+        }
+        @keyframes spin {
+          100% { transform: rotate(360deg); }
+        }
+        .spinner-animation {
+          animation: spin 1s linear infinite;
         }
       `}</style>
     </section>

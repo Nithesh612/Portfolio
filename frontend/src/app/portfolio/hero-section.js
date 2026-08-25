@@ -1,77 +1,317 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 
 export default function HeroSection() {
   const containerRef = useRef(null);
-  const textBgRef = useRef(null);
+  const nameRef = useRef(null);
+  const lineRef = useRef(null);
+  const roleRef = useRef(null);
+  const tagRef = useRef(null);
+  const socialsRef = useRef(null);
 
   useEffect(() => {
-    // Small parallax effect on mouse move
-    const handleMouseMove = (e) => {
-      const { clientX, clientY } = e;
-      const x = (clientX / window.innerWidth - 0.5) * 20;
-      const y = (clientY / window.innerHeight - 0.5) * 20;
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      gsap.to(textBgRef.current, { x: x * 1.5, y: y * 1.5, duration: 1, ease: "power2.out" });
-    };
+      tl.from(tagRef.current, {
+        opacity: 0,
+        y: -15,
+        duration: 0.8,
+      })
+        .from(
+          lineRef.current,
+          {
+            scaleX: 0,
+            transformOrigin: "left center",
+            duration: 0.9,
+            ease: "power2.inOut",
+          },
+          "-=0.4"
+        )
+        .from(
+          nameRef.current,
+          {
+            opacity: 0,
+            y: 35,
+            duration: 1,
+          },
+          "-=0.5"
+        )
+        .from(
+          roleRef.current,
+          {
+            opacity: 0,
+            y: 20,
+            letterSpacing: "0.4em",
+            duration: 0.9,
+          },
+          "-=0.6"
+        )
+        .from(
+          socialsRef.current,
+          {
+            opacity: 0,
+            x: -20,
+            duration: 0.8,
+          },
+          "-=0.5"
+        );
+    }, containerRef);
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section 
-      id="home" 
+    <section
+      id="home"
       ref={containerRef}
       style={{
         position: "relative",
         width: "100%",
-        minHeight: "100vh",
-        backgroundColor: "#111111", // Dark background
+        height: "100vh",
+        backgroundColor: "#121212",
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
+        padding: "0 24px",
       }}
     >
-      {/* Corner Texts */}
-      <div style={{ position: "absolute", top: "40px", left: "40px", color: "#e8dfcd", fontSize: "14px", fontFamily: "sans-serif", zIndex: 30 }}>
-        Full Stack Developer
-      </div>
-      <div style={{ position: "absolute", top: "40px", right: "40px", display: "flex", alignItems: "center", color: "#e8dfcd", fontSize: "14px", zIndex: 30 }}>
-        <div style={{ width: "60px", height: "1px", backgroundColor: "#e8dfcd", marginRight: "10px" }}></div>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-          <polyline points="12 5 19 12 12 19"></polyline>
-        </svg>
-      </div>
-      <div style={{ position: "absolute", bottom: "40px", left: "40px", color: "#e8dfcd", fontSize: "14px", fontFamily: "sans-serif", zIndex: 30 }}>
-        Nithesh Kumar R
-      </div>
-      <div style={{ position: "absolute", bottom: "40px", right: "40px", color: "#e8dfcd", fontSize: "14px", fontFamily: "sans-serif", zIndex: 30 }}>
-        www.portfolio.com
-      </div>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Inter:wght@400;600;700&display=swap');
+      `}</style>
 
-      {/* Background Text Layer (Solid) */}
-      <h1 
-        ref={textBgRef}
+      {/* Main Hero Center Content */}
+      <div
         style={{
-          position: "absolute",
-          fontSize: "clamp(80px, 20vw, 320px)",
-          fontWeight: 800,
-          lineHeight: 1,
-          color: "#e8dfcd",
-          margin: 0,
-          whiteSpace: "nowrap",
-          letterSpacing: "-0.05em",
-          zIndex: 1,
-          fontFamily: "'Inter', sans-serif",
-          textTransform: "uppercase"
+          position: "relative",
+          zIndex: 10,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          maxWidth: "950px",
+          width: "100%",
+          textAlign: "center",
+          marginTop: "-2vh",
         }}
       >
-        PORTFOLIO
-      </h1>
+        {/* Top Tagline with Accent Line: "Hi I am ───" */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "20px",
+            width: "100%",
+            maxWidth: "680px",
+            marginBottom: "8px",
+          }}
+        >
+          <span
+            ref={tagRef}
+            style={{
+              color: "#9ca3af",
+              fontSize: "clamp(15px, 1.8vw, 22px)",
+              fontFamily: "'Inter', sans-serif",
+              letterSpacing: "0.22em",
+              fontWeight: 400,
+              whiteSpace: "nowrap",
+            }}
+          >
+            Hi I am
+          </span>
+          <div
+            ref={lineRef}
+            style={{
+              flex: 1,
+              height: "3px",
+              backgroundColor: "#f59e0b",
+              borderRadius: "2px",
+              boxShadow: "0 0 12px rgba(245, 158, 11, 0.4)",
+            }}
+          />
+        </div>
+
+        {/* Big Bold Name */}
+        <h1
+          ref={nameRef}
+          style={{
+            fontSize: "clamp(48px, 9.5vw, 130px)",
+            fontWeight: 900,
+            color: "#ffffff",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.05,
+            margin: "0 0 12px 0",
+            fontFamily: "'Montserrat', sans-serif",
+            textTransform: "none",
+            whiteSpace: "nowrap",
+          }}
+        >
+          Nithesh Kumar
+        </h1>
+
+        {/* Subtitle / Role with golden accent aligned to the right side of center */}
+        <div
+          style={{
+            width: "100%",
+            maxWidth: "680px",
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <div
+            ref={roleRef}
+            style={{
+              textAlign: "right",
+              color: "#f59e0b",
+              fontFamily: "'Inter', sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(12px, 1.4vw, 18px)",
+              letterSpacing: "0.28em",
+              textTransform: "uppercase",
+              lineHeight: 1.4,
+            }}
+          >
+            <div>A FULL STACK</div>
+            <div>DEVELOPER</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Left Social Icons */}
+      <div
+        ref={socialsRef}
+        style={{
+          position: "absolute",
+          left: "clamp(20px, 4vw, 48px)",
+          bottom: "clamp(24px, 4vh, 40px)",
+          display: "flex",
+          flexDirection: "column",
+          gap: "18px",
+          zIndex: 20,
+        }}
+      >
+        <a
+          href="https://github.com/nithesh612"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "#9ca3af",
+            fontSize: "22px",
+            transition: "color 0.2s, transform 0.2s",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = "#f59e0b";
+            e.currentTarget.style.transform = "translateY(-3px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = "#9ca3af";
+            e.currentTarget.style.transform = "translateY(0)";
+          }}
+          aria-label="GitHub"
+        >
+          <i className="ph ph-github-logo"></i>
+        </a>
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "#9ca3af",
+            fontSize: "22px",
+            transition: "color 0.2s, transform 0.2s",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = "#f59e0b";
+            e.currentTarget.style.transform = "translateY(-3px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = "#9ca3af";
+            e.currentTarget.style.transform = "translateY(0)";
+          }}
+          aria-label="Instagram"
+        >
+          <i className="ph ph-instagram-logo"></i>
+        </a>
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            color: "#9ca3af",
+            fontSize: "22px",
+            transition: "color 0.2s, transform 0.2s",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = "#f59e0b";
+            e.currentTarget.style.transform = "translateY(-3px)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = "#9ca3af";
+            e.currentTarget.style.transform = "translateY(0)";
+          }}
+          aria-label="LinkedIn"
+        >
+          <i className="ph ph-linkedin-logo"></i>
+        </a>
+      </div>
+
+      {/* Bottom Center Version / Tag */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "24px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          color: "#6b7280",
+          fontSize: "12px",
+          fontFamily: "'Inter', monospace",
+          letterSpacing: "0.15em",
+          zIndex: 10,
+        }}
+      >
+        v 2.1.0
+      </div>
+
+      {/* Right Scroll Indicator */}
+      <div
+        style={{
+          position: "absolute",
+          right: "clamp(20px, 4vw, 48px)",
+          bottom: "clamp(24px, 4vh, 40px)",
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          transform: "rotate(90deg)",
+          transformOrigin: "right center",
+          color: "#9ca3af",
+          fontSize: "12px",
+          fontFamily: "'Inter', sans-serif",
+          letterSpacing: "0.25em",
+          textTransform: "uppercase",
+          zIndex: 20,
+        }}
+      >
+        <span>Scroll</span>
+        <div
+          style={{
+            width: "24px",
+            height: "1px",
+            backgroundColor: "#9ca3af",
+          }}
+        />
+      </div>
     </section>
   );
 }

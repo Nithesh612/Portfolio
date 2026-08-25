@@ -403,28 +403,55 @@ export default function Contact() {
 
                   {/* Status Footer */}
                   <div
+                    className="contact-status-badge"
                     style={{
-                      display: "flex",
+                      display: "inline-flex",
                       alignItems: "center",
-                      gap: "8px",
-                      paddingTop: "16px",
-                      borderTop: "1px solid rgba(255, 255, 255, 0.08)",
+                      gap: "10px",
+                      padding: "8px 16px",
+                      marginTop: "16px",
+                      borderRadius: "100px",
+                      background: "rgba(74, 222, 128, 0.08)",
+                      border: "1px solid rgba(74, 222, 128, 0.2)",
+                      backdropFilter: "blur(8px)",
+                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                      cursor: "default",
+                      width: "fit-content",
                     }}
                   >
-                    <div
-                      style={{
-                        width: "8px",
-                        height: "8px",
-                        borderRadius: "50%",
-                        backgroundColor: "#4ade80",
-                        animation: "pulseStatus 2s infinite ease-in-out",
-                      }}
-                    />
+                    <div style={{ position: "relative", width: "10px", height: "10px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <span
+                        className="status-ping"
+                        style={{
+                          position: "absolute",
+                          width: "100%",
+                          height: "100%",
+                          borderRadius: "50%",
+                          backgroundColor: "#4ade80",
+                          opacity: 0.75,
+                          animation: "pingRadar 2s cubic-bezier(0, 0, 0.2, 1) infinite",
+                        }}
+                      />
+                      <span
+                        className="status-dot"
+                        style={{
+                          position: "relative",
+                          width: "8px",
+                          height: "8px",
+                          borderRadius: "50%",
+                          backgroundColor: "#22c55e",
+                          boxShadow: "0 0 10px #22c55e, 0 0 20px rgba(34, 197, 94, 0.5)",
+                          animation: "pulseStatusDot 2s infinite ease-in-out",
+                        }}
+                      />
+                    </div>
                     <p
                       style={{
                         fontSize: "12px",
-                        color: "rgba(255, 255, 255, 0.35)",
-                        fontFamily: "monospace",
+                        fontWeight: 500,
+                        letterSpacing: "0.02em",
+                        color: "rgba(255, 255, 255, 0.8)",
+                        fontFamily: "var(--font-mono, monospace)",
                         margin: 0,
                       }}
                     >

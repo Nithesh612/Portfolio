@@ -5,6 +5,7 @@ import Menu from "../../menu/menu";
 
 export default function Header() {
   const [offcanvasOpen, setOffcanvasOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleScroll = (e, targetId) => {
     e.preventDefault();
@@ -27,80 +28,112 @@ export default function Header() {
   return (
     <>
       <Menu offcanvasOpen={offcanvasOpen} setOffcanvasOpen={setOffcanvasOpen} />
-      {/* ==================== Header Start Here ==================== */}
-      <header className="custom-header-navbar w-100">
-        <div className="container tw-container-1800-px d-flex align-items-center justify-content-between position-relative">
-          {/* Brand Logo & Title */}
-          <a href="/" className="custom-nav-brand">
-            <span className="brand-title d-none d-sm-inline-block">
-              Nithesh kumar R
+      {/* Right Section: Fixed Pill Menu */}
+      <div
+        style={{
+          position: "fixed",
+          top: "24px",
+          right: "32px",
+          zIndex: 1050,
+          display: offcanvasOpen ? "none" : "flex",
+          alignItems: "center",
+          gap: "16px",
+          padding: "10px 16px 10px 24px",
+          background: "rgba(30, 30, 30, 0.8)",
+          backdropFilter: "blur(12px)",
+          border: "1px solid rgba(255, 255, 255, 0.1)",
+          borderRadius: "9999px",
+          color: "#ffffff",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.2)"
+        }}
+      >
+        <a
+          href="/Nithesh_Kumar_Resume.pdf"
+          download="Nithesh_Kumar_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            color: "#ffffff",
+            textDecoration: "none",
+            fontWeight: 600,
+            fontSize: "14px",
+            letterSpacing: "0.5px",
+            transition: "color 0.3s ease",
+            overflow: "hidden"
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = "#ff5722";
+            setIsHovered(true);
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = "#ffffff";
+            setIsHovered(false);
+          }}
+        >
+          <div style={{ 
+            position: "relative", 
+            height: "20px", 
+            width: "98px", 
+            overflow: "hidden",
+            display: "flex",
+            alignItems: "center"
+          }}>
+            <span style={{ 
+              position: "absolute", 
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+              transition: "transform 0.4s cubic-bezier(0.65, 0, 0.35, 1)", 
+              transform: isHovered ? "translateY(-100%)" : "translateY(0)" 
+            }}>
+              <i className="ph ph-arrow-down" style={{ fontSize: "14px" }}></i>
+              Resume
             </span>
-          </a>
-
-          {/* Center Nav Menu Links */}
-          <nav className="d-none d-lg-block" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
-            <ul className="custom-nav-links">
-              <li>
-                <a href="#home" onClick={(e) => handleScroll(e, '#home')} className="custom-nav-link">Home</a>
-              </li>
-              <li>
-                <a href="#about" onClick={(e) => handleScroll(e, '#about')} className="custom-nav-link">About</a>
-              </li>
-              <li>
-                <a href="#showcase" onClick={(e) => handleScroll(e, '#showcase')} className="custom-nav-link">Project</a>
-              </li>
-              <li>
-                <a href="#services" onClick={(e) => handleScroll(e, '#services')} className="custom-nav-link">Showcase</a>
-              </li>
-              <li>
-                <a href="#contact" onClick={(e) => handleScroll(e, '#contact')} className="custom-nav-link">Contact</a>
-              </li>
-            </ul>
-          </nav>
-
-          {/* Right Section: Header Right Buttons */}
-          <div className="d-flex align-items-center">
-            {/* Header Right start */}
-            <div className="header-right d-flex align-items-center tw-gap-3">
-              {/* Header Button Start */}
-              <div className="header-three-button d-none d-md-block">
-                <a
-                  className="tw-hover-btn bg-black text-white fw-bold d-inline-block hover-text-white text-uppercase"
-                  href="contact.html"
-                >
-                  download cv
-                  <span className="tw-hover-btn-circle-dot bg-main-two-600"></span>
-                </a>
-              </div>
-              {/* Header Button End */}
-
-              {/* Placeholder to prevent overlap since menu is fixed */}
-              <div style={{ width: "56px", height: "56px" }}></div>
-
-              {/* Menu Button Start */}
-              <div className="header-three-menu" style={{ position: "fixed", top: "16px", right: "30px", zIndex: 1050, display: offcanvasOpen ? "none" : "block" }}>
-                <button
-                  suppressHydrationWarning
-                  className="tw-offcanvas-open-btn tw-transition-3"
-                  onClick={() => setOffcanvasOpen(true)}
-                  type="button"
-                >
-                  <span>
-                    <img
-                      className="tw-transition-3"
-                      src="/assets/icons/header-three-toggle.svg"
-                      alt="toggle"
-                    />
-                  </span>
-                </button>
-              </div>
-              {/* Menu Button End */}
-            </div>
-            {/* Header Right End */}
+            <span style={{ 
+              position: "absolute", 
+              top: "100%",
+              left: 0,
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              gap: "6px",
+              transition: "transform 0.4s cubic-bezier(0.65, 0, 0.35, 1)", 
+              transform: isHovered ? "translateY(-100%)" : "translateY(0)" 
+            }}>
+              <i className="ph ph-download-simple" style={{ fontSize: "14px" }}></i>
+              Download
+            </span>
           </div>
-        </div>
-      </header>
-      {/* ==================== Header End Here ==================== */}
+        </a>
+
+        <button
+          suppressHydrationWarning
+          onClick={() => setOffcanvasOpen(true)}
+          type="button"
+          style={{
+            background: "transparent",
+            border: "none",
+            color: "#ffffff",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "4px",
+            transition: "color 0.3s ease"
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.color = "#ff5722"}
+          onMouseLeave={(e) => e.currentTarget.style.color = "#ffffff"}
+        >
+          <i className="ph ph-dots-nine" style={{ fontSize: "24px" }}></i>
+        </button>
+      </div>
     </>
   );
 }

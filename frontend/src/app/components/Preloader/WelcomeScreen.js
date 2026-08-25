@@ -82,103 +82,7 @@ export default function WelcomeScreen() {
           maxWidth: "380px",
         }}
       >
-        {/* Top 3 Icons */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: {},
-            visible: {
-              transition: {
-                staggerChildren: 0.25,
-              },
-            },
-          }}
-          style={{ display: "flex", gap: "16px", alignItems: "center", justifyContent: "center" }}
-        >
-          {/* 1. Code2 */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, scale: 0.3, rotate: -140, y: 60 },
-              visible: { opacity: 1, scale: 1, rotate: 0, y: 0 },
-            }}
-            transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-            whileHover={{ scale: 1.08 }}
-            style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "50%",
-              border: "1px solid rgba(255, 255, 255, 0.12)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "rgba(255, 255, 255, 0.05)",
-              backdropFilter: "blur(12px)",
-              boxShadow: "0 0 25px rgba(255, 255, 255, 0.05)",
-            }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="m18 16 4-4-4-4" />
-              <path d="m6 8-4 4 4 4" />
-              <path d="m14.5 4-5 16" />
-            </svg>
-          </motion.div>
 
-          {/* 2. User */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, scale: 0.3, rotate: -140, y: 60 },
-              visible: { opacity: 1, scale: 1, rotate: 0, y: 0 },
-            }}
-            transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-            whileHover={{ scale: 1.08 }}
-            style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "50%",
-              border: "1px solid rgba(255, 255, 255, 0.12)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "rgba(255, 255, 255, 0.05)",
-              backdropFilter: "blur(12px)",
-              boxShadow: "0 0 25px rgba(255, 255, 255, 0.05)",
-            }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
-          </motion.div>
-
-          {/* 3. Globe */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, scale: 0.3, rotate: -140, y: 60 },
-              visible: { opacity: 1, scale: 1, rotate: 0, y: 0 },
-            }}
-            transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-            whileHover={{ scale: 1.08 }}
-            style={{
-              width: "48px",
-              height: "48px",
-              borderRadius: "50%",
-              border: "1px solid rgba(255, 255, 255, 0.12)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "rgba(255, 255, 255, 0.05)",
-              backdropFilter: "blur(12px)",
-              boxShadow: "0 0 25px rgba(255, 255, 255, 0.05)",
-            }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-              <path d="M2 12h20" />
-            </svg>
-          </motion.div>
-        </motion.div>
 
         {/* Text */}
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "4px" }}>
@@ -233,6 +137,8 @@ export default function WelcomeScreen() {
               lineHeight: 1.15,
               textAlign: "center",
               margin: 0,
+              color: "#ffffff",
+              textTransform: "uppercase"
             }}
           >
             Portfolio Website
@@ -302,28 +208,76 @@ export default function WelcomeScreen() {
           </motion.span>
         </motion.div>
 
-        {/* Bottom Loading Line */}
-        <div
-          style={{
-            marginTop: "35px",
-            width: "240px",
-            background: "rgba(255, 255, 255, 0.15)",
-            height: "2px",
-            overflow: "hidden",
-            borderRadius: "9999px",
-          }}
-        >
-          <motion.div
-            initial={{ width: "0%" }}
-            animate={{ width: "100%" }}
-            transition={{
-              duration: 4.2,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            style={{ height: "100%", backgroundColor: "#ffffff" }}
-          />
+        {/* New Glowing Loading Bar */}
+        <div style={{ marginTop: "40px", width: "320px", display: "flex", flexDirection: "column", alignItems: "center", gap: "12px" }}>
+          <span style={{ color: "#60a5fa", fontSize: "12px", letterSpacing: "0.3em", fontWeight: 600 }}>LOADING</span>
+          
+          <div style={{ display: "flex", alignItems: "center", gap: "16px", width: "100%" }}>
+            {/* Bar Track */}
+            <div
+              style={{
+                flex: 1,
+                background: "rgba(59, 130, 246, 0.15)",
+                height: "4px",
+                borderRadius: "9999px",
+                position: "relative",
+              }}
+            >
+              {/* Animated Progress Fill */}
+              <motion.div
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{
+                  duration: 4.2,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                style={{ 
+                  height: "100%", 
+                  background: "linear-gradient(90deg, #1e3a8a 0%, #3b82f6 50%, #93c5fd 100%)",
+                  borderRadius: "9999px",
+                  position: "relative",
+                  boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)"
+                }}
+              >
+                {/* Glowing Dot at the tip */}
+                <div 
+                  style={{
+                    position: "absolute",
+                    right: "-3px",
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    width: "6px",
+                    height: "6px",
+                    backgroundColor: "#ffffff",
+                    borderRadius: "50%",
+                    boxShadow: "0 0 12px 4px rgba(96, 165, 250, 0.8)"
+                  }}
+                />
+              </motion.div>
+            </div>
+
+            {/* Percentage Text */}
+            <div style={{ color: "#60a5fa", fontSize: "14px", fontWeight: 600, fontFamily: "monospace", minWidth: "35px" }}>
+              <PercentageCounter />
+            </div>
+          </div>
         </div>
       </motion.div>
     </motion.div>
   );
+}
+
+// Subcomponent to handle the number animation cleanly
+function PercentageCounter() {
+  const { useMotionValue, useTransform, animate } = require("framer-motion");
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, Math.round);
+  const display = useTransform(rounded, (v) => `${v}%`);
+
+  React.useEffect(() => {
+    const controls = animate(count, 100, { duration: 4.2, ease: [0.22, 1, 0.36, 1] });
+    return controls.stop;
+  }, [count, animate]);
+
+  return <motion.span>{display}</motion.span>;
 }

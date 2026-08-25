@@ -4,8 +4,21 @@ import React from "react";
 export default function Projects() {
   return (
     <section className="portfolio-three-area py-120 position-relative z-1">
-      <div className="portfolio-three-shape position-absolute top-0 z-n1">
-        <h3 className="portfolio-three-shape-title">works</h3>
+      <div className="portfolio-three-shape position-absolute top-0 z-n1" aria-hidden="true">
+        <span
+          className="portfolio-three-shape-title"
+          style={{
+            fontFamily: 'var(--heading-font, "Phudu", sans-serif)',
+            color: "hsl(var(--heading-color, 208 76% 3%))",
+            fontWeight: 700,
+            lineHeight: 1.2,
+            margin: 0,
+            display: "block",
+            userSelect: "none",
+          }}
+        >
+          works
+        </span>
       </div>
       <div className="container tw-container-1800-px">
         <div className="row">
@@ -146,7 +159,7 @@ export default function Projects() {
                   >
                     <img
                       className="w-100 tw-rounded-lg"
-                      src="/assets/thumbs/Book-management-system.png"
+                      src="/assets/thumbs/BMS/image.png"
                       alt="BookShelf Management System"
                     />
                   </a>

@@ -24,13 +24,13 @@ const techStack = [
   { name: "Codex", icon: "https://cdn.simpleicons.org/openai/000000", color: "#000000" },
 ];
 
-const categories = ["All", "Web Development", "UI/UX Design", "Full Stack", "Other"];
+const categories = ["All", "Web Development", "Full Stack"];
 
 const projects = [
   {
     title: "Thunder E-Commerce",
     category: "Web Development",
-    desc: "A modern and immersive e-commerce platform designed for premium gaming gear.",
+    desc: "A modern and immersive e-commerce platform designed for premium gaming gear with interactive product showcases.",
     logo: "T",
     thumbnail: "/assets/thumbs/ecommerce-thumb.png",
     stack: [
@@ -38,13 +38,13 @@ const projects = [
       { name: "CSS3", icon: "https://cdn.simpleicons.org/css/1572B6" },
       { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" }
     ],
-    github: "https://github.com/",
+    github: "https://github.com/nithesh612/E-commerce-1",
     preview: "https://nithesh612.github.io/E-commerce-1/"
   },
   {
     title: "BookShelf — Management System",
     category: "Full Stack",
-    desc: "A comprehensive book management system to track and organize reading lists efficiently.",
+    desc: "A comprehensive book management system to track, organize reading lists, and manage inventory efficiently.",
     logo: "B",
     thumbnail: "/assets/thumbs/Book-management-system.png",
     stack: [
@@ -52,92 +52,8 @@ const projects = [
       { name: "Bootstrap", icon: "https://cdn.simpleicons.org/bootstrap/7952B3" },
       { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" }
     ],
-    github: "https://github.com/",
+    github: "https://github.com/nithesh612/book-management-system",
     preview: "https://book-management-system-r1.vercel.app/"
-  },
-  {
-    title: "UNIFEX Agency",
-    category: "Other",
-    desc: "A modern agency website showcasing services, works, and brand identity with impact.",
-    logo: "U",
-    thumbnail: "/assets/thumbs/home1.jpg",
-    stack: [
-      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
-      { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
-      { name: "Framer Motion", icon: "https://cdn.simpleicons.org/framer/0055FF" }
-    ],
-    github: "https://github.com/",
-    preview: "https://example.com"
-  },
-  {
-    title: "Digital Studio",
-    category: "Full Stack",
-    desc: "A digital agency site built to represent creativity and results with a clean, conversion-focused design.",
-    logo: "D",
-    thumbnail: "/assets/thumbs/home2.jpg",
-    stack: [
-      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
-      { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
-      { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" }
-    ],
-    github: "https://github.com/",
-    preview: "https://example.com"
-  },
-  {
-    title: "NIXO Studio",
-    category: "Full Stack",
-    desc: "A modern portfolio website for a design studio with a strong focus on visuals and user experience.",
-    logo: "N",
-    thumbnail: "/assets/thumbs/home3.jpg",
-    stack: [
-      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
-      { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
-      { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" }
-    ],
-    github: "https://github.com/",
-    preview: "https://example.com"
-  },
-  {
-    title: "FitTrack App",
-    category: "Other",
-    desc: "A fitness tracking web app to monitor workouts, progress, and health goals.",
-    logo: "F",
-    thumbnail: "/assets/thumbs/home1.jpg",
-    stack: [
-      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
-      { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
-      { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" }
-    ],
-    github: "https://github.com/",
-    preview: "https://example.com"
-  },
-  {
-    title: "Shop.co",
-    category: "Full Stack",
-    desc: "A sleek e-commerce website with product filters, cart, and secure checkout.",
-    logo: "S",
-    thumbnail: "/assets/thumbs/home2.jpg",
-    stack: [
-      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
-      { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
-      { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" }
-    ],
-    github: "https://github.com/",
-    preview: "https://example.com"
-  },
-  {
-    title: "Taskify",
-    category: "Full Stack",
-    desc: "A task management web app to organize, prioritize, and track daily tasks efficiently.",
-    logo: "T",
-    thumbnail: "/assets/thumbs/home3.jpg",
-    stack: [
-      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
-      { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
-      { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" }
-    ],
-    github: "https://github.com/",
-    preview: "https://example.com"
   }
 ];
 
@@ -318,16 +234,11 @@ export function TechnoDome({ theme = "dark" }) {
 }
 
 export default function ShowcaseSection() {
-  const [activeCategory, setActiveCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
-  const ITEMS_PER_PAGE = 3;
+  const ITEMS_PER_PAGE = 6;
 
-  const filteredProjects = activeCategory === "All"
-    ? projects
-    : projects.filter((p) => p.category === activeCategory);
-    
-  const totalPages = Math.ceil(filteredProjects.length / ITEMS_PER_PAGE) || 1;
-  const paginatedProjects = filteredProjects.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(projects.length / ITEMS_PER_PAGE) || 1;
+  const paginatedProjects = projects.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
   return (
     <section
@@ -359,8 +270,8 @@ export default function ShowcaseSection() {
         </div>
 
         {/* Heading */}
-        <div style={{ overflow: "hidden", marginBottom: "32px", textAlign: "center" }}>
-          <h1
+        <div style={{ overflow: "hidden", marginBottom: "40px", textAlign: "center" }}>
+          <h2
             style={{
               fontSize: "clamp(36px, 6vw, 80px)",
               fontWeight: 900,
@@ -371,48 +282,7 @@ export default function ShowcaseSection() {
             }}
           >
             Projects
-          </h1>
-        </div>
-
-        {/* Category Filters */}
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "12px", marginBottom: "40px" }}>
-          {categories.map((cat) => {
-            const isActive = activeCategory === cat;
-            return (
-              <button
-                key={cat}
-                onClick={() => {
-                  setActiveCategory(cat);
-                  setCurrentPage(1);
-                }}
-                style={{
-                  padding: "10px 22px",
-                  borderRadius: "10px",
-                  fontSize: "14px",
-                  fontWeight: isActive ? 600 : 500,
-                  color: isActive ? "#ff5722" : "rgba(255,255,255,0.65)",
-                  background: isActive ? "rgba(255,87,34,0.1)" : "rgba(255,255,255,0.04)",
-                  border: isActive ? "1px solid #ff5722" : "1px solid rgba(255,255,255,0.08)",
-                  cursor: "pointer",
-                  transition: "all 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-                    e.currentTarget.style.color = "#ffffff";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                    e.currentTarget.style.color = "rgba(255,255,255,0.65)";
-                  }
-                }}
-              >
-                {cat}
-              </button>
-            );
-          })}
+          </h2>
         </div>
 
         {/* Tab Content */}
@@ -420,114 +290,114 @@ export default function ShowcaseSection() {
           {paginatedProjects.length > 0 ? (
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "24px", alignItems: "stretch" }}>
               {paginatedProjects.map((item, i) => (
-              <div
-                key={i}
-                style={{
-                  borderRadius: "16px",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  overflow: "hidden",
-                  background: "#0a0a0a",
-                  transition: "transform 0.3s ease, border-color 0.3s ease",
-                  display: "flex",
-                  flexDirection: "column",
-                  height: "100%",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                }}
-              >
-                {/* Image Section */}
-                <div style={{ position: "relative", height: "180px", overflow: "hidden", background: "#1a1a1a" }}>
-                  <img src={item.thumbnail} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.8 }} />
-                  {/* Floating Logo */}
-                  <div style={{
-                    position: "absolute",
-                    bottom: "16px",
-                    left: "16px",
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "10px",
-                    background: "#000000",
-                    border: "1px solid rgba(255,255,255,0.15)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontWeight: "bold",
-                    fontSize: "20px",
-                    color: "#ffffff"
-                  }}>
-                    {item.logo}
-                  </div>
-                </div>
-
-                {/* Content Section */}
-                <div style={{ padding: "20px 20px 0 20px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
-                  {/* Title */}
-                  <div style={{ marginBottom: "8px" }}>
-                    <h3 style={{ margin: 0, fontSize: "18px", fontWeight: "700", color: "#ffffff", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.title}</h3>
-                  </div>
-                  
-                  {/* Description with 2-line clamp */}
-                  <p style={{
-                    margin: "0 0 16px 0",
-                    fontSize: "14px",
-                    color: "rgba(255,255,255,0.5)",
-                    lineHeight: "1.5",
-                    height: "42px",
-                    display: "-webkit-box",
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: "vertical",
+                <div
+                  key={i}
+                  style={{
+                    borderRadius: "16px",
+                    border: "1px solid rgba(255,255,255,0.08)",
                     overflow: "hidden",
-                    textOverflow: "ellipsis"
-                  }}>
-                    {item.desc}
-                  </p>
-
-                  {/* Tech Stack Pills */}
-                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "20px", minHeight: "30px" }}>
-                    {item.stack.map((tech, idx) => (
-                      <div key={idx} style={{ display: "flex", alignItems: "center", gap: "6px", padding: "4px 10px", borderRadius: "100px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.05)", fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>
-                        <img src={tech.icon} alt={tech.name} style={{ width: "12px", height: "12px" }} />
-                        {tech.name}
-                      </div>
-                    ))}
+                    background: "#0a0a0a",
+                    transition: "transform 0.3s ease, border-color 0.3s ease",
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%",
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = "translateY(-4px)";
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                  }}
+                >
+                  {/* Image Section */}
+                  <div style={{ position: "relative", height: "180px", overflow: "hidden", background: "#1a1a1a" }}>
+                    <img src={item.thumbnail} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.8 }} />
+                    {/* Floating Logo */}
+                    <div style={{
+                      position: "absolute",
+                      bottom: "16px",
+                      left: "16px",
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "10px",
+                      background: "#000000",
+                      border: "1px solid rgba(255,255,255,0.15)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: "bold",
+                      fontSize: "20px",
+                      color: "#ffffff"
+                    }}>
+                      {item.logo}
+                    </div>
                   </div>
 
-                  {/* Footer Buttons */}
-                  <div style={{ marginTop: "auto", display: "flex", borderTop: "1px solid rgba(255,255,255,0.08)", margin: "auto -20px 0 -20px" }}>
-                    <a
-                      href={item.preview}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{
-                        flex: 1,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: "8px",
-                        height: "50px",
-                        fontSize: "13px",
-                        fontWeight: "500",
-                        color: "rgba(255,255,255,0.8)",
-                        textDecoration: "none",
-                        background: "rgba(255,255,255,0.02)",
-                        transition: "color 0.2s, background 0.2s"
-                      }}
-                      onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
-                      onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.8)"; e.currentTarget.style.background = "rgba(255,255,255,0.02)"; }}
-                    >
-                      <i className="ph ph-globe" style={{ fontSize: "16px" }}></i> Live Preview <span style={{ color: "#ff5722" }}>↗</span>
-                    </a>
+                  {/* Content Section */}
+                  <div style={{ padding: "20px 20px 0 20px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
+                    {/* Title */}
+                    <div style={{ marginBottom: "8px" }}>
+                      <h3 style={{ margin: 0, fontSize: "18px", fontWeight: "700", color: "#ffffff", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{item.title}</h3>
+                    </div>
+
+                    {/* Description with 2-line clamp */}
+                    <p style={{
+                      margin: "0 0 16px 0",
+                      fontSize: "14px",
+                      color: "rgba(255,255,255,0.5)",
+                      lineHeight: "1.5",
+                      height: "42px",
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis"
+                    }}>
+                      {item.desc}
+                    </p>
+
+                    {/* Tech Stack Pills */}
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "20px", minHeight: "30px" }}>
+                      {item.stack.map((tech, idx) => (
+                        <div key={idx} style={{ display: "flex", alignItems: "center", gap: "6px", padding: "4px 10px", borderRadius: "100px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.05)", fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>
+                          <img src={tech.icon} alt={tech.name} style={{ width: "12px", height: "12px" }} />
+                          {tech.name}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Footer Buttons */}
+                    <div style={{ marginTop: "auto", display: "flex", borderTop: "1px solid rgba(255,255,255,0.08)", margin: "auto -20px 0 -20px" }}>
+                      <a
+                        href={item.preview}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          flex: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: "8px",
+                          height: "50px",
+                          fontSize: "13px",
+                          fontWeight: "500",
+                          color: "rgba(255,255,255,0.8)",
+                          textDecoration: "none",
+                          background: "rgba(255,255,255,0.02)",
+                          transition: "color 0.2s, background 0.2s"
+                        }}
+                        onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.color = "rgba(255,255,255,0.8)"; e.currentTarget.style.background = "rgba(255,255,255,0.02)"; }}
+                      >
+                        <i className="ph ph-globe" style={{ fontSize: "16px" }}></i> Live Preview <span style={{ color: "#ff5722" }}>↗</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
             </div>
           ) : (
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "60px 20px", textAlign: "center", animation: "fadeSlideDown 0.6s ease forwards" }}>

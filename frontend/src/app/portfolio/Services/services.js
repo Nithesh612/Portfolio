@@ -69,7 +69,7 @@ export default function Services() {
                           <ul className="d-flex tw-gap-205 flex-wrap">
                             <li>
                               <a
-                                className="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                className="text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
                                 href="#"
                               >
                                 Full Stack
@@ -77,7 +77,7 @@ export default function Services() {
                             </li>
                             <li>
                               <a
-                                className="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                className="text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
                                 href="#"
                               >
                                 Frontend UI
@@ -85,7 +85,7 @@ export default function Services() {
                             </li>
                             <li>
                               <a
-                                className="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                className="text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
                                 href="#"
                               >
                                 React / Next.js
@@ -134,7 +134,7 @@ export default function Services() {
                           <ul className="d-flex tw-gap-205 flex-wrap">
                             <li>
                               <a
-                                className="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                className="text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
                                 href="#"
                               >
                                 Creative Direction
@@ -142,7 +142,7 @@ export default function Services() {
                             </li>
                             <li>
                               <a
-                                className="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                className="text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
                                 href="#"
                               >
                                 Brand Identity
@@ -150,7 +150,7 @@ export default function Services() {
                             </li>
                             <li>
                               <a
-                                className="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                className="text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
                                 href="#"
                               >
                                 Graphic Design
@@ -199,7 +199,7 @@ export default function Services() {
                           <ul className="d-flex tw-gap-205 flex-wrap">
                             <li>
                               <a
-                                className="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                className="text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
                                 href="#"
                               >
                                 Illustration
@@ -207,7 +207,7 @@ export default function Services() {
                             </li>
                             <li>
                               <a
-                                className="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                className="text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
                                 href="#"
                               >
                                 Creative Direction
@@ -215,7 +215,7 @@ export default function Services() {
                             </li>
                             <li>
                               <a
-                                className="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                className="text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
                                 href="#"
                               >
                                 Visual Identity
@@ -264,7 +264,7 @@ export default function Services() {
                           <ul className="d-flex tw-gap-205 flex-wrap">
                             <li>
                               <a
-                                className="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                className="text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
                                 href="#"
                               >
                                 Creative Direction
@@ -272,7 +272,7 @@ export default function Services() {
                             </li>
                             <li>
                               <a
-                                className="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                className="text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
                                 href="#"
                               >
                                 Brand Identity
@@ -280,7 +280,7 @@ export default function Services() {
                             </li>
                             <li>
                               <a
-                                className="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                className="text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
                                 href="#"
                               >
                                 Graphic Design
@@ -305,6 +305,31 @@ export default function Services() {
           </div>
         </div>
       </section>
+      <style>{`
+        .service-three-thumb {
+          flex-shrink: 0;
+        }
+        .service-three-thumb img {
+          max-width: 400px;
+          height: auto;
+          border-radius: 24px;
+          object-fit: contain;
+          transition: transform 0.3s ease;
+        }
+        .service-three-item:hover .service-three-thumb img {
+          transform: scale(1.02);
+        }
+        @media (max-width: 991px) {
+          .service-three-item {
+            flex-direction: column;
+            align-items: flex-start !important;
+            gap: 30px;
+          }
+          .service-three-thumb img {
+            max-width: 100%;
+          }
+        }
+      `}</style>
     </div>
   );
 }

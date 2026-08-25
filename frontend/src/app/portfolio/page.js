@@ -12,6 +12,7 @@ import Services from "./Services/services";
 import Projects from "./Projects/projects";
 import Contact from "./Contact/contact";
 import Footer from "./Footer/footer";
+import ToolsMarquee from "./components/ToolsMarquee";
 
 const MARQUEE_ROWS = [
   {
@@ -68,6 +69,7 @@ export default function PortfolioPage() {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <HeroSection />
+          <ToolsMarquee />
           <About />
           <VelocityMarquee rows={MARQUEE_ROWS} />
           <ShowcaseSection />
