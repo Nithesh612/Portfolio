@@ -144,7 +144,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="row justify-content-between pb-120" style={{ rowGap: "40px" }}>
+        <div className="row justify-content-between pb-120" style={{ rowGap: "clamp(80px, 12vw, 120px)" }}>
           <div className="col-xl-6 col-lg-6">
             <div
               className="footer-three-top-left tw-pe-xl-5"

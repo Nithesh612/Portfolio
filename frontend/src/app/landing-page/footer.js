@@ -48,6 +48,7 @@ export default function Footer() {
                     </ul>
                   </div>
                   <div
+                    className="align-self-center align-self-md-auto my-4 my-md-0"
                     data-aos="fade-up"
                     data-aos-duration="1000"
                     data-aos-delay="300"

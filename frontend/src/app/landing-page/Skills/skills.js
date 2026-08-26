@@ -227,6 +227,25 @@ export default function Skills() {
           </div>
         </div>
       </div>
+      <style>{`
+        @media (max-width: 991px) {
+          .feature-three-item {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 12px !important;
+            padding: 24px 0;
+          }
+          .feature-three-item > div {
+            width: 100% !important;
+            flex: none !important;
+          }
+          .feature-three-item > div:last-child {
+            display: flex !important;
+            justify-content: flex-start !important;
+            margin-top: 8px;
+          }
+        }
+      `}</style>
     </div>
   );
 }

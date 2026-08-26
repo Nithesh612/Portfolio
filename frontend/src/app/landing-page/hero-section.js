@@ -120,15 +120,8 @@ export default function HeroSection() {
       >
         {/* Top Pill */}
         <div ref={tagRef} className="animated-border-pill">
-          <div className="animated-border-pill-content">
-            <span style={{ fontSize: "14px", color: "#d1d5db", fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>Visit Wensity UI</span>
-            <div style={{ display: 'flex', gap: '3px', marginLeft: '4px' }}>
-                <div style={{ width: '6px', height: '14px', background: '#ffffff', transform: 'skew(-20deg)', borderRadius: '1px' }}></div>
-                <div style={{ width: '6px', height: '14px', background: '#ef4444', transform: 'skew(-20deg)', borderRadius: '1px' }}></div>
-            </div>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b7280" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '4px' }}>
-              <path d="m9 18 6-6-6-6" />
-            </svg>
+          <div className="animated-border-pill-content" style={{ padding: "8px 16px" }}>
+            <span style={{ fontSize: "12px", color: "#d1d5db", fontFamily: "'Inter', sans-serif", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase" }}>I'M NITHESH R 🔥</span>
           </div>
         </div>
 
@@ -136,7 +129,7 @@ export default function HeroSection() {
         <h1
           ref={nameRef}
           style={{
-            fontSize: "clamp(48px, 9vw, 160px)",
+            fontSize: "clamp(60px, 15vw, 160px)",
             fontWeight: 900,
             color: "#ffffff",
             letterSpacing: "-0.02em",
@@ -144,7 +137,8 @@ export default function HeroSection() {
             margin: "0",
             fontFamily: "'Montserrat', sans-serif",
             textTransform: "uppercase",
-            whiteSpace: "nowrap",
+            textAlign: "center",
+            whiteSpace: "normal"
           }}
         >
           NITHESH KUMAR
@@ -163,7 +157,7 @@ export default function HeroSection() {
               fontWeight: 600
             }}
           >
-            I DESIGN AND BUILD PRODUCTS THAT
+            DESIGN AND BUILD PRODUCTS THAT
           </p>
           <p
             style={{
@@ -190,17 +184,14 @@ export default function HeroSection() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: "12px",
+          gap: "8px",
           textAlign: "center",
           zIndex: 20,
         }}
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-          <circle cx="12" cy="10" r="3" />
-        </svg>
-        <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", color: "#fff", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.5 }}>
-          BASED IN INDIA,<br /><span style={{ color: "#9ca3af", fontWeight: "400" }}>TAMIL NADU</span>
+        <div style={{ width: "12px", height: "12px", borderRadius: "50%", backgroundColor: "#22c55e" }}></div>
+        <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "10px", color: "#9ca3af", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.5 }}>
+          AVAILABLE FOR<br /><span style={{ color: "#fff" }}>FREELANCE</span>
         </div>
       </div>
 
@@ -213,18 +204,14 @@ export default function HeroSection() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          gap: "12px",
+          gap: "8px",
           textAlign: "center",
           zIndex: 20,
         }}
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polygon points="12 2 2 7 12 12 22 7 12 2" />
-          <polyline points="2 17 12 22 22 17" />
-          <polyline points="2 12 12 17 22 12" />
-        </svg>
-        <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "11px", color: "#fff", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.5 }}>
-          FULL STACK DEV,<br /><span style={{ color: "#9ca3af", fontWeight: "400" }}>& DESIGNER</span>
+        <div style={{ width: "12px", height: "12px", borderRadius: "50%", backgroundColor: "#3b82f6" }}></div>
+        <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "10px", color: "#9ca3af", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.5 }}>
+          BASED IN<br /><span style={{ color: "#fff" }}>TAMIL NADU</span>
         </div>
       </div>
     </section>

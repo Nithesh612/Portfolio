@@ -327,6 +327,14 @@ export default function Services() {
           .service-three-thumb img {
             max-width: 100%;
           }
+          .service-three-single {
+            border-radius: 32px !important;
+            padding: 32px !important;
+            overflow: hidden;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+          }
         }
       `}</style>
     </div>

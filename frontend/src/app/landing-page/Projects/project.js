@@ -270,19 +270,20 @@ export default function Project() {
         <div style={{ marginBottom: "48px", textAlign: "center", maxWidth: "800px" }}>
           <h2
             style={{
-              fontSize: "clamp(36px, 6vw, 80px)",
+              fontSize: "clamp(32px, 6vw, 80px)",
               fontWeight: 900,
               lineHeight: 1.05,
               letterSpacing: "-0.03em",
               margin: "0 0 14px 0",
               color: "#ffffff",
+              textTransform: "uppercase"
             }}
           >
-            Projects
+            PROJECTS
           </h2>
           <p
             style={{
-              fontSize: "clamp(14px, 1.6vw, 16px)",
+              fontSize: "clamp(12px, 1.6vw, 16px)",
               color: "rgba(255, 255, 255, 0.6)",
               lineHeight: "1.5",
               margin: "0 auto",
@@ -290,17 +291,18 @@ export default function Project() {
               letterSpacing: "0.01em",
             }}
           >
-            A curated showcase of full-stack web applications and digital experiences.
+            A curated selection of my best work and creative solutions.
           </p>
         </div>
 
         {/* Tab Content */}
         <div style={{ width: "100%", minHeight: "480px" }}>
           {paginatedProjects.length > 0 ? (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: "24px", alignItems: "stretch" }}>
+            <div className="projects-grid">
               {paginatedProjects.map((item, i) => (
                 <div
                   key={i}
+                  className="project-card"
                   style={{
                     borderRadius: "16px",
                     border: "1px solid rgba(255,255,255,0.08)",
@@ -523,6 +525,31 @@ export default function Project() {
         @keyframes lineMove {
           from { transform: translateX(-100%); }
           to   { transform: translateX(100%); }
+        }
+        
+        .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+          gap: 24px;
+          align-items: stretch;
+        }
+
+        @media (max-width: 768px) {
+          .projects-grid {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding-bottom: 24px;
+            -webkit-overflow-scrolling: touch;
+          }
+          .projects-grid::-webkit-scrollbar {
+            display: none;
+          }
+          .project-card {
+            min-width: 85%;
+            scroll-snap-align: center;
+          }
         }
       `}</style>
     </section>
