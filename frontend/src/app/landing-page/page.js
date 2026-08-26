@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import WelcomeScreen from "../components/Preloader/WelcomeScreen";
-import VelocityMarquee from "../components/Marquee/VelocityMarquee";
+import WelcomeScreen from "../Preloader/WelcomeScreen";
+import VelocityMarquee from "./About/VelocityMarquee";
 import Project from "./Projects/project";
 import Header from "./header";
 import HeroSection from "./hero-section";
@@ -12,17 +12,17 @@ import Services from "./Services/services";
 import Works from "./works/works";
 import Contact from "./Contact/contact";
 import Footer from "./footer";
-import ToolsMarquee from "../components/ToolsMarquee";
+
 
 const MARQUEE_ROWS = [
   {
     items: ["UI Design", "Design Systems", "User Research", "Interaction Design"],
-    velocity: 40,
+    velocity: 170,
     outline: false,
   },
   {
     items: ["Design", "Figma", "Framer", "AI-Assisted Design", "Frontend Development"],
-    velocity: -30,
+    velocity: -110,
     outline: true,
   },
 ];
@@ -69,7 +69,6 @@ export default function PortfolioPage() {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <HeroSection />
-          <ToolsMarquee />
           <About />
           <VelocityMarquee rows={MARQUEE_ROWS} />
           <Project />

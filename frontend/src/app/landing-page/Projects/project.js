@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import Link from "next/link";
 
 const techStack = [
   { name: "HTML5", icon: "https://cdn.simpleicons.org/html5/E34F26", color: "#E34F26" },

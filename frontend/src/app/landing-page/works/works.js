@@ -38,7 +38,7 @@ export default function Works() {
                           Thunder - E-Commerce
                         </a>
                       </h2>
-                      <p className="tw-text-gray-400 tw-mb-4" style={{ maxWidth: '600px' }}>
+                      <p className="tw-text-gray-400 tw-mb-4" style={{ maxWidth: '600px', whiteSpace: 'normal', wordWrap: 'break-word' }}>
                         A modern and immersive e-commerce platform designed for premium gaming gear.
                         Features an interactive UI, product showcases, and a seamless shopping experience.
                       </p>
@@ -109,7 +109,7 @@ export default function Works() {
                           BookShelf — Management System
                         </a>
                       </h2>
-                      <p className="tw-text-gray-400 tw-mb-4" style={{ maxWidth: '600px' }}>
+                      <p className="tw-text-gray-400 tw-mb-4" style={{ maxWidth: '600px', whiteSpace: 'normal', wordWrap: 'break-word' }}>
                         A comprehensive book management system to track and organize reading lists efficiently.
                       </p>
                     </div>

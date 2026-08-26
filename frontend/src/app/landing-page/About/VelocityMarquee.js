@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import styles from "./VelocityMarquee.module.css";
 
 const prefersReducedMotion = () =>
   typeof window !== "undefined" &&
@@ -12,11 +11,11 @@ const COPIES = 4;
 
 function RowCopy({ items, outline }) {
   return (
-    <span className={styles.copy} aria-hidden="true">
+    <span className="copy" aria-hidden="true">
       {items.map((t) => (
-        <span key={t} className={styles.item}>
-          <span className={outline ? styles.outlineText : styles.solidText}>{t}</span>
-          <span className={styles.sep}>✦</span>
+        <span key={t} className="item">
+          <span className={outline ? "outlineText" : "solidText"}>{t}</span>
+          <span className="sep">✦</span>
         </span>
       ))}
     </span>
@@ -30,7 +29,7 @@ export default function VelocityMarquee({ rows }) {
     const el = root.current;
     if (!el || prefersReducedMotion()) return;
 
-    const tracks = Array.from(el.querySelectorAll(`.${styles.track}`));
+    const tracks = Array.from(el.querySelectorAll(".track"));
     const state = tracks.map((track, i) => ({
       track,
       x: 0,
@@ -80,13 +79,13 @@ export default function VelocityMarquee({ rows }) {
   }, [rows]);
 
   return (
-    <div className={styles.marquee} ref={root}>
-      <p className={styles.srOnly}>
+    <div className="marquee" ref={root}>
+      <p className="srOnly">
         Skills: {rows.flatMap((r) => r.items).join(", ")}
       </p>
       {rows.map((row, i) => (
-        <div className={styles.row} key={i}>
-          <div className={styles.track}>
+        <div className="row" key={i}>
+          <div className="track">
             {Array.from({ length: COPIES }).map((_, c) => (
               <RowCopy key={c} items={row.items} outline={row.outline} />
             ))}

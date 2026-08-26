@@ -45,7 +45,14 @@ export default function Menu({ offcanvasOpen, setOffcanvasOpen }) {
       {/* ==================== Sidebar Overlay End ==================== */}
 
       {/* ==================== Offcanvus Mobile Menu Start Here ==================== */}
-      <div className={`tw-offcanvas-2-area p-relative ${offcanvasOpen ? "opened" : ""}`}>
+      <div 
+        className={`tw-offcanvas-2-area p-relative ${offcanvasOpen ? "opened" : ""}`}
+        style={{
+          visibility: offcanvasOpen ? "visible" : "hidden",
+          pointerEvents: offcanvasOpen ? "auto" : "none",
+          transition: "visibility 0.4s ease-in-out"
+        }}
+      >
         <div className="tw-offcanvas-2-bg is-left left-box"></div>
         <div className="tw-offcanvas-2-bg is-right right-box d-none d-md-block"></div>
         <div className="tw-offcanvas-2-wrapper">

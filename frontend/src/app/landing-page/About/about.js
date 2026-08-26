@@ -23,7 +23,15 @@ export default function About() {
               <div className="col-xl-9">
                 <div className="text-center">
                   <h2
-                    className="about-three-title text-heading tw-text-15 tw-itm-title tw-itm-anim"
+                    className="about-three-title text-heading fw-bold font-heading tw-itm-anim"
+                    style={{
+                      fontSize: "clamp(32px, 4.5vw, 64px)",
+                      lineHeight: "1.2",
+                      textTransform: "uppercase",
+                      letterSpacing: "-1px",
+                      whiteSpace: "normal",
+                      wordWrap: "break-word"
+                    }}
                   >
                     BUILDING DIGITAL EXPERIENCES WITH CLEAN CODE AND CREATIVE DESIGN.
                   </h2>
@@ -49,17 +57,17 @@ export default function About() {
                   data-aos-delay="300"
                 >
                   <div>
-                    <div style={{ paddingLeft: "20px", marginTop: "0px" }}>
-                      <h3 style={{ color: "#000000", fontSize: "32px", fontWeight: "800", letterSpacing: "-0.5px", marginBottom: "16px", fontFamily: "'Inter', sans-serif" }}>
+                    <div style={{ paddingLeft: "20px", marginTop: "0px", whiteSpace: "normal" }}>
+                      <h3 style={{ color: "#000000", fontSize: "32px", fontWeight: "800", letterSpacing: "-0.5px", marginBottom: "16px", fontFamily: "'Inter', sans-serif", whiteSpace: "normal" }}>
                         Hello! I am Nithesh Kumar R.
                       </h3>
-                      <h4 style={{ color: "#00C696", fontSize: "18px", fontWeight: "600", marginBottom: "20px", fontFamily: "'Inter', sans-serif" }}>
+                      <h4 style={{ color: "#00C696", fontSize: "18px", fontWeight: "600", marginBottom: "20px", fontFamily: "'Inter', sans-serif", whiteSpace: "normal" }}>
                         Greetings ladies & gentlemen.
                       </h4>
-                      <p style={{ color: "#4B5563", fontSize: "16px", lineHeight: "1.8", margin: "0 0 20px 0", fontWeight: "500" }}>
+                      <p style={{ color: "#4B5563", fontSize: "16px", lineHeight: "1.8", margin: "0 0 20px 0", fontWeight: "500", whiteSpace: "normal", wordWrap: "break-word" }}>
                         I'm a creative and motivated Full Stack Developer with a strong passion for building modern, responsive, and user-friendly web applications. I thrive on exploring new challenges and opportunities that push the boundaries of my coding skills. Known for bridging the gap between elegant frontend interfaces and robust backend architectures, I focus on delivering impactful digital solutions.
                       </p>
-                      <p style={{ color: "#4B5563", fontSize: "16px", lineHeight: "1.8", margin: "0 0 24px 0", fontWeight: "500" }}>
+                      <p style={{ color: "#4B5563", fontSize: "16px", lineHeight: "1.8", margin: "0 0 24px 0", fontWeight: "500", whiteSpace: "normal", wordWrap: "break-word" }}>
                         With experience across Next.js, React, Node.js, and modern databases, my approach is clean, strategic, and performance-focused. I am constantly exploring new technologies like Cloud Architectures and AI integrations to sharpen my technical thinking. Let's work together to bring your vision to life.
                       </p>
                     </div>

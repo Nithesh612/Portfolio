@@ -4,11 +4,11 @@ import "./components/css/swiper-bundle.css";
 import "./components/css/magnific-popup.css";
 import "./components/css/aos.css";
 import "./components/css/main.css";
-
+import ScriptLoader from "./components/ScriptLoader";
 export const metadata = {
   title: "Nithesh Kumar R",
   description:
-    "Nithesh Kumar R, MCA - Personal Portfolio & Full Stack Developer. Fully responsive, creative design.",
+    "Nithesh Kumar R - MCA - Personal Portfolio & Full Stack Developer. Fully responsive, creative design.",
   icons: {
     icon: "/favicon.ico",
   },
@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="tw-magic-cursor" suppressHydrationWarning>
         {children}
+        <ScriptLoader />
       </body>
     </html>
   );
