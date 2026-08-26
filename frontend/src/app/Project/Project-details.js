@@ -101,24 +101,101 @@ const projectData = {
             { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032", color: "#F05032" }
         ],
         nextProject: {
+            id: "flowai",
+            title: "FlowAI Hub"
+        }
+    },
+    flowai: {
+        id: "flowai",
+        title: "FlowAI Hub",
+        category: "Full Stack & AI Development",
+        tagline: "An intelligent developer productivity suite combining AI code generation, markdown documentation builders, and API testing tools.",
+        logo: "F",
+        banner: "/assets/thumbs/portfolio-two-thumb1.jpg",
+        gallery: [
+            "/assets/thumbs/portfolio-two-thumb1.jpg",
+            "/assets/thumbs/portfolio-two-thumb2.jpg",
+            "/assets/thumbs/portfolio-two-thumb3.jpg"
+        ],
+        preview: "https://github.com/nithesh612",
+        github: "https://github.com/nithesh612",
+        role: "Full Stack & AI Developer",
+        timeline: "2025 - 2026",
+        status: "🟢 In Active Development",
+        overview: "FlowAI Hub connects modern developer workflows with cutting-edge AI utilities. Featuring real-time code snippet generators, markdown documentation builders, regex & JSON formatters, and smart project planning assistants to accelerate engineering speed 10x.",
+        challenge: "Developers often bounce across dozens of fragmented web tools for documentation, regex parsing, API testing, and AI prompts, disrupting focus and slowing down engineering output.",
+        solution: "Built a centralized, highly responsive unified hub that integrates all daily developer utility modules into an elegant dashboard with persistent state and instant AI integration.",
+        features: [
+            {
+                title: "AI-Powered Code Assistant",
+                desc: "Real-time automated code generation, syntax diagnostics, and markdown documentation builder."
+            },
+            {
+                title: "Full Developer Tool Suite",
+                desc: "Integrated REST API client tester, JSON validator & formatter, and interactive regex debugger."
+            },
+            {
+                title: "Cloud Synchronization",
+                desc: "Secure user session storage with MongoDB and JWT-based authentication to save workspaces."
+            },
+            {
+                title: "Sleek Dark Cyberpunk UI",
+                desc: "Ultra-fast Next.js architecture with Tailwind CSS styling and fluid micro-interactions."
+            }
+        ],
+        stack: [
+            { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF", color: "#FFFFFF" },
+            { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB", color: "#61DAFB" },
+            { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6", color: "#3178C6" },
+            { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4", color: "#06B6D4" },
+            { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/339933", color: "#339933" },
+            { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/47A248", color: "#47A248" },
+            { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/FFFFFF", color: "#FFFFFF" }
+        ],
+        nextProject: {
             id: "bookshelf",
             title: "BookShelf — Management System"
         }
     }
 };
 
-function ProjectDetailContent() {
-    const searchParams = useSearchParams();
-    const projectParam = searchParams.get("project")?.toLowerCase();
+const slugAliases = {
+    "thunder": "thunder",
+    "thunder-e-commerce": "thunder",
+    "thunder-ecommerce": "thunder",
+    "thunder e-commerce": "thunder",
+    "bookshelf": "bookshelf",
+    "bookshelf-management-system": "bookshelf",
+    "book-management-system": "bookshelf",
+    "flowai": "flowai",
+    "flowai-hub": "flowai",
+};
 
-    // Default to bookshelf if param is not thunder
-    const project = (projectParam && projectData[projectParam]) ? projectData[projectParam] : projectData.bookshelf;
+function ProjectDetailContent({ slug }) {
+    const searchParams = useSearchParams();
+    const rawParam = slug || searchParams.get("project");
+    const normalizedKey = rawParam ? decodeURIComponent(rawParam).toLowerCase().trim() : "";
+    const matchedId = slugAliases[normalizedKey] || normalizedKey;
+
+    const project = (matchedId && projectData[matchedId]) ? projectData[matchedId] : projectData.thunder;
     const [activeImage, setActiveImage] = useState(project.banner);
+    const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
         setActiveImage(project.banner);
         window.scrollTo({ top: 0, behavior: "smooth" });
     }, [project.id]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (totalHeight > 0) {
+                setScrollProgress((window.scrollY / totalHeight) * 100);
+            }
+        };
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <div
@@ -128,8 +205,25 @@ function ProjectDetailContent() {
                 color: "#ffffff",
                 fontFamily: "'Inter', sans-serif",
                 overflowX: "hidden",
+                position: "relative",
             }}
         >
+            {/* Top Glowing Fiery Orange Scroll Progress Bar */}
+            <div
+                style={{
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    height: "3.5px",
+                    width: `${scrollProgress}%`,
+                    background: "linear-gradient(90deg, #ff4500 0%, #ff6600 50%, #ff8800 100%)",
+                    boxShadow: "0 0 14px #ff5722, 0 0 28px rgba(255, 87, 34, 0.6)",
+                    zIndex: 9999,
+                    transition: "width 0.05s ease-out",
+                    pointerEvents: "none",
+                }}
+            />
+
             {/* Top Navbar */}
             <header
                 style={{
@@ -151,8 +245,8 @@ function ProjectDetailContent() {
                         justifyContent: "space-between",
                     }}
                 >
-                    <Link
-                        href="/"
+                    <a
+                        href="/#showcase"
                         style={{
                             display: "inline-flex",
                             alignItems: "center",
@@ -177,7 +271,7 @@ function ProjectDetailContent() {
                         }}
                     >
                         <span>←</span> Back to Projects
-                    </Link>
+                    </a>
 
                     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                         {project.github && (
@@ -564,7 +658,7 @@ function ProjectDetailContent() {
                         }}
                     >
                         <Link
-                            href="/"
+                            href="/Project"
                             style={{
                                 color: "#9ca3af",
                                 textDecoration: "none",
@@ -576,7 +670,7 @@ function ProjectDetailContent() {
                         </Link>
 
                         <Link
-                            href={`/project-detail?project=${project.nextProject.id}`}
+                            href={`/Project/${project.nextProject.id}`}
                             style={{
                                 display: "inline-flex",
                                 alignItems: "center",
@@ -598,10 +692,10 @@ function ProjectDetailContent() {
     );
 }
 
-export default function ProjectDetailPage() {
+export default function ProjectDetailPage({ slug }) {
     return (
         <Suspense fallback={<div style={{ minHeight: "100vh", backgroundColor: "#080808", color: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }}>Loading Project Details...</div>}>
-            <ProjectDetailContent />
+            <ProjectDetailContent slug={slug} />
         </Suspense>
     );
 }

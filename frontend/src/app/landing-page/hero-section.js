@@ -118,10 +118,12 @@ export default function HeroSection() {
           textAlign: "center",
         }}
       >
-        {/* Top Pill */}
+        {/* Top Pill / Status Badge */}
         <div ref={tagRef} className="animated-border-pill">
-          <div className="animated-border-pill-content" style={{ padding: "8px 16px" }}>
-            <span style={{ fontSize: "12px", color: "#d1d5db", fontFamily: "'Inter', sans-serif", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase" }}>I'M NITHESH R 🔥</span>
+          <div className="animated-border-pill-content" style={{ padding: "8px 20px" }}>
+            <span style={{ fontSize: "12px", color: "#e5e7eb", fontFamily: "'Inter', sans-serif", fontWeight: 700, letterSpacing: "1.2px", textTransform: "uppercase" }}>
+              AVAILABLE FOR NEW PROJECTS
+            </span>
           </div>
         </div>
 
@@ -157,6 +159,19 @@ export default function HeroSection() {
               fontWeight: 600
             }}
           >
+            DEVELOPER
+          </p>
+          <p
+            style={{
+              fontSize: "clamp(10px, 1.2vw, 16px)",
+              color: "#9ca3af",
+              fontFamily: "'Inter', sans-serif",
+              letterSpacing: "0.4em",
+              textTransform: "uppercase",
+              margin: "0 0 16px 0",
+              fontWeight: 600
+            }}
+          >
             DESIGN AND BUILD PRODUCTS THAT
           </p>
           <p
@@ -175,7 +190,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom Left: Location */}
+      {/* Bottom Left: Location / Status */}
       <div
         style={{
           position: "absolute",
@@ -189,7 +204,6 @@ export default function HeroSection() {
           zIndex: 20,
         }}
       >
-        <div style={{ width: "12px", height: "12px", borderRadius: "50%", backgroundColor: "#22c55e" }}></div>
         <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "10px", color: "#9ca3af", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.5 }}>
           AVAILABLE FOR<br /><span style={{ color: "#fff" }}>FREELANCE</span>
         </div>
@@ -209,9 +223,8 @@ export default function HeroSection() {
           zIndex: 20,
         }}
       >
-        <div style={{ width: "12px", height: "12px", borderRadius: "50%", backgroundColor: "#3b82f6" }}></div>
         <div style={{ fontFamily: "'Inter', sans-serif", fontSize: "10px", color: "#9ca3af", fontWeight: "700", letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 1.5 }}>
-          BASED IN<br /><span style={{ color: "#fff" }}>TAMIL NADU</span>
+          Full Stack Dev<br /><span style={{ color: "#fff" }}>& DESIGNER</span>
         </div>
       </div>
     </section>

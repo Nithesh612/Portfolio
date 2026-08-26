@@ -7,6 +7,14 @@ const nextConfig = {
         source: "/assets/images/:path*",
         destination: "/assets/:path*",
       },
+      {
+        source: "/Projects",
+        destination: "/Project",
+      },
+      {
+        source: "/Projects/:slug*",
+        destination: "/Project/:slug*",
+      },
     ];
   },
 };

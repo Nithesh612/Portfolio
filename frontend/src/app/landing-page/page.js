@@ -3,15 +3,17 @@ import React, { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import WelcomeScreen from "../Preloader/WelcomeScreen";
 import VelocityMarquee from "./About/VelocityMarquee";
-import Project from "./Projects/project";
+// import ProjectGrid from "./Projects/page";
 import Header from "./header";
 import HeroSection from "./hero-section";
 import About from "./About/about";
-import Skills from "./Skills/skills";
 import Services from "./Services/services";
+import Project from "./Projects/project";
 import Works from "./works/works";
 import Contact from "./Contact/contact";
 import Footer from "./footer";
+import Skillset from "./skillset";
+import CTA from "./cta";
 
 
 const MARQUEE_ROWS = [
@@ -28,21 +30,46 @@ const MARQUEE_ROWS = [
 ];
 
 export default function PortfolioPage() {
-  const [showWelcome, setShowWelcome] = React.useState(true);
+  const [showWelcome, setShowWelcome] = React.useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowWelcome(false);
-    }, 4800);
-    return () => clearTimeout(timer);
+    // Only show welcome preloader once per session
+    const hasSeenWelcome = typeof window !== "undefined" && sessionStorage.getItem("has_seen_welcome");
+    if (!hasSeenWelcome) {
+      setShowWelcome(true);
+      const timer = setTimeout(() => {
+        setShowWelcome(false);
+        sessionStorage.setItem("has_seen_welcome", "true");
+
+        if (typeof window !== "undefined" && window.location.hash) {
+          setTimeout(() => {
+            const id = window.location.hash.substring(1);
+            const element = document.getElementById(id);
+            if (element) {
+              if (window.gsap) {
+                window.gsap.to(window, { duration: 1, scrollTo: element, ease: "power2.inOut" });
+              } else {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }
+          }, 100);
+        }
+      }, 4800);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (window.AOS) {
-        window.AOS.init();
-      }
+    if (typeof window !== "undefined" && window.AOS) {
+      window.AOS.init();
     }
+
+    return () => {
+      // Clean up GSAP triggers when leaving homepage so return navigation doesn't break
+      if (typeof window !== "undefined" && window.ScrollTrigger) {
+        window.ScrollTrigger.getAll().forEach((t) => t.kill());
+      }
+    };
   }, []);
 
   return (
@@ -71,10 +98,14 @@ export default function PortfolioPage() {
           <HeroSection />
           <About />
           <VelocityMarquee rows={MARQUEE_ROWS} />
+
+          <Skillset />
+          <CTA />
+          {/* <ProjectGrid /> */}
           <Project />
           <Services />
+
           <Works />
-          <Skills />
 
           <Contact />
           <Footer />

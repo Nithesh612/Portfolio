@@ -21,27 +21,32 @@ export default function Footer() {
                     </h4>
                     <ul className="d-flex tw-gap-2 flex-wrap">
                       <li>
-                        <a className="tw-text-lg text-white" href="/">
+                        <a className="tw-text-lg text-white" href="#home">
                           Home,
                         </a>
                       </li>
                       <li>
-                        <a className="tw-text-lg text-white" href="/">
+                        <a className="tw-text-lg text-white" href="#about">
                           About Me,
                         </a>
                       </li>
                       <li>
-                        <a className="tw-text-lg text-white" href="/">
-                          Portfolio,
+                        <a className="tw-text-lg text-white" href="#showcase">
+                          Projects,
                         </a>
                       </li>
                       <li>
-                        <a className="tw-text-lg text-white" href="/">
-                          Service,
+                        <a className="tw-text-lg text-white" href="#skills">
+                          Skills,
                         </a>
                       </li>
                       <li>
-                        <a className="tw-text-lg text-white" href="/">
+                        <a className="tw-text-lg text-white" href="#services">
+                          Services,
+                        </a>
+                      </li>
+                      <li>
+                        <a className="tw-text-lg text-white" href="#contact">
                           Contact
                         </a>
                       </li>
@@ -55,7 +60,11 @@ export default function Footer() {
                   >
                     <a
                       className="footer-three-back-to-top tw-w-170 tw-h-170 lh-1 d-inline-flex justify-content-center align-items-center bg-main-two-600 text-white tw-text-3xl rounded-circle"
-                      href="#"
+                      href="#home"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
                     >
                       <i className="ph ph-arrow-up"></i>
                     </a>
@@ -100,7 +109,8 @@ export default function Footer() {
         </div>
       </section>
 
-      {/* Required Scripts */}
+      {/* Scripts are loaded by ScriptLoader in layout.js — no need to duplicate here */}
+      {/*
       <Script src="/components/js/jquery-3.7.1.min.js" strategy="beforeInteractive" />
       <Script src="/components/js/phosphor-icon.js" strategy="afterInteractive" />
       <Script src="/components/js/boostrap.bundle.min.js" strategy="afterInteractive" />
@@ -119,6 +129,7 @@ export default function Footer() {
       <Script src="/components/js/custom-gsap.js" strategy="lazyOnload" />
       <Script src="/components/js/main.js" strategy="lazyOnload" />
       <Script src="/components/js/tw-cursor.js" strategy="lazyOnload" />
+      */}
     </>
   );
 }

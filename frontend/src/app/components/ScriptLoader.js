@@ -1,8 +1,11 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function ScriptLoader() {
+  const pathname = usePathname();
+
   useEffect(() => {
     // Import jQuery first since other scripts depend on it
     const loadScripts = async () => {
@@ -29,6 +32,7 @@ export default function ScriptLoader() {
         
         // Register plugins globally!
         window.gsap.registerPlugin(window.ScrollTrigger, window.ScrollSmoother, window.ScrollToPlugin, window.SplitText);
+        window.gsap.config({ nullTargetWarn: false });
         
         await import('./js/gsap/chroma.min.js');
 
@@ -56,6 +60,10 @@ export default function ScriptLoader() {
         await import('./js/main.js');
         await import('./js/custom-gsap.js');
 
+        if (window.ScrollTrigger) {
+          window.ScrollTrigger.refresh();
+        }
+
         console.log('All custom scripts loaded successfully!');
       } catch (error) {
         console.error('Error loading scripts:', error);
@@ -63,7 +71,7 @@ export default function ScriptLoader() {
     };
 
     loadScripts();
-  }, []);
+  }, [pathname]);
 
   return null;
 }

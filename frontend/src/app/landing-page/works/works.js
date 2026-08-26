@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Works() {
   return (
-    <section className="portfolio-three-area py-120 position-relative z-1">
+    <section id="works" className="portfolio-three-area py-120 position-relative z-1">
       <div className="portfolio-three-shape position-absolute top-0 z-n1" aria-hidden="true">
         <span
           className="portfolio-three-shape-title"

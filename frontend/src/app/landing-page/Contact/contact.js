@@ -152,19 +152,57 @@ export default function Contact() {
               data-aos-duration="1000"
               data-aos-delay="200"
             >
-              <div style={{ marginBottom: "40px" }}>
-                <h2
-                  className="text-white tw-char-animation font-heading"
+              <div style={{ marginBottom: "50px", display: "flex", flexDirection: "column" }}>
+                <style>{`
+                  .signature-contact {
+                    font-family: 'Great Vibes', cursive;
+                    font-size: clamp(42px, 5vw, 72px);
+                    font-weight: 400;
+                    margin: 0;
+                    cursor: pointer;
+                    transition: all 0.4s ease;
+                    letter-spacing: 2px;
+                    line-height: 1.3;
+                    color: #ffffff;
+                    
+                    /* Signature Initial State */
+                    display: inline-block;
+                    padding: 10px 20px 10px 5px;
+                    white-space: nowrap;
+                  }
+                  
+                  [data-aos="sign-draw"] {
+                    clip-path: polygon(0 -50%, 0 -50%, 0 150%, 0 150%);
+                  }
+                  
+                  [data-aos="sign-draw"].aos-animate {
+                    animation: sign-draw-anim 4s cubic-bezier(0.2, 0.6, 0.3, 1) 0.5s forwards;
+                  }
+
+                  @keyframes sign-draw-anim {
+                    0% { clip-path: polygon(0 -50%, 0 -50%, 0 150%, 0 150%); }
+                    100% { clip-path: polygon(0 -50%, 110% -50%, 110% 150%, 0 150%); }
+                  }
+                `}</style>
+                <p
                   style={{
-                    fontSize: "clamp(32px, 3.5vw, 52px)",
-                    lineHeight: "1.15",
-                    fontWeight: 700,
-                    textTransform: "uppercase"
+                    fontSize: "clamp(16px, 1.2vw, 18px)",
+                    color: "rgba(255, 255, 255, 0.7)",
+                    lineHeight: "1.6",
+                    margin: 0,
+                    marginBottom: "30px",
+                    maxWidth: "90%",
                   }}
                 >
-                  Let’s create <br />
-                  <span style={{ whiteSpace: "nowrap" }}>something meaningful</span>
-                </h2>
+                  Building digital experiences that matter, one line of code at a time.<br />
+                  Crafting interfaces that feel alive, solving problems that make a difference,<br />
+                  and turning ideas into reality.
+                </p>
+                <div>
+                  <h2 className="signature-contact" data-aos="sign-draw">
+                    Nithesh Kumar
+                  </h2>
+                </div>
               </div>
 
               <div
