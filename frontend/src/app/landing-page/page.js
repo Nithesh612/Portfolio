@@ -33,11 +33,7 @@ export default function PortfolioPage() {
   const [showWelcome, setShowWelcome] = React.useState(false);
 
   useEffect(() => {
-    // Show welcome preloader on every load (removed sessionStorage restriction)
-    setTimeout(() => setShowWelcome(true), 0);
-    const timer = setTimeout(() => {
-      setShowWelcome(false);
-
+    const handleHashScroll = () => {
       if (typeof window !== "undefined" && window.location.hash) {
         setTimeout(() => {
           const id = window.location.hash.substring(1);
@@ -51,8 +47,24 @@ export default function PortfolioPage() {
           }
         }, 100);
       }
-    }, 4800);
-    return () => clearTimeout(timer);
+    };
+
+    const hasVisited = sessionStorage.getItem("welcomeScreenShown");
+    
+    if (!hasVisited) {
+      setShowWelcome(true);
+      sessionStorage.setItem("welcomeScreenShown", "true");
+      
+      const timer = setTimeout(() => {
+        setShowWelcome(false);
+        handleHashScroll();
+      }, 4800);
+      
+      return () => clearTimeout(timer);
+    } else {
+      setShowWelcome(false);
+      handleHashScroll();
+    }
   }, []);
 
   useEffect(() => {

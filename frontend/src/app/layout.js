@@ -5,6 +5,7 @@ import "./components/css/magnific-popup.css";
 import "./components/css/aos.css";
 import "./components/css/main.css";
 import ScriptLoader from "./components/ScriptLoader";
+import SmoothScroll from "./components/SmoothScroll";
 export const metadata = {
   title: "Nithesh Kumar R",
   description:
@@ -16,7 +17,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +29,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="tw-magic-cursor" suppressHydrationWarning>
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
         <ScriptLoader />
       </body>
     </html>

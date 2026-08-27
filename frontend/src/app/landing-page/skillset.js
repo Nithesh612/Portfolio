@@ -279,7 +279,7 @@ export default function Skillset() {
             }}
           >
             <Image
-              src="/assets/skillset-flower.png"
+              src="/assets/skills/skillset-flower.png"
               alt="Skillset 3D Emblem"
               fill
               unoptimized

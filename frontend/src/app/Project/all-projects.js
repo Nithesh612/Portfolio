@@ -44,7 +44,7 @@ const allProjectsList = [
     category: "Full Stack & AI",
     desc: "Intelligent developer productivity suite combining AI code generation, markdown documentation builders, regex debuggers, and API testers.",
     logo: "F",
-    thumbnail: "/assets/thumbs/portfolio-two-thumb1.jpg",
+    thumbnail: "/assets/thumbs/flowai-hub-1.png",
     stack: [
       { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
       { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
@@ -121,7 +121,7 @@ export default function AllProjects() {
         }}
       >
         <Link
-          href="/#showcase"
+          href="/"
           style={{
             display: "inline-flex",
             alignItems: "center",

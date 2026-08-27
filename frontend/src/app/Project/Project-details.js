@@ -111,11 +111,11 @@ const projectData = {
         category: "Full Stack & AI Development",
         tagline: "An intelligent developer productivity suite combining AI code generation, markdown documentation builders, and API testing tools.",
         logo: "F",
-        banner: "/assets/thumbs/portfolio-two-thumb1.jpg",
+        banner: "/assets/thumbs/flowai-hub-1.png",
         gallery: [
-            "/assets/thumbs/portfolio-two-thumb1.jpg",
-            "/assets/thumbs/portfolio-two-thumb2.jpg",
-            "/assets/thumbs/portfolio-two-thumb3.jpg"
+            "/assets/thumbs/flowai-hub-1.png",
+            "/assets/thumbs/flowai-hub-2.png",
+            "/assets/thumbs/flowai-hub-3.png"
         ],
         preview: "https://github.com/nithesh612",
         github: "https://github.com/nithesh612",
@@ -251,7 +251,7 @@ function ProjectDetailContent({ slug }) {
                     }}
                 >
                     <Link
-                        href="/#showcase"
+                        href="/"
                         style={{
                             display: "inline-flex",
                             alignItems: "center",

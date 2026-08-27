@@ -1,8 +1,9 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export default function Menu({ offcanvasOpen, setOffcanvasOpen }) {
+  const [hoveredNav, setHoveredNav] = useState(null);
   const handleScroll = (e, targetId) => {
     e.preventDefault();
     setOffcanvasOpen(false); // Close menu
@@ -34,7 +35,7 @@ export default function Menu({ offcanvasOpen, setOffcanvasOpen }) {
   const navItems = [
     { num: "01", title: "HOME", href: "#home" },
     { num: "02", title: "ABOUT", href: "#about" },
-    { num: "03", title: "PROJECTS", href: "#showcase" },
+    { num: "03", title: "PROJECTS", href: "#showcase", subItems: [{ title: "VIEW ALL PROJECTS", href: "/Project" }] },
     { num: "04", title: "SERVICES", href: "#services" },
     { num: "05", title: "WORK", href: "#works" },
     { num: "06", title: "CONTACT", href: "#contact" },
@@ -231,60 +232,107 @@ export default function Menu({ offcanvasOpen, setOffcanvasOpen }) {
               }}
             >
               {navItems.map((item) => (
-                <motion.a
+                <div
                   key={item.num}
-                  variants={linkVariants}
-                  href={item.href}
-                  onClick={(e) => handleScroll(e, item.href)}
-                  style={{
-                    display: "flex",
-                    alignItems: "baseline",
-                    textDecoration: "none",
-                    color: "#000000",
-                    transition: "transform 0.2s ease, color 0.2s ease",
-                    padding: "3px 0",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateX(8px)";
-                    const titleEl = e.currentTarget.querySelector(".menu-nav-title");
-                    if (titleEl) titleEl.style.color = "#ff5722";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateX(0)";
-                    const titleEl = e.currentTarget.querySelector(".menu-nav-title");
-                    if (titleEl) titleEl.style.color = "#000000";
-                  }}
+                  onMouseEnter={() => setHoveredNav(item.num)}
+                  onMouseLeave={() => setHoveredNav(null)}
+                  style={{ display: "flex", flexDirection: "column" }}
                 >
-                  <span
-                    style={{
-                      fontSize: "13px",
-                      fontWeight: 500,
-                      color: "#9ca3af",
-                      fontFamily: "monospace",
-                      width: "36px",
-                      display: "inline-block",
-                      letterSpacing: "0.05em",
+                  <motion.a
+                    variants={linkVariants}
+                    href={item.href}
+                    onClick={(e) => {
+                      if (item.href.startsWith("#")) {
+                        handleScroll(e, item.href);
+                      } else {
+                        setOffcanvasOpen(false);
+                      }
                     }}
-                  >
-                    {item.num}
-                  </span>
-                  <span
-                    className="menu-nav-title"
                     style={{
-                      fontSize: "clamp(34px, 4.8vw, 44px)",
-                      fontWeight: 900,
-                      letterSpacing: "-0.03em",
-                      lineHeight: 1.15,
-                      textTransform: "uppercase",
+                      display: "flex",
+                      alignItems: "baseline",
+                      textDecoration: "none",
                       color: "#000000",
-                      transition: "color 0.2s ease",
-                      fontFamily: "'Anton', 'Poppins', sans-serif",
+                      transition: "transform 0.2s ease, color 0.2s ease",
+                      padding: "3px 0",
+                      cursor: "pointer",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = "translateX(8px)";
+                      const titleEl = e.currentTarget.querySelector(".menu-nav-title");
+                      if (titleEl) titleEl.style.color = "#ff5722";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "translateX(0)";
+                      const titleEl = e.currentTarget.querySelector(".menu-nav-title");
+                      if (titleEl) titleEl.style.color = "#000000";
                     }}
                   >
-                    {item.title}
-                  </span>
-                </motion.a>
+                    <span
+                      style={{
+                        fontSize: "13px",
+                        fontWeight: 500,
+                        color: "#9ca3af",
+                        fontFamily: "monospace",
+                        width: "36px",
+                        display: "inline-block",
+                        letterSpacing: "0.05em",
+                      }}
+                    >
+                      {item.num}
+                    </span>
+                    <span
+                      className="menu-nav-title"
+                      style={{
+                        fontSize: "clamp(34px, 4.8vw, 44px)",
+                        fontWeight: 900,
+                        letterSpacing: "-0.03em",
+                        lineHeight: 1.15,
+                        textTransform: "uppercase",
+                        color: "#000000",
+                        transition: "color 0.2s ease",
+                        fontFamily: "'Anton', 'Poppins', sans-serif",
+                      }}
+                    >
+                      {item.title}
+                    </span>
+                  </motion.a>
+                  
+                  <AnimatePresence>
+                    {item.subItems && hoveredNav === item.num && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        style={{ overflow: "hidden", paddingLeft: "40px" }}
+                      >
+                        {item.subItems.map((sub) => (
+                          <a
+                            key={sub.title}
+                            href={sub.href}
+                            onClick={() => setOffcanvasOpen(false)}
+                            style={{
+                              display: "block",
+                              fontSize: "14px",
+                              fontWeight: 700,
+                              fontFamily: "monospace",
+                              letterSpacing: "0.1em",
+                              color: "#ff5722",
+                              textDecoration: "none",
+                              padding: "10px 0",
+                              cursor: "pointer",
+                              transition: "color 0.2s ease"
+                            }}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = "#000000")}
+                            onMouseLeave={(e) => (e.currentTarget.style.color = "#ff5722")}
+                          >
+                            ↳ {sub.title}
+                          </a>
+                        ))}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               ))}
             </nav>
 

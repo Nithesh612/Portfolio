@@ -94,9 +94,9 @@ const PROJECTS_DATA = [
     ],
     liveUrl: "https://github.com/nithesh612",
     githubUrl: "https://github.com/nithesh612",
-    desktopImg: "/assets/thumbs/portfolio-two-thumb1.jpg",
-    mobileImg1: "/assets/thumbs/portfolio-two-thumb2.jpg",
-    mobileImg2: "/assets/thumbs/portfolio-two-thumb3.jpg",
+    desktopImg: "/assets/thumbs/flowai-hub-1.png",
+    mobileImg1: "/assets/thumbs/flowai-hub-2.png",
+    mobileImg2: "/assets/thumbs/flowai-hub-3.png",
   },
 ];
 
