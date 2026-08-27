@@ -242,14 +242,17 @@ export default function Project2() {
         }
         @media (max-width: 1080px) {
           .parth-main-layout {
-            display: flex !important;
-            flex-direction: column !important;
-          }
-          .parth-spine-col {
             display: none !important;
           }
-          .parth-mockups-grid {
-            grid-template-columns: 1fr !important;
+          .mobile-projects-view {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 60px;
+          }
+        }
+        @media (min-width: 1081px) {
+          .mobile-projects-view {
+            display: none !important;
           }
         }
       `}</style>
@@ -870,6 +873,130 @@ export default function Project2() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* ======================================= */}
+      {/* MOBILE COLUMN: STACKED LAYOUT */}
+      {/* ======================================= */}
+      <div className="mobile-projects-view" style={{ width: "100%", padding: "0 24px", maxWidth: "600px", margin: "0 auto", position: "relative", zIndex: 3 }}>
+        {PROJECTS_DATA.map((project) => (
+          <div key={project.id} style={{ display: "flex", flexDirection: "column", gap: "24px", backgroundColor: "rgba(12, 12, 12, 0.6)", padding: "20px", borderRadius: "24px", border: `1px solid ${project.accentGlow}` }}>
+            
+            {/* Top: Desktop/Laptop Mockup */}
+            <Link
+              href={`/Project/${project.id}`}
+              style={{
+                borderRadius: "14px",
+                backgroundColor: "#080c14",
+                border: "2px solid rgba(255, 255, 255, 0.12)",
+                boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.9)",
+                position: "relative",
+                overflow: "hidden",
+                display: "flex",
+                flexDirection: "column",
+                height: "240px",
+                textDecoration: "none",
+              }}
+            >
+              {/* Traffic lights */}
+              <div
+                style={{
+                  height: "22px",
+                  backgroundColor: "#05080e",
+                  borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+                  display: "flex",
+                  alignItems: "center",
+                  padding: "0 10px",
+                  gap: "6px"
+                }}
+              >
+                <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#ef4444" }} />
+                <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#eab308" }} />
+                <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#22c55e" }} />
+              </div>
+              <div style={{ position: "relative", flex: 1, width: "100%" }}>
+                <Image
+                  src={project.desktopImg}
+                  alt={project.title}
+                  fill
+                  sizes="100vw"
+                  style={{ objectFit: "cover", objectPosition: "top left" }}
+                />
+              </div>
+            </Link>
+
+            {/* Bottom: Text Content */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <span style={{ color: project.accentColor, fontSize: "24px", fontWeight: 900, lineHeight: 1 }}>—</span>
+                <h3 style={{ fontSize: "28px", fontWeight: 800, color: "#ffffff", margin: 0, letterSpacing: "-0.03em" }}>
+                  {project.title}
+                </h3>
+              </div>
+              <p style={{ fontSize: "15px", lineHeight: 1.6, color: "rgba(255, 255, 255, 0.8)", margin: 0 }}>
+                {project.description}
+              </p>
+
+              {/* Features */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "4px" }}>
+                {project.features.map((feature, fIdx) => (
+                  <div key={fIdx} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
+                    <span style={{ color: project.accentColor, fontSize: "14px", lineHeight: "19px", flexShrink: 0 }}>✦</span>
+                    <span style={{ fontSize: "14px", color: "rgba(255, 255, 255, 0.85)", lineHeight: 1.4 }}>{feature}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Stack */}
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "8px" }}>
+                {project.stack.map((item, sIdx) => (
+                  <div
+                    key={sIdx}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "5px",
+                      padding: "5px 12px",
+                      borderRadius: "8px",
+                      backgroundColor: "rgba(255, 255, 255, 0.05)",
+                      border: "1px solid rgba(255, 255, 255, 0.1)",
+                      fontSize: "12px",
+                      color: "rgba(255, 255, 255, 0.9)",
+                    }}
+                  >
+                    {item.icon && <img src={item.icon} alt={item.name} style={{ width: "12px", height: "12px" }} />}
+                    <span>{item.name}</span>
+                  </div>
+                ))}
+              </div>
+              
+              <Link
+                  href={`/Project/${project.id}`}
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
+                    padding: "12px 20px",
+                    marginTop: "12px",
+                    borderRadius: "999px",
+                    backgroundColor: "#ffffff",
+                    color: "#000000",
+                    fontSize: "14px",
+                    fontWeight: 700,
+                    textDecoration: "none",
+                    boxShadow: `0 4px 15px ${project.accentGlow}`,
+                  }}
+                >
+                  <span>View Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* See More Projects Bottom Callout */}

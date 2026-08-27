@@ -33,30 +33,26 @@ export default function PortfolioPage() {
   const [showWelcome, setShowWelcome] = React.useState(false);
 
   useEffect(() => {
-    // Only show welcome preloader once per session
-    const hasSeenWelcome = typeof window !== "undefined" && sessionStorage.getItem("has_seen_welcome");
-    if (!hasSeenWelcome) {
-      setShowWelcome(true);
-      const timer = setTimeout(() => {
-        setShowWelcome(false);
-        sessionStorage.setItem("has_seen_welcome", "true");
+    // Show welcome preloader on every load (removed sessionStorage restriction)
+    setTimeout(() => setShowWelcome(true), 0);
+    const timer = setTimeout(() => {
+      setShowWelcome(false);
 
-        if (typeof window !== "undefined" && window.location.hash) {
-          setTimeout(() => {
-            const id = window.location.hash.substring(1);
-            const element = document.getElementById(id);
-            if (element) {
-              if (window.gsap) {
-                window.gsap.to(window, { duration: 1, scrollTo: element, ease: "power2.inOut" });
-              } else {
-                element.scrollIntoView({ behavior: "smooth" });
-              }
+      if (typeof window !== "undefined" && window.location.hash) {
+        setTimeout(() => {
+          const id = window.location.hash.substring(1);
+          const element = document.getElementById(id);
+          if (element) {
+            if (window.gsap) {
+              window.gsap.to(window, { duration: 1, scrollTo: element, ease: "power2.inOut" });
+            } else {
+              element.scrollIntoView({ behavior: "smooth" });
             }
-          }, 100);
-        }
-      }, 4800);
-      return () => clearTimeout(timer);
-    }
+          }
+        }, 100);
+      }
+    }, 4800);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {

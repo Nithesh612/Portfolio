@@ -138,7 +138,7 @@ export default function Contact() {
                   filter: "drop-shadow(0 0 25px rgba(255,255,255,0.15))",
                 }}
               >
-                Let's Build Together
+                Let&apos;s Build Together
               </span>
             </h2>
           </div>

@@ -182,9 +182,14 @@ function ProjectDetailContent({ slug }) {
     const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
-        setActiveImage(project.banner);
+        let isMounted = true;
+        // Avoid synchronous state update to prevent cascading renders
+        setTimeout(() => {
+            if (isMounted) setActiveImage(project.banner);
+        }, 0);
         window.scrollTo({ top: 0, behavior: "smooth" });
-    }, [project.id]);
+        return () => { isMounted = false; };
+    }, [project.id, project.banner]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -245,7 +250,7 @@ function ProjectDetailContent({ slug }) {
                         justifyContent: "space-between",
                     }}
                 >
-                    <a
+                    <Link
                         href="/#showcase"
                         style={{
                             display: "inline-flex",
@@ -271,7 +276,7 @@ function ProjectDetailContent({ slug }) {
                         }}
                     >
                         <span>←</span> Back to Projects
-                    </a>
+                    </Link>
 
                     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                         {project.github && (

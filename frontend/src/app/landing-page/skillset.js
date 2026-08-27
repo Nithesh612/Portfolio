@@ -247,18 +247,26 @@ export default function Skillset() {
           textAlign: "center",
         }}
       >
+        <style>{`
+          .skillset-flower-container {
+            position: relative;
+            width: clamp(300px, 42vw, 460px);
+            height: clamp(300px, 42vw, 460px);
+            margin-bottom: -220px;
+          }
+          @media (max-width: 768px) {
+            .skillset-flower-container {
+              margin-bottom: -80px;
+            }
+          }
+        `}</style>
         {/* Top Floating 3D Sculpture with Seamless Black Shadow Fade */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: "easeOut" }}
-          style={{
-            position: "relative",
-            width: "clamp(300px, 42vw, 460px)",
-            height: "clamp(300px, 42vw, 460px)",
-            marginBottom: "-220px",
-          }}
+          className="skillset-flower-container"
         >
           <motion.div
             style={{
@@ -317,10 +325,6 @@ export default function Skillset() {
 
         {/* Section Pill Label */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
           style={{
             position: "relative",
             zIndex: 10,
@@ -338,10 +342,6 @@ export default function Skillset() {
 
         {/* Main Heading: The Magic Behind */}
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.3 }}
           style={{
             position: "relative",
             zIndex: 10,
@@ -351,6 +351,7 @@ export default function Skillset() {
             lineHeight: 1.1,
             margin: "0 0 54px 0",
             color: "#ffffff",
+            textTransform: "none",
             textShadow: "0 4px 25px rgba(0,0,0,0.9)",
           }}
         >
@@ -366,6 +367,7 @@ export default function Skillset() {
               WebkitTextFillColor: "transparent",
               color: "transparent",
               display: "inline-block",
+              textTransform: "none",
               filter: "drop-shadow(0 0 25px rgba(236, 72, 153, 0.45))",
             }}
           >
@@ -388,10 +390,6 @@ export default function Skillset() {
           {SKILLSET_ROWS.map((row, rowIndex) => (
             <motion.div
               key={`row-${rowIndex}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 + rowIndex * 0.15 }}
               style={{
                 display: "flex",
                 flexWrap: "wrap",

@@ -1,6 +1,9 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(useGSAP);
 
 export default function HeroSection() {
   const containerRef = useRef(null);
@@ -8,38 +11,34 @@ export default function HeroSection() {
   const roleRef = useRef(null);
   const tagRef = useRef(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+  useGSAP(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      tl.from(tagRef.current, {
-        opacity: 0,
-        y: -15,
-        duration: 0.8,
-      })
-        .from(
-          nameRef.current,
-          {
-            opacity: 0,
-            y: 35,
-            duration: 1,
-          },
-          "-=0.5"
-        )
-        .from(
-          roleRef.current,
-          {
-            opacity: 0,
-            y: 20,
-            letterSpacing: "0.4em",
-            duration: 0.9,
-          },
-          "-=0.6"
-        );
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+    tl.from(tagRef.current, {
+      opacity: 0,
+      y: -15,
+      duration: 0.8,
+    })
+      .from(
+        nameRef.current,
+        {
+          opacity: 0,
+          y: 35,
+          duration: 1,
+        },
+        "-=0.5"
+      )
+      .from(
+        roleRef.current,
+        {
+          opacity: 0,
+          y: 20,
+          letterSpacing: "0.4em",
+          duration: 0.9,
+        },
+        "-=0.6"
+      );
+  }, { scope: containerRef });
 
   return (
     <section

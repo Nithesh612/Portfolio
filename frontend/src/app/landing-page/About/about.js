@@ -151,7 +151,7 @@ export default function About() {
                   <div>
                     <div style={{ paddingLeft: "20px", marginTop: "0px", whiteSpace: "normal" }}>
                       <h3 style={{ color: "#000000", fontSize: "32px", fontWeight: "800", letterSpacing: "-0.5px", marginBottom: "16px", fontFamily: "'Inter', sans-serif", whiteSpace: "normal" }}>
-                        Nice to meet you. I'm{" "}
+                        Nice to meet you. I&apos;m{" "}
                         <span
                           style={{
                             background: "linear-gradient(135deg, #e11d48 0%, #f43f5e 25%, #fb7185 50%, #f97316 75%, #f59e0b 100%)",
@@ -180,10 +180,10 @@ export default function About() {
                         Full Stack Developer
                       </h4>
                       <p style={{ color: "#4B5563", fontSize: "16px", lineHeight: "1.8", margin: "0 0 20px 0", fontWeight: "500", whiteSpace: "normal", wordWrap: "break-word" }}>
-                        I'm a creative and motivated Full Stack Developer with a strong passion for building modern, responsive, and user-friendly web applications. I thrive on exploring new challenges and opportunities that push the boundaries of my coding skills. Known for bridging the gap between elegant frontend interfaces and robust backend architectures, I focus on delivering impactful digital solutions.
+                        I&apos;m a creative and motivated Full Stack Developer with a strong passion for building modern, responsive, and user-friendly web applications. I thrive on exploring new challenges and opportunities that push the boundaries of my coding skills. Known for bridging the gap between elegant frontend interfaces and robust backend architectures, I focus on delivering impactful digital solutions.
                       </p>
                       <p style={{ color: "#4B5563", fontSize: "16px", lineHeight: "1.8", margin: "0 0 24px 0", fontWeight: "500", whiteSpace: "normal", wordWrap: "break-word" }}>
-                        With experience across Next.js, React, Node.js, and modern databases, my approach is clean, strategic, and performance-focused. I am constantly exploring new technologies like Cloud Architectures and AI integrations to sharpen my technical thinking. Let's work together to bring your vision to life.
+                        With experience across Next.js, React, Node.js, and modern databases, my approach is clean, strategic, and performance-focused. I am constantly exploring new technologies like Cloud Architectures and AI integrations to sharpen my technical thinking. Let&apos;s work together to bring your vision to life.
                       </p>
 
                       {/* Skill Badges (Static 5 Boxes with Real-time Typing Effect) */}

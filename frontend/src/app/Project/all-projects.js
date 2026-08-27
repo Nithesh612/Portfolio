@@ -120,7 +120,7 @@ export default function AllProjects() {
           gap: "16px",
         }}
       >
-        <a
+        <Link
           href="/#showcase"
           style={{
             display: "inline-flex",
@@ -146,7 +146,7 @@ export default function AllProjects() {
           }}
         >
           <span>←</span> Back to Projects
-        </a>
+        </Link>
 
         <a
           href="https://github.com/nithesh612"

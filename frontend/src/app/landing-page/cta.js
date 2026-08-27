@@ -19,35 +19,62 @@ export default function CTA() {
       ref={containerRef}
       style={{
         backgroundColor: "#f9f9f9",
-        padding: "100px 24px",
+        padding: "40px 24px",
         position: "relative",
         overflow: "hidden",
         display: "flex",
         justifyContent: "center",
       }}
     >
+      <style>{`
+        .cta-inner-container {
+          flex-direction: row;
+          text-align: left;
+          flex-wrap: nowrap !important;
+          gap: 40px;
+        }
+        .cta-text-container {
+          align-items: flex-start;
+          flex: 1;
+        }
+        .cta-orb-container {
+          width: clamp(130px, 16vw, 190px);
+          height: clamp(130px, 16vw, 190px);
+        }
+        @media (max-width: 768px) {
+          .cta-inner-container {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 16px !important;
+          }
+          .cta-orb-container {
+            width: clamp(70px, 22vw, 130px) !important;
+            height: clamp(70px, 22vw, 130px) !important;
+            flex-shrink: 0;
+          }
+        }
+      `}</style>
       <div
+        className="cta-inner-container"
         style={{
           width: "100%",
           maxWidth: "1200px",
           display: "flex",
-          justifyContent: "space-between",
           alignItems: "center",
-          flexWrap: "wrap",
-          gap: "40px",
         }}
       >
         {/* Left Side: Text */}
         <motion.div
+          className="cta-text-container"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          style={{ position: "relative", zIndex: 2 }}
+          style={{ position: "relative", zIndex: 2, display: "flex", flexDirection: "column" }}
         >
           <h2
             style={{
-              fontSize: "clamp(48px, 6vw, 84px)",
+              fontSize: "clamp(26px, 6vw, 84px)",
               fontWeight: 800,
               color: "#111111",
               letterSpacing: "-0.04em",
@@ -59,7 +86,7 @@ export default function CTA() {
           </h2>
           <h2
             style={{
-              fontSize: "clamp(48px, 6vw, 84px)",
+              fontSize: "clamp(26px, 6vw, 84px)",
               fontWeight: 800,
               background: "linear-gradient(135deg, #e11d48 0%, #f43f5e 35%, #fb7185 65%, #f97316 100%)",
               WebkitBackgroundClip: "text",
