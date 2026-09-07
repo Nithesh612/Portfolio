@@ -118,10 +118,11 @@ export default function HeroSection() {
         }}
       >
         {/* Top Pill / Status Badge */}
-        <div ref={tagRef} className="animated-border-pill">
+        <div ref={tagRef} className="animated-border-pill"
+          onClick={() => window.open("https://nexio-hub.vercel.app/", "_blank")}>
           <div className="animated-border-pill-content" style={{ padding: "8px 20px" }}>
             <span style={{ fontSize: "12px", color: "#e5e7eb", fontFamily: "'Inter', sans-serif", fontWeight: 700, letterSpacing: "1.2px", textTransform: "uppercase" }}>
-              AVAILABLE FOR NEW PROJECTS
+              Nexio-hub
             </span>
           </div>
         </div>
