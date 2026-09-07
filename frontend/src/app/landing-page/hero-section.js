@@ -118,14 +118,53 @@ export default function HeroSection() {
         }}
       >
         {/* Top Pill / Status Badge */}
-        <div ref={tagRef} className="animated-border-pill"
-          onClick={() => window.open("https://nexio-hub.vercel.app/", "_blank")}>
-          <div className="animated-border-pill-content" style={{ padding: "8px 20px" }}>
+        <a
+          ref={tagRef}
+          href="https://nexio-hub.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="animated-border-pill"
+          style={{
+            cursor: "pointer",
+            textDecoration: "none",
+            display: "inline-flex",
+            alignItems: "center",
+            marginBottom: "16px"
+          }}
+        >
+          <div className="animated-border-pill-content" style={{ padding: "8px 20px", display: "flex", alignItems: "center", gap: "8px" }}>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#38bdf8"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ filter: "drop-shadow(0 0 6px rgba(56, 189, 248, 0.6))" }}
+            >
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+            </svg>
             <span style={{ fontSize: "12px", color: "#e5e7eb", fontFamily: "'Inter', sans-serif", fontWeight: 700, letterSpacing: "1.2px", textTransform: "uppercase" }}>
               Nexio-hub
             </span>
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#9ca3af"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ marginLeft: "2px", opacity: 0.8 }}
+            >
+              <path d="M7 17L17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
           </div>
-        </div>
+        </a>
 
         {/* Big Bold Name */}
         <h1
