@@ -182,13 +182,9 @@ export default function Skillset() {
     offset: ["start end", "end start"],
   });
 
-  const rawRotate = useTransform(scrollYProgress, [0, 1], [-135, 135]);
-  const rawY = useTransform(scrollYProgress, [0, 1], [-60, 60]);
-  const rawScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1.05, 0.92]);
-
-  const rotate = useSpring(rawRotate, { stiffness: 80, damping: 24, mass: 0.3 });
-  const y = useSpring(rawY, { stiffness: 80, damping: 24, mass: 0.3 });
-  const scale = useSpring(rawScale, { stiffness: 80, damping: 24, mass: 0.3 });
+  const rotate = useTransform(scrollYProgress, [0, 1], [-90, 90]);
+  const y = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.92, 1.02, 0.94]);
 
   return (
     <section
@@ -203,6 +199,7 @@ export default function Skillset() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        contain: "paint",
       }}
     >
       {/* Background Ambient Glows */}
@@ -265,9 +262,24 @@ export default function Skillset() {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="skillset-flower-container"
         >
+          {/* Static Soft Shadow under emblem to avoid runtime CPU drop-shadow calculation */}
+          <div
+            style={{
+              position: "absolute",
+              top: "20%",
+              left: "15%",
+              width: "70%",
+              height: "70%",
+              borderRadius: "50%",
+              background: "radial-gradient(circle, rgba(0,0,0,0.85) 0%, transparent 75%)",
+              pointerEvents: "none",
+              zIndex: 0,
+            }}
+          />
+
           <motion.div
             style={{
               width: "100%",
@@ -276,6 +288,7 @@ export default function Skillset() {
               rotate,
               y,
               scale,
+              willChange: "transform",
             }}
           >
             <Image
@@ -287,7 +300,6 @@ export default function Skillset() {
               priority
               style={{
                 objectFit: "contain",
-                filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.9))",
               }}
             />
           </motion.div>
@@ -313,11 +325,10 @@ export default function Skillset() {
             position: "absolute",
             top: "220px",
             left: "50%",
-            transform: "translateX(-50%)",
+            transform: "translateX(-50%) translateZ(0)",
             width: "clamp(380px, 55vw, 700px)",
             height: "240px",
             background: "radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.8) 50%, transparent 80%)",
-            filter: "blur(25px)",
             pointerEvents: "none",
             zIndex: 2,
           }}
@@ -368,7 +379,6 @@ export default function Skillset() {
               color: "transparent",
               display: "inline-block",
               textTransform: "none",
-              filter: "drop-shadow(0 0 25px rgba(236, 72, 153, 0.45))",
             }}
           >
             Behind
@@ -403,23 +413,22 @@ export default function Skillset() {
                 <motion.div
                   key={skill.name}
                   whileHover={{
-                    scale: 1.06,
+                    scale: 1.05,
                     y: -2,
-                    backgroundColor: "rgba(255, 255, 255, 0.08)",
-                    borderColor: "rgba(255, 255, 255, 0.22)",
-                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.06)",
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    borderColor: "rgba(255, 255, 255, 0.25)",
+                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.5)",
                   }}
                   whileTap={{ scale: 0.98 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.15 }}
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
                     gap: "9px",
                     padding: "8px 16px",
                     borderRadius: "9999px",
-                    backgroundColor: "rgba(255, 255, 255, 0.035)",
-                    border: "1px solid rgba(255, 255, 255, 0.09)",
-                    backdropFilter: "blur(12px)",
+                    backgroundColor: "rgba(255, 255, 255, 0.05)",
+                    border: "1px solid rgba(255, 255, 255, 0.12)",
                     cursor: "pointer",
                     userSelect: "none",
                     boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
@@ -476,7 +485,7 @@ export default function Skillset() {
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 48,
+                  duration: 38,
                   ease: "linear",
                 },
               }}
@@ -485,9 +494,10 @@ export default function Skillset() {
                 alignItems: "center",
                 gap: "12px",
                 width: "max-content",
+                willChange: "transform",
               }}
             >
-              {[...TOOLS_ROW_1, ...TOOLS_ROW_1, ...TOOLS_ROW_1].map((tool, idx) => (
+              {[...TOOLS_ROW_1, ...TOOLS_ROW_1].map((tool, idx) => (
                 <div
                   key={`tool-r1-${tool.name}-${idx}`}
                   style={{
@@ -496,31 +506,29 @@ export default function Skillset() {
                     gap: "8px",
                     padding: "8px 16px",
                     borderRadius: "9999px",
-                    backgroundColor: "rgba(255, 255, 255, 0.035)",
-                    border: "1px solid rgba(255, 255, 255, 0.09)",
-                    backdropFilter: "blur(12px)",
+                    backgroundColor: "rgba(255, 255, 255, 0.05)",
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
                     boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
                     flexShrink: 0,
                     cursor: "pointer",
                     userSelect: "none",
-                    transition: "all 0.2s cubic-bezier(0.25, 1, 0.5, 1)",
+                    transition: "all 0.15s ease",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.06) translateY(-2px)";
-                    e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.08)";
-                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.22)";
-                    e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.06)";
+                    e.currentTarget.style.transform = "scale(1.05) translateY(-2px)";
+                    e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = "scale(1) translateY(0)";
-                    e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.035)";
-                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.09)";
-                    e.currentTarget.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.3)";
+                    e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.05)";
+                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
                   }}
                 >
                   <img
                     src={tool.icon}
                     alt={tool.name}
+                    loading="lazy"
                     style={{ width: "16px", height: "16px", objectFit: "contain" }}
                   />
                   <span style={{ fontSize: "13px", color: "rgba(255, 255, 255, 0.88)", fontWeight: 500, whiteSpace: "nowrap" }}>
@@ -537,7 +545,7 @@ export default function Skillset() {
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 54,
+                  duration: 42,
                   ease: "linear",
                 },
               }}
@@ -546,9 +554,10 @@ export default function Skillset() {
                 alignItems: "center",
                 gap: "12px",
                 width: "max-content",
+                willChange: "transform",
               }}
             >
-              {[...TOOLS_ROW_2, ...TOOLS_ROW_2, ...TOOLS_ROW_2].map((tool, idx) => (
+              {[...TOOLS_ROW_2, ...TOOLS_ROW_2].map((tool, idx) => (
                 <div
                   key={`tool-r2-${tool.name}-${idx}`}
                   style={{
@@ -557,31 +566,29 @@ export default function Skillset() {
                     gap: "8px",
                     padding: "8px 16px",
                     borderRadius: "9999px",
-                    backgroundColor: "rgba(255, 255, 255, 0.035)",
-                    border: "1px solid rgba(255, 255, 255, 0.09)",
-                    backdropFilter: "blur(12px)",
+                    backgroundColor: "rgba(255, 255, 255, 0.05)",
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
                     boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)",
                     flexShrink: 0,
                     cursor: "pointer",
                     userSelect: "none",
-                    transition: "all 0.2s cubic-bezier(0.25, 1, 0.5, 1)",
+                    transition: "all 0.15s ease",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.06) translateY(-2px)";
-                    e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.08)";
-                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.22)";
-                    e.currentTarget.style.boxShadow = "0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.06)";
+                    e.currentTarget.style.transform = "scale(1.05) translateY(-2px)";
+                    e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.25)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = "scale(1) translateY(0)";
-                    e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.035)";
-                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.09)";
-                    e.currentTarget.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.3)";
+                    e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.05)";
+                    e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.1)";
                   }}
                 >
                   <img
                     src={tool.icon}
                     alt={tool.name}
+                    loading="lazy"
                     style={{ width: "16px", height: "16px", objectFit: "contain" }}
                   />
                   <span style={{ fontSize: "13px", color: "rgba(255, 255, 255, 0.88)", fontWeight: 500, whiteSpace: "nowrap" }}>

@@ -13,7 +13,7 @@ import Works from "./works/works";
 import Contact from "./Contact/contact";
 import Footer from "./footer";
 import Skillset from "./skillset";
-import CTA from "./cta";
+import CTA from "./AI/cta";
 
 
 const MARQUEE_ROWS = [
@@ -50,16 +50,16 @@ export default function PortfolioPage() {
     };
 
     const hasVisited = sessionStorage.getItem("welcomeScreenShown");
-    
+
     if (!hasVisited) {
       setShowWelcome(true);
       sessionStorage.setItem("welcomeScreenShown", "true");
-      
+
       const timer = setTimeout(() => {
         setShowWelcome(false);
         handleHashScroll();
       }, 4800);
-      
+
       return () => clearTimeout(timer);
     } else {
       setShowWelcome(false);

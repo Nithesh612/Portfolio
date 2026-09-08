@@ -4,32 +4,45 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export default function Menu({ offcanvasOpen, setOffcanvasOpen }) {
   const [hoveredNav, setHoveredNav] = useState(null);
+
+  // Lock background scroll when drawer is open
+  useEffect(() => {
+    if (offcanvasOpen) {
+      document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.touchAction = "";
+    };
+  }, [offcanvasOpen]);
+
   const handleScroll = (e, targetId) => {
     e.preventDefault();
     setOffcanvasOpen(false); // Close menu
+    document.body.style.overflow = "";
+    document.body.style.touchAction = "";
 
-    // Quick transition: close menu and smoothly glide to section rapidly
+    // Smoothly scroll after drawer starts closing
     setTimeout(() => {
       if (typeof window !== "undefined") {
         const element = document.querySelector(targetId);
-
-        if (window.gsap) {
-          window.gsap.to(window, {
-            duration: 0.8,
-            scrollTo: { y: targetId, offsetY: 120, autoKill: false },
-            ease: "power2.out",
-          });
-          return;
-        }
-
-        // Fallback for native smoothly if GSAP isn't loaded
         if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
+          const targetY = element.getBoundingClientRect().top + window.scrollY - 70;
+          window.scrollTo({
+            top: Math.max(0, targetY),
+            behavior: "smooth",
+          });
+        } else if (targetId.startsWith("#")) {
+          window.location.hash = targetId;
         } else {
-          window.location.href = `/${targetId}`;
+          window.location.href = targetId;
         }
       }
-    }, 120);
+    }, 280);
   };
 
   const navItems = [
@@ -52,45 +65,45 @@ export default function Menu({ offcanvasOpen, setOffcanvasOpen }) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [offcanvasOpen]);
 
-  // Framer Motion Animation Variants for Smooth, Elegant Right-Side Slide In & Out
+  // Framer Motion Animation Variants for Smooth, Snappy Right-Side Slide In & Out
   const cardVariants = {
     hidden: {
       x: "100%",
-      opacity: 0,
+      opacity: 0.8,
     },
     visible: {
       x: 0,
       opacity: 1,
       transition: {
-        duration: 0.7,
-        ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.06,
-        delayChildren: 0.12,
+        duration: 0.45,
+        ease: [0.16, 1, 0.3, 1],
+        staggerChildren: 0.04,
+        delayChildren: 0.08,
       },
     },
     exit: {
       x: "100%",
-      opacity: 0,
+      opacity: 0.8,
       transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
+        duration: 0.32,
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
 
   const linkVariants = {
-    hidden: { opacity: 0, y: 24, x: 10 },
+    hidden: { opacity: 0, y: 16, x: 8 },
     visible: {
       opacity: 1,
       y: 0,
       x: 0,
-      transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] },
     },
     exit: {
       opacity: 0,
-      y: 12,
-      x: 10,
-      transition: { duration: 0.3, ease: "easeIn" },
+      y: 8,
+      x: 8,
+      transition: { duration: 0.2, ease: "easeIn" },
     },
   };
 
@@ -108,18 +121,18 @@ export default function Menu({ offcanvasOpen, setOffcanvasOpen }) {
             overflow: "hidden",
           }}
         >
-          {/* Dark Blurred Backdrop */}
+          {/* Dark Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             style={{
               position: "absolute",
               inset: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.65)",
-              backdropFilter: "blur(12px)",
-              WebkitBackdropFilter: "blur(12px)",
+              backgroundColor: "rgba(0, 0, 0, 0.6)",
+              backdropFilter: "blur(6px)",
+              WebkitBackdropFilter: "blur(6px)",
             }}
             onClick={() => setOffcanvasOpen(false)}
           />
@@ -133,23 +146,24 @@ export default function Menu({ offcanvasOpen, setOffcanvasOpen }) {
             style={{
               position: "relative",
               width: "100%",
-              maxWidth: "460px",
+              maxWidth: "min(460px, 100vw)",
               height: "100vh",
               minHeight: "100vh",
               maxHeight: "100vh",
               backgroundColor: "#ffffff",
               color: "#000000",
-              borderTopLeftRadius: "32px",
+              borderTopLeftRadius: "28px",
               borderTopRightRadius: "0px",
-              borderBottomLeftRadius: "32px",
+              borderBottomLeftRadius: "28px",
               borderBottomRightRadius: "0px",
-              padding: "40px 44px 36px 44px",
-              boxShadow: "-20px 0px 70px rgba(0, 0, 0, 0.45)",
+              padding: "clamp(28px, 5vw, 40px) clamp(22px, 6vw, 44px) clamp(24px, 4vw, 36px)",
+              boxShadow: "-15px 0px 50px rgba(0, 0, 0, 0.35)",
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
               fontFamily: "var(--font-primary, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif)",
               overflowY: "auto",
+              willChange: "transform",
             }}
           >
             {/* 1. Header: Discover + Close Button */}
@@ -298,40 +312,46 @@ export default function Menu({ offcanvasOpen, setOffcanvasOpen }) {
                     </span>
                   </motion.a>
                   
-                  <AnimatePresence>
-                    {item.subItems && hoveredNav === item.num && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        style={{ overflow: "hidden", paddingLeft: "40px" }}
-                      >
-                        {item.subItems.map((sub) => (
-                          <a
-                            key={sub.title}
-                            href={sub.href}
-                            onClick={() => setOffcanvasOpen(false)}
-                            style={{
-                              display: "block",
-                              fontSize: "14px",
-                              fontWeight: 700,
-                              fontFamily: "monospace",
-                              letterSpacing: "0.1em",
-                              color: "#ff5722",
-                              textDecoration: "none",
-                              padding: "10px 0",
-                              cursor: "pointer",
-                              transition: "color 0.2s ease"
-                            }}
-                            onMouseEnter={(e) => (e.currentTarget.style.color = "#000000")}
-                            onMouseLeave={(e) => (e.currentTarget.style.color = "#ff5722")}
-                          >
-                            ↳ {sub.title}
-                          </a>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  {item.subItems && (
+                    <div style={{ paddingLeft: "36px", marginTop: "4px", marginBottom: "4px" }}>
+                      {item.subItems.map((sub) => (
+                        <a
+                          key={sub.title}
+                          href={sub.href}
+                          onClick={() => {
+                            setOffcanvasOpen(false);
+                            document.body.style.overflow = "";
+                          }}
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            fontSize: "11.5px",
+                            fontWeight: 700,
+                            fontFamily: "monospace",
+                            letterSpacing: "0.08em",
+                            color: "#ff5722",
+                            textDecoration: "none",
+                            padding: "4px 10px",
+                            borderRadius: "9999px",
+                            backgroundColor: "rgba(255, 87, 34, 0.08)",
+                            border: "1px solid rgba(255, 87, 34, 0.2)",
+                            cursor: "pointer",
+                            transition: "all 0.2s ease"
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = "#ff5722";
+                            e.currentTarget.style.color = "#ffffff";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = "rgba(255, 87, 34, 0.08)";
+                            e.currentTarget.style.color = "#ff5722";
+                          }}
+                        >
+                          ↳ {sub.title} ↗
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </nav>

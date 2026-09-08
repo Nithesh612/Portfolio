@@ -10,22 +10,19 @@ export default function Header() {
   const [isBookHovered, setIsBookHovered] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Smooth scroll handler
+  // Smooth scroll handler with offset
   const handleScroll = (e, targetId) => {
     e.preventDefault();
     setMoreDropdownOpen(false);
     
     if (typeof window !== "undefined") {
       const element = document.querySelector(targetId);
-      if (window.ScrollSmoother) {
-        const smoother = window.ScrollSmoother.get();
-        if (smoother && element) {
-          smoother.scrollTo(targetId, true, "top top");
-          return;
-        }
-      }
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        const targetY = element.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({
+          top: Math.max(0, targetY),
+          behavior: "smooth",
+        });
       }
     }
   };

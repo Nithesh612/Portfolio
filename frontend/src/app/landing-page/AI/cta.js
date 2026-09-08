@@ -82,7 +82,7 @@ export default function CTA() {
               margin: 0,
             }}
           >
-            Building Future
+            Building Next-Gen
           </h2>
           <h2
             style={{
@@ -96,19 +96,19 @@ export default function CTA() {
               margin: 0,
             }}
           >
-            Digital Experiences.
+            AI-Driven.
           </h2>
         </motion.div>
 
-        {/* Right Side: 3D Iridescent Liquid Glass Orb */ }
-  <motion.div
-    style={{ y: orbY, position: "relative", zIndex: 1 }}
-    initial={{ opacity: 0, scale: 0.8 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    viewport={{ once: true }}
-    transition={{ duration: 1, delay: 0.2 }}
-  >
-    <style>{`
+        {/* Right Side: 3D Iridescent Liquid Glass Orb */}
+        <motion.div
+          style={{ y: orbY, position: "relative", zIndex: 1 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          <style>{`
             @keyframes glass-morph {
               0% {
                 border-radius: 60% 40% 65% 35% / 45% 65% 35% 55%;
@@ -193,25 +193,25 @@ export default function CTA() {
             }
           `}</style>
 
-    {/* Outer Soft Grey Circular Backdrop */}
-    <div
-      className="glass-orb-container"
-      style={{
-        width: "clamp(130px, 16vw, 190px)",
-        height: "clamp(130px, 16vw, 190px)",
-        borderRadius: "50%",
-        backgroundColor: "#eceef1",
-        boxShadow: "inset 0 2px 8px rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0,0,0,0.02)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-      }}
-    >
-      {/* Inner 3D Glass Liquid Droplet */}
-      <div className="glass-orb" />
-    </div>
-  </motion.div>
+          {/* Outer Soft Grey Circular Backdrop */}
+          <div
+            className="glass-orb-container"
+            style={{
+              width: "clamp(130px, 16vw, 190px)",
+              height: "clamp(130px, 16vw, 190px)",
+              borderRadius: "50%",
+              backgroundColor: "#eceef1",
+              boxShadow: "inset 0 2px 8px rgba(0, 0, 0, 0.04), 0 4px 20px rgba(0,0,0,0.02)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              position: "relative",
+            }}
+          >
+            {/* Inner 3D Glass Liquid Droplet */}
+            <div className="glass-orb" />
+          </div>
+        </motion.div>
 
       </div >
     </section >
