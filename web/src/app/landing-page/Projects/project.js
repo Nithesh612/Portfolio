@@ -103,6 +103,8 @@ const PROJECTS_DATA = [
 export default function Project2() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   const activeProject = PROJECTS_DATA[activeIndex] || PROJECTS_DATA[0];
 
@@ -121,13 +123,32 @@ export default function Project2() {
     setActiveIndex(index);
   };
 
+  // Touch swipe support for mobile
+  const minSwipeDistance = 45;
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    if (distance > minSwipeDistance) {
+      handleNext();
+    } else if (distance < -minSwipeDistance) {
+      handlePrev();
+    }
+  };
+
   return (
     <section
       id="showcase"
+      className="project-showcase-section"
       style={{
         backgroundColor: "#000000",
         position: "relative",
-        padding: "40px 24px 60px 24px",
         zIndex: 5,
         overflow: "hidden",
       }}
@@ -177,19 +198,96 @@ export default function Project2() {
           transition: all 0.25s ease;
           border: 1px solid rgba(255, 255, 255, 0.15);
         }
+        .project-showcase-section {
+          padding: 50px 24px 60px 24px;
+        }
+        .mobile-project-nav-bar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          margin-bottom: 14px;
+          width: 100%;
+        }
+        .mobile-project-tabs-scroll {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          overflow-x: auto;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          -webkit-overflow-scrolling: touch;
+          padding: 2px 0;
+          flex: 1;
+          min-width: 0;
+        }
+        .mobile-project-tabs-scroll::-webkit-scrollbar {
+          display: none;
+        }
+        .mobile-project-tab-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 5px;
+          padding: 7px 15px;
+          border-radius: 9999px;
+          font-size: 12.5px;
+          font-weight: 700;
+          font-family: monospace;
+          color: #ffffff;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          cursor: pointer;
+          white-space: nowrap;
+          flex-shrink: 0;
+          transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-project-tab-pill:hover {
+          background-color: rgba(255, 255, 255, 0.14);
+        }
+        .mobile-project-arrows {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          flex-shrink: 0;
+        }
         @media (max-width: 1080px) {
           .parth-main-layout {
+            display: none !important;
+          }
+          .desktop-project-arrows {
             display: none !important;
           }
           .mobile-projects-view {
             display: flex !important;
             flex-direction: column !important;
-            gap: 30px;
+            gap: 16px;
           }
         }
         @media (min-width: 1081px) {
           .mobile-projects-view {
             display: none !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .project-showcase-section {
+            padding: 85px 16px 50px 16px !important;
+          }
+          .project-showcase-heading {
+            padding-top: 10px !important;
+            padding-bottom: 22px !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .project-showcase-section {
+            padding: 82px 12px 40px 12px !important;
+          }
+          .project-showcase-heading h2 {
+            gap: 8px !important;
+          }
+          .project-title-main {
+            font-size: 30px !important;
+          }
+          .project-title-script {
+            font-size: 38px !important;
           }
         }
       `}</style>
@@ -212,6 +310,7 @@ export default function Project2() {
 
       {/* Centered Top Section Header */}
       <div
+        className="project-showcase-heading"
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
@@ -237,31 +336,43 @@ export default function Project2() {
         </div>
         <h2
           style={{
-            fontSize: "clamp(30px, 4.5vw, 54px)",
-            fontWeight: 900,
-            letterSpacing: "-0.03em",
-            color: "#ffffff",
             margin: 0,
-            lineHeight: 1.1,
-            textTransform: "uppercase",
+            lineHeight: 1.2,
+            display: "inline-flex",
+            alignItems: "baseline",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            gap: "14px",
           }}
         >
-          PROJECT{" "}
           <span
+            className="project-title-main"
             style={{
-              fontStyle: "italic",
-              fontWeight: 700,
-              fontFamily: "'Playfair Display', 'Instrument Sans', serif, sans-serif",
-              background: "linear-gradient(90deg, #ec4899 0%, #f43f5e 50%, #fb923c 100%)",
+              fontSize: "clamp(30px, 4.5vw, 52px)",
+              fontWeight: 800,
+              letterSpacing: "-0.03em",
+              color: "#ffffff",
+              fontFamily: "'Plus Jakarta Sans', 'Instrument Sans', sans-serif",
+            }}
+          >
+            Project
+          </span>
+          <span
+            className="project-title-script"
+            style={{
+              fontFamily: "'Alex Brush', 'Great Vibes', 'Pinyon Script', 'Playball', cursive",
+              fontWeight: 400,
+              fontSize: "clamp(42px, 6vw, 74px)",
+              color: "#e11d48",
+              background: "linear-gradient(135deg, #fb7185 0%, #e11d48 55%, #be123c 100%)",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              color: "transparent",
-              display: "inline-block",
-              filter: "drop-shadow(0 0 25px rgba(236, 72, 153, 0.45))",
+              letterSpacing: "0.02em",
+              filter: "drop-shadow(0 0 25px rgba(225, 29, 72, 0.4))",
             }}
           >
-            SHOWCASE
+            Showcase.
           </span>
         </h2>
       </div>
@@ -274,49 +385,53 @@ export default function Project2() {
           position: "relative",
           zIndex: 2,
           display: "grid",
-          gridTemplateColumns: "1.15fr 40px 1.75fr",
+          gridTemplateColumns: "1.15fr 50px 1.75fr",
           gap: "36px",
           alignItems: "center",
           padding: "0 20px 40px 20px",
         }}
         className="parth-main-layout"
       >
-        {/* 1. LEFT COLUMN: ACTIVE PROJECT DETAILS */}
-        <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", gap: "16px", paddingLeft: "8px" }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "10px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <span style={{ color: activeProject.accentColor, fontSize: "28px", fontWeight: 900, lineHeight: 1, transition: "color 0.2s ease" }}>—</span>
-              <h3
-                style={{
-                  fontSize: "clamp(26px, 2.8vw, 40px)",
-                  fontWeight: 800,
-                  color: "#ffffff",
-                  letterSpacing: "-0.03em",
-                  margin: 0,
-                  lineHeight: 1.1,
-                }}
-              >
-                {activeProject.title}
-              </h3>
-            </div>
-
-
-          </div>
-
-          <p style={{ fontSize: "14px", lineHeight: 1.6, color: "rgba(255, 255, 255, 0.82)", margin: 0 }}>
-            {activeProject.description}
-          </p>
-
-          {/* Dynamic Content Transitions */}
+        {/* 1. LEFT COLUMN: ACTIVE PROJECT DETAILS (Fixed height to prevent layout shift) */}
+        <div style={{ minHeight: "460px", display: "flex", flexDirection: "column", justifyContent: "center", paddingLeft: "8px", position: "relative" }}>
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProject.id}
-              initial={{ opacity: 0, y: direction * 10 }}
+              initial={{ opacity: 0, y: direction * 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -direction * 10 }}
-              transition={{ duration: 0.2 }}
-              style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+              exit={{ opacity: 0, y: -direction * 8 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                minHeight: "440px",
+                gap: "14px",
+              }}
             >
+              {/* Top Header & Title */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <span style={{ color: activeProject.accentColor, fontSize: "28px", fontWeight: 900, lineHeight: 1, transition: "color 0.2s ease" }}>—</span>
+                  <h3
+                    style={{
+                      fontSize: "clamp(26px, 2.8vw, 40px)",
+                      fontWeight: 800,
+                      color: "#ffffff",
+                      letterSpacing: "-0.03em",
+                      margin: 0,
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    {activeProject.title}
+                  </h3>
+                </div>
+
+                <p style={{ fontSize: "14px", lineHeight: 1.6, color: "rgba(255, 255, 255, 0.82)", margin: 0 }}>
+                  {activeProject.description}
+                </p>
+              </div>
+
               {/* Features with Sparkle Star icons ✦ */}
               <div style={{ display: "flex", flexDirection: "column", gap: "9px" }}>
                 {activeProject.features.map((feature, fIdx) => (
@@ -328,7 +443,7 @@ export default function Project2() {
               </div>
 
               {/* Stack Badges */}
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "2px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
                 {activeProject.stack.map((item, sIdx) => (
                   <div
                     key={sIdx}
@@ -353,7 +468,7 @@ export default function Project2() {
               </div>
 
               {/* Action Buttons: View Details & Live Demo */}
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", marginTop: "12px", flexWrap: "wrap", gap: "12px" }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", marginTop: "6px", flexWrap: "wrap", gap: "12px" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                   <Link
                     href={`/Project/${activeProject.id}`}
@@ -426,8 +541,6 @@ export default function Project2() {
                     </a>
                   )}
                 </div>
-
-
               </div>
             </motion.div>
           </AnimatePresence>
@@ -443,10 +556,11 @@ export default function Project2() {
             alignItems: "center",
             justifyContent: "center",
             gap: "18px",
-            height: "100%",
+            minHeight: "460px",
             position: "relative",
           }}
         >
+          {/* Number Step Dots */}
           {PROJECTS_DATA.map((proj, idx) => {
             const isCurr = idx === activeIndex;
             return (
@@ -473,7 +587,7 @@ export default function Project2() {
         {/* ======================================= */}
         {/* 3. RIGHT COLUMN: ACTIVE MOCKUPS SHOWCASE */}
         {/* ======================================= */}
-        <div style={{ position: "relative" }}>
+        <div style={{ position: "relative", minHeight: "460px", display: "flex", alignItems: "center" }}>
           <AnimatePresence mode="wait">
             <motion.div
               key={activeProject.id}
@@ -486,7 +600,8 @@ export default function Project2() {
                 gridTemplateColumns: "1.1fr 1.9fr",
                 gap: "20px",
                 alignItems: "center",
-                minHeight: "420px",
+                width: "100%",
+                minHeight: "440px",
                 position: "relative",
               }}
               className="parth-mockups-grid"
@@ -730,10 +845,10 @@ export default function Project2() {
       {/* ========================================================= */}
       {/* MOBILE VIEW: CLEAN SINGLE CARD + CAROUSEL NAVIGATION */}
       {/* ========================================================= */}
-      <div className="mobile-projects-view" style={{ width: "100%", padding: "0 16px", maxWidth: "560px", margin: "0 auto", position: "relative", zIndex: 3 }}>
+      <div className="mobile-projects-view" style={{ width: "100%", padding: "0 12px", maxWidth: "560px", margin: "0 auto", position: "relative", zIndex: 3 }}>
         {/* Mobile Top Step Navigation */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
-          <div style={{ display: "flex", gap: "8px" }}>
+        <div className="mobile-project-nav-bar">
+          <div className="mobile-project-tabs-scroll">
             {PROJECTS_DATA.map((proj, idx) => {
               const isCurr = idx === activeIndex;
               return (
@@ -741,50 +856,64 @@ export default function Project2() {
                   key={proj.id}
                   onClick={() => handleSelect(idx)}
                   type="button"
+                  className={`mobile-project-tab-pill ${isCurr ? "active" : ""}`}
                   style={{
-                    padding: "6px 14px",
-                    borderRadius: "999px",
-                    fontSize: "12px",
-                    fontWeight: 700,
-                    fontFamily: "monospace",
                     backgroundColor: isCurr ? proj.accentColor : "rgba(255, 255, 255, 0.06)",
-                    color: "#ffffff",
-                    border: "1px solid rgba(255, 255, 255, 0.15)",
-                    cursor: "pointer",
+                    borderColor: isCurr ? proj.accentColor : "rgba(255, 255, 255, 0.15)",
+                    boxShadow: isCurr ? `0 0 16px ${proj.accentGlow}` : "none",
                   }}
                 >
-                  {proj.num}. {proj.title}
+                  <span style={{ opacity: isCurr ? 1 : 0.6, fontSize: "11px" }}>{proj.num}.</span>
+                  <span>{proj.title}</span>
                 </button>
               );
             })}
           </div>
 
-          <div style={{ display: "inline-flex", gap: "6px" }}>
-            <button onClick={handlePrev} className="project-arrow-btn" style={{ width: "34px", height: "34px" }} type="button">
+          <div className="mobile-project-arrows">
+            <button
+              onClick={handlePrev}
+              className="project-arrow-btn"
+              style={{ width: "34px", height: "34px" }}
+              aria-label="Previous project"
+              type="button"
+            >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
             </button>
-            <button onClick={handleNext} className="project-arrow-btn" style={{ width: "34px", height: "34px" }} type="button">
+            <button
+              onClick={handleNext}
+              className="project-arrow-btn"
+              style={{ width: "34px", height: "34px" }}
+              aria-label="Next project"
+              type="button"
+            >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
             </button>
           </div>
         </div>
 
-        {/* Mobile Active Card */}
+        {/* Mobile Active Card with Touch Swipe */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeProject.id}
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, x: direction * 25 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -direction * 25 }}
+            transition={{ duration: 0.24, ease: "easeOut" }}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "20px",
-              backgroundColor: "rgba(12, 12, 12, 0.7)",
-              padding: "20px",
+              gap: "18px",
+              backgroundColor: "rgba(12, 12, 14, 0.85)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+              padding: "clamp(16px, 4.5vw, 22px)",
               borderRadius: "20px",
               border: `1px solid ${activeProject.accentGlow}`,
+              boxShadow: `0 14px 40px -12px rgba(0, 0, 0, 0.85), 0 0 24px -6px ${activeProject.accentGlow}`,
             }}
           >
             {/* Top: Desktop Mockup */}
@@ -793,25 +922,27 @@ export default function Project2() {
               style={{
                 borderRadius: "14px",
                 backgroundColor: "#080c14",
-                border: "2px solid rgba(255, 255, 255, 0.12)",
+                border: "1.5px solid rgba(255, 255, 255, 0.14)",
                 boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.9)",
                 position: "relative",
                 overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
-                height: "220px",
+                aspectRatio: "16 / 10",
+                width: "100%",
                 textDecoration: "none",
               }}
             >
               <div
                 style={{
-                  height: "22px",
+                  height: "24px",
                   backgroundColor: "#05080e",
                   borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
                   display: "flex",
                   alignItems: "center",
                   padding: "0 10px",
                   gap: "6px",
+                  zIndex: 2,
                 }}
               >
                 <div style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#ef4444" }} />
@@ -833,26 +964,26 @@ export default function Project2() {
             <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                 <span style={{ color: activeProject.accentColor, fontSize: "24px", fontWeight: 900, lineHeight: 1 }}>—</span>
-                <h3 style={{ fontSize: "26px", fontWeight: 800, color: "#ffffff", margin: 0, letterSpacing: "-0.03em" }}>
+                <h3 style={{ fontSize: "clamp(22px, 5vw, 26px)", fontWeight: 800, color: "#ffffff", margin: 0, letterSpacing: "-0.03em" }}>
                   {activeProject.title}
                 </h3>
               </div>
-              <p style={{ fontSize: "14px", lineHeight: 1.6, color: "rgba(255, 255, 255, 0.8)", margin: 0 }}>
+              <p style={{ fontSize: "13.5px", lineHeight: 1.6, color: "rgba(255, 255, 255, 0.8)", margin: 0 }}>
                 {activeProject.description}
               </p>
 
               {/* Features */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginTop: "4px" }}>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginTop: "2px" }}>
                 {activeProject.features.map((feature, fIdx) => (
                   <div key={fIdx} style={{ display: "flex", alignItems: "flex-start", gap: "8px" }}>
                     <span style={{ color: activeProject.accentColor, fontSize: "14px", lineHeight: "19px", flexShrink: 0 }}>✦</span>
-                    <span style={{ fontSize: "13.5px", color: "rgba(255, 255, 255, 0.85)", lineHeight: 1.4 }}>{feature}</span>
+                    <span style={{ fontSize: "13px", color: "rgba(255, 255, 255, 0.85)", lineHeight: 1.45 }}>{feature}</span>
                   </div>
                 ))}
               </div>
 
               {/* Stack */}
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "6px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "4px" }}>
                 {activeProject.stack.map((item, sIdx) => (
                   <div
                     key={sIdx}
@@ -860,11 +991,11 @@ export default function Project2() {
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "5px",
-                      padding: "4px 10px",
+                      padding: "4px 9px",
                       borderRadius: "8px",
                       backgroundColor: "rgba(255, 255, 255, 0.05)",
                       border: "1px solid rgba(255, 255, 255, 0.1)",
-                      fontSize: "11.5px",
+                      fontSize: "11px",
                       color: "rgba(255, 255, 255, 0.9)",
                     }}
                   >
@@ -874,26 +1005,28 @@ export default function Project2() {
                 ))}
               </div>
 
-              <div style={{ display: "flex", gap: "10px", marginTop: "8px" }}>
+              {/* Dual Action Buttons 50/50 */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginTop: "8px" }}>
                 <Link
                   href={`/Project/${activeProject.id}`}
                   style={{
-                    flex: 1,
                     display: "inline-flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    gap: "8px",
-                    padding: "10px 16px",
+                    gap: "6px",
+                    padding: "11px 12px",
                     borderRadius: "999px",
                     backgroundColor: "#ffffff",
                     color: "#000000",
-                    fontSize: "13px",
+                    fontSize: "12.5px",
                     fontWeight: 700,
                     textDecoration: "none",
+                    whiteSpace: "nowrap",
+                    boxShadow: "0 2px 10px rgba(255, 255, 255, 0.2)",
                   }}
                 >
                   <span>View Details</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
@@ -909,14 +1042,15 @@ export default function Project2() {
                       alignItems: "center",
                       justifyContent: "center",
                       gap: "6px",
-                      padding: "10px 16px",
+                      padding: "11px 12px",
                       borderRadius: "999px",
                       backgroundColor: "rgba(255, 255, 255, 0.08)",
                       border: "1px solid rgba(255, 255, 255, 0.15)",
                       color: "#ffffff",
-                      fontSize: "13px",
+                      fontSize: "12.5px",
                       fontWeight: 600,
                       textDecoration: "none",
+                      whiteSpace: "nowrap",
                     }}
                   >
                     <span>Live Demo ↗</span>
@@ -927,8 +1061,9 @@ export default function Project2() {
           </motion.div>
         </AnimatePresence>
       </div>
-      {/* Bottom Quick Switch Controls */}
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "6px", width: "100%", marginTop: "15px" }}>
+
+      {/* Bottom Quick Switch Controls (Desktop Only) */}
+      <div className="desktop-project-arrows" style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "6px", width: "100%", marginTop: "15px" }}>
         <button
           onClick={handlePrev}
           aria-label="Previous project"
