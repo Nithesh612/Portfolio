@@ -26,8 +26,8 @@ Passionate Full Stack Developer with hands-on expertise in building scalable, re
 ### 1. Thunder — Gaming E-Commerce Platform
 - **Description**: High-performance esports gear and gaming hardware e-commerce platform with dynamic product filtering and persistent cart system.
 - **Tech Stack**: React, Next.js, TypeScript, Tailwind CSS, Node.js, Vercel
-- **Live Demo**: [https://nithesh612.github.io/E-commerce-1/](https://nithesh612.github.io/E-commerce-1/)
-- **GitHub**: [https://github.com/nithesh612/E-commerce-1](https://github.com/nithesh612/E-commerce-1)
+- **Live Demo**: [https://nithesh612.github.io/E-Commerce-clone/](https://nithesh612.github.io/E-Commerce-clone/)
+- **GitHub**: [https://github.com/nithesh612/E-Commerce-clone](https://github.com/nithesh612/E-Commerce-clone)
 
 ---
 

@@ -351,37 +351,46 @@ export default function Skillset() {
           MY SKILLSET
         </motion.div>
 
-        {/* Main Heading: The Magic Behind */}
+        {/* Main Heading: Skills Behind */}
         <motion.h2
           style={{
             position: "relative",
             zIndex: 10,
-            fontSize: "clamp(36px, 5vw, 64px)",
+            fontSize: "clamp(34px, 5vw, 60px)",
             fontWeight: 800,
             letterSpacing: "-0.03em",
-            lineHeight: 1.1,
+            lineHeight: 1.2,
             margin: "0 0 54px 0",
             color: "#ffffff",
             textTransform: "none",
             textShadow: "0 4px 25px rgba(0,0,0,0.9)",
+            display: "inline-flex",
+            alignItems: "baseline",
+            justifyContent: "center",
+            flexWrap: "wrap",
+            gap: "14px",
           }}
         >
-          The Magic{" "}
+          <span style={{ fontFamily: "'Plus Jakarta Sans', 'Instrument Sans', sans-serif", fontWeight: 800 }}>
+            Skills
+          </span>
           <span
             style={{
-              fontStyle: "italic",
+              fontFamily: "'Alex Brush', 'Great Vibes', 'Pinyon Script', 'Playball', cursive",
               fontWeight: 400,
-              fontFamily: "'Playfair Display', 'Instrument Sans', serif, sans-serif",
-              background: "linear-gradient(90deg, #ec4899 0%, #f43f5e 45%, #fb923c 100%)",
+              fontSize: "clamp(46px, 6.5vw, 82px)",
+              background: "linear-gradient(135deg, #fb7185 0%, #e11d48 55%, #be123c 100%)",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               WebkitTextFillColor: "transparent",
               color: "transparent",
               display: "inline-block",
               textTransform: "none",
+              letterSpacing: "0.01em",
+              filter: "drop-shadow(0 0 25px rgba(225, 29, 72, 0.4))",
             }}
           >
-            Behind
+            Behind.
           </span>
         </motion.h2>
 

@@ -17,8 +17,8 @@ const allProjectsList = [
       { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
       { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
     ],
-    github: "https://github.com/nithesh612/E-commerce-1",
-    preview: "https://nithesh612.github.io/E-commerce-1/",
+    github: "https://github.com/nithesh612/E-Commerce-clone",
+    preview: "https://nithesh612.github.io/E-Commerce-clone/",
     detailUrl: "/Project/thunder",
   },
   {

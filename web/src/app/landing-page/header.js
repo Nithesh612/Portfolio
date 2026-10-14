@@ -107,6 +107,9 @@ export default function Header() {
             }
           }
           @media (max-width: 600px) {
+            .portfolio-header-container {
+              padding: 10px 14px !important;
+            }
             .header-branding-divider {
               display: none !important;
             }
@@ -159,6 +162,24 @@ export default function Header() {
           .header-dropdown-item:hover {
             background: rgba(255, 255, 255, 0.08);
             color: #ffffff;
+          }
+          .header-hamburger-trigger {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            padding: 0;
+          }
+          .header-hamburger-trigger:hover {
+            background-color: rgba(255, 255, 255, 0.22);
+            transform: scale(1.08);
           }
         `}</style>
 
@@ -594,27 +615,7 @@ export default function Header() {
             type="button"
             aria-label="Open Navigation Menu"
             title="Open Menu"
-            style={{
-              width: "34px",
-              height: "34px",
-              borderRadius: "50%",
-              backgroundColor: "rgba(255, 255, 255, 0.08)",
-              border: "1px solid rgba(255, 255, 255, 0.12)",
-              color: "#ffffff",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.22)";
-              e.currentTarget.style.transform = "scale(1.08)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.08)";
-              e.currentTarget.style.transform = "scale(1)";
-            }}
+            className="header-hamburger-trigger"
           >
             {/* 3 Horizontal Lines (Hamburger Icon) */}
             <svg

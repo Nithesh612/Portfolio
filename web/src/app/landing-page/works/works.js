@@ -31,7 +31,7 @@ export default function Works() {
                       <h2 className="tw-text-605 fw-medium tw-mb-4">
                         <a
                           className="hover-text-main-two-600"
-                          href="https://nithesh612.github.io/E-commerce-1/"
+                          href="https://nithesh612.github.io/E-Commerce-clone/"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -68,7 +68,7 @@ export default function Works() {
                     <div className="portfolio-three-button">
                       <a
                         className="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
-                        href="https://nithesh612.github.io/E-commerce-1/"
+                        href="https://nithesh612.github.io/E-Commerce-clone/"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -83,7 +83,7 @@ export default function Works() {
                 >
                   <a
                     className="d-block cursor-hide tw-rounded-lg"
-                    href="https://nithesh612.github.io/E-commerce-1/"
+                    href="https://nithesh612.github.io/E-Commerce-clone/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

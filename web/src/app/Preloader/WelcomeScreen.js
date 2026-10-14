@@ -65,7 +65,7 @@ export default function WelcomeScreen() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{ 
+        exit={{
           opacity: 0,
           y: -50,
           transition: {
@@ -167,7 +167,7 @@ export default function WelcomeScreen() {
             margin: 0,
           }}
         >
-          Creating Websites That Feel Alive.
+
         </motion.p>
 
         {/* Website Badge */}

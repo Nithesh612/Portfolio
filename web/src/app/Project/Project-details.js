@@ -67,8 +67,8 @@ const projectData = {
         gallery: [
             "/assets/thumbs/ecommerce-thumb.png"
         ],
-        preview: "https://nithesh612.github.io/E-commerce-1/",
-        github: "https://github.com/nithesh612/E-commerce-1",
+        preview: "https://nithesh612.github.io/E-Commerce-clone/",
+        github: "https://github.com/nithesh612/E-Commerce-clone",
         role: "Frontend & UI Developer",
         timeline: "2024 - 2025",
         status: "🟢 Live on GitHub Pages",
@@ -164,6 +164,8 @@ const slugAliases = {
     "thunder-e-commerce": "thunder",
     "thunder-ecommerce": "thunder",
     "thunder e-commerce": "thunder",
+    "e-commerce-clone": "thunder",
+    "ecommerce-clone": "thunder",
     "bookshelf": "bookshelf",
     "bookshelf-management-system": "bookshelf",
     "book-management-system": "bookshelf",
@@ -183,11 +185,30 @@ function ProjectDetailContent({ slug }) {
 
     useEffect(() => {
         let isMounted = true;
-        // Avoid synchronous state update to prevent cascading renders
         setTimeout(() => {
             if (isMounted) setActiveImage(project.banner);
         }, 0);
-        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        // Unlock scroll and cleanup any previous ScrollSmoother instances from home page
+        if (typeof window !== "undefined") {
+            if (window.ScrollSmoother) {
+                try {
+                    const smoother = window.ScrollSmoother.get();
+                    if (smoother) smoother.kill();
+                } catch (e) {}
+            }
+            if (window.ScrollTrigger) {
+                try {
+                    window.ScrollTrigger.refresh();
+                } catch (e) {}
+            }
+            document.body.style.overflow = "auto";
+            document.body.style.height = "auto";
+            document.documentElement.style.overflow = "auto";
+            document.documentElement.style.height = "auto";
+        }
+        window.scrollTo(0, 0);
+
         return () => { isMounted = false; };
     }, [project.id, project.banner]);
 
@@ -213,16 +234,15 @@ function ProjectDetailContent({ slug }) {
                 position: "relative",
             }}
         >
-            {/* Top Glowing Fiery Orange Scroll Progress Bar */}
+            {/* Top Clean Accent Scroll Progress Bar */}
             <div
                 style={{
                     position: "fixed",
                     top: 0,
                     left: 0,
-                    height: "3.5px",
+                    height: "3px",
                     width: `${scrollProgress}%`,
-                    background: "linear-gradient(90deg, #ff4500 0%, #ff6600 50%, #ff8800 100%)",
-                    boxShadow: "0 0 14px #ff5722, 0 0 28px rgba(255, 87, 34, 0.6)",
+                    background: "#ff5722",
                     zIndex: 9999,
                     transition: "width 0.05s ease-out",
                     pointerEvents: "none",
@@ -250,8 +270,8 @@ function ProjectDetailContent({ slug }) {
                         justifyContent: "space-between",
                     }}
                 >
-                    <Link
-                        href="/"
+                    <a
+                        href="/#showcase"
                         style={{
                             display: "inline-flex",
                             alignItems: "center",
@@ -276,7 +296,7 @@ function ProjectDetailContent({ slug }) {
                         }}
                     >
                         <span>←</span> Back to Projects
-                    </Link>
+                    </a>
 
                     <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
                         {project.github && (
@@ -323,7 +343,7 @@ function ProjectDetailContent({ slug }) {
                                     padding: "8px 16px",
                                     borderRadius: "8px",
                                     transition: "all 0.2s ease",
-                                    boxShadow: "0 4px 16px rgba(255, 87, 34, 0.35)",
+                                    boxShadow: "none",
                                 }}
                                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f4511e")}
                                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ff5722")}
@@ -618,8 +638,11 @@ function ProjectDetailContent({ slug }) {
                                 fontSize: "15px",
                                 fontWeight: 700,
                                 textDecoration: "none",
-                                boxShadow: "0 8px 24px rgba(255, 87, 34, 0.4)",
+                                boxShadow: "none",
+                                transition: "all 0.2s ease",
                             }}
+                            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f4511e")}
+                            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#ff5722")}
                         >
                             <span>Launch Live App</span>
                             <span>↗</span>

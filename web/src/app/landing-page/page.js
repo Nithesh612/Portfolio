@@ -32,25 +32,37 @@ export default function PortfolioPage() {
   const [showWelcome, setShowWelcome] = React.useState(true);
 
   useEffect(() => {
-    const handleHashScroll = () => {
-      if (typeof window !== "undefined" && window.location.hash) {
+    const hasHash = typeof window !== "undefined" && window.location.hash;
+    const hasVisited = typeof window !== "undefined" && sessionStorage.getItem("portfolio_visited");
+
+    if (hasHash || hasVisited) {
+      setShowWelcome(false);
+      if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+
+      if (hasHash) {
+        const id = window.location.hash.substring(1);
         setTimeout(() => {
-          const id = window.location.hash.substring(1);
           const element = document.getElementById(id);
           if (element) {
-            if (window.gsap) {
-              window.gsap.to(window, { duration: 1, scrollTo: element, ease: "power2.inOut" });
-            } else {
-              element.scrollIntoView({ behavior: "smooth" });
-            }
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
           }
-        }, 100);
+        }, 150);
       }
-    };
+      return;
+    }
+
+    if (typeof window !== "undefined") {
+      sessionStorage.setItem("portfolio_visited", "true");
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+      window.scrollTo(0, 0);
+    }
 
     const timer = setTimeout(() => {
       setShowWelcome(false);
-      handleHashScroll();
     }, 4800);
 
     return () => clearTimeout(timer);
@@ -62,9 +74,19 @@ export default function PortfolioPage() {
     }
 
     return () => {
-      // Clean up GSAP triggers when leaving homepage so return navigation doesn't break
-      if (typeof window !== "undefined" && window.ScrollTrigger) {
-        window.ScrollTrigger.getAll().forEach((t) => t.kill());
+      // Clean up GSAP triggers & ScrollSmoother when leaving homepage so return navigation doesn't break
+      if (typeof window !== "undefined") {
+        if (window.ScrollSmoother) {
+          const smoother = window.ScrollSmoother.get();
+          if (smoother) smoother.kill();
+        }
+        if (window.ScrollTrigger) {
+          window.ScrollTrigger.getAll().forEach((t) => t.kill());
+        }
+        document.body.style.overflow = "auto";
+        document.body.style.height = "auto";
+        document.documentElement.style.overflow = "auto";
+        document.documentElement.style.height = "auto";
       }
     };
   }, []);
@@ -80,13 +102,6 @@ export default function PortfolioPage() {
         <div id="ball"></div>
       </div>
       <div id="toast-container"></div>
-      <div className="back-to-top-wrapper">
-        <button suppressHydrationWarning id="back_to_top" type="button" className="back-to-top-btn">
-          <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11 6L6 1L1 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-      </div>
 
       <Header />
 

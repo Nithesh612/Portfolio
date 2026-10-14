@@ -31,8 +31,8 @@ const PROJECTS_DATA = [
       { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/339933" },
       { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/FFFFFF" },
     ],
-    liveUrl: "https://nithesh612.github.io/E-commerce-1/",
-    githubUrl: "https://github.com/nithesh612/E-commerce-1",
+    liveUrl: "https://nithesh612.github.io/E-Commerce-clone/",
+    githubUrl: "https://github.com/nithesh612/E-Commerce-clone",
     desktopImg: "/assets/thumbs/ecommerce-thumb.png",
     mobileImg1: "/assets/thumbs/ecommerce-thumb.png",
     mobileImg2: "/assets/thumbs/ecommerce-thumb.png",
@@ -153,6 +153,7 @@ export default function Project2() {
         overflow: "hidden",
       }}
     >
+      <span id="projects" style={{ position: "absolute", top: 0, left: 0, pointerEvents: "none" }} />
       <style>{`
         .mockup-card-hover {
           transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
@@ -475,24 +476,28 @@ export default function Project2() {
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
+                      justifyContent: "center",
                       gap: "8px",
-                      padding: "8px 18px",
+                      height: "38px",
+                      padding: "0 18px",
+                      boxSizing: "border-box",
                       borderRadius: "9999px",
                       backgroundColor: "#ffffff",
+                      border: "1px solid transparent",
                       color: "#000000",
                       fontSize: "13px",
                       fontWeight: 700,
                       textDecoration: "none",
-                      boxShadow: `0 4px 20px ${activeProject.accentGlow}`,
+                      boxShadow: "0 2px 8px rgba(0, 0, 0, 0.12)",
                       transition: "all 0.25s ease",
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = "translateY(-2px)";
-                      e.currentTarget.style.boxShadow = `0 6px 24px ${activeProject.accentColor}70`;
+                      e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.2)";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.boxShadow = `0 4px 20px ${activeProject.accentGlow}`;
+                      e.currentTarget.style.boxShadow = "0 2px 8px rgba(0, 0, 0, 0.12)";
                     }}
                   >
                     <span>View Details</span>
@@ -510,12 +515,15 @@ export default function Project2() {
                       style={{
                         display: "inline-flex",
                         alignItems: "center",
+                        justifyContent: "center",
                         gap: "6px",
-                        padding: "8px 16px",
+                        height: "38px",
+                        padding: "0 16px",
+                        boxSizing: "border-box",
                         borderRadius: "9999px",
                         backgroundColor: "rgba(255, 255, 255, 0.05)",
-                        border: "1px solid rgba(255, 255, 255, 0.12)",
-                        color: "rgba(255, 255, 255, 0.8)",
+                        border: "1px solid rgba(255, 255, 255, 0.15)",
+                        color: "rgba(255, 255, 255, 0.9)",
                         fontSize: "13px",
                         fontWeight: 600,
                         textDecoration: "none",
@@ -523,13 +531,15 @@ export default function Project2() {
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.color = "#ffffff";
-                        e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.3)";
+                        e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.35)";
                         e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+                        e.currentTarget.style.transform = "translateY(-2px)";
                       }}
                       onMouseLeave={(e) => {
-                        e.currentTarget.style.color = "rgba(255, 255, 255, 0.8)";
-                        e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.12)";
+                        e.currentTarget.style.color = "rgba(255, 255, 255, 0.9)";
+                        e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.15)";
                         e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.05)";
+                        e.currentTarget.style.transform = "translateY(0)";
                       }}
                     >
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -537,7 +547,11 @@ export default function Project2() {
                         <line x1="2" y1="12" x2="22" y2="12" />
                         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                       </svg>
-                      <span>Live Demo ↗</span>
+                      <span>Live Demo</span>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7" />
+                        <polyline points="7 7 17 7 17 17" />
+                      </svg>
                     </a>
                   )}
                 </div>
@@ -1014,15 +1028,18 @@ export default function Project2() {
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "6px",
-                    padding: "11px 12px",
+                    height: "36px",
+                    padding: "0 14px",
+                    boxSizing: "border-box",
                     borderRadius: "999px",
                     backgroundColor: "#ffffff",
+                    border: "1px solid transparent",
                     color: "#000000",
                     fontSize: "12.5px",
                     fontWeight: 700,
                     textDecoration: "none",
                     whiteSpace: "nowrap",
-                    boxShadow: "0 2px 10px rgba(255, 255, 255, 0.2)",
+                    boxShadow: "0 2px 6px rgba(0, 0, 0, 0.12)",
                   }}
                 >
                   <span>View Details</span>
@@ -1042,7 +1059,9 @@ export default function Project2() {
                       alignItems: "center",
                       justifyContent: "center",
                       gap: "6px",
-                      padding: "11px 12px",
+                      height: "36px",
+                      padding: "0 14px",
+                      boxSizing: "border-box",
                       borderRadius: "999px",
                       backgroundColor: "rgba(255, 255, 255, 0.08)",
                       border: "1px solid rgba(255, 255, 255, 0.15)",
@@ -1053,7 +1072,11 @@ export default function Project2() {
                       whiteSpace: "nowrap",
                     }}
                   >
-                    <span>Live Demo ↗</span>
+                    <span>Live Demo</span>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
                   </a>
                 )}
               </div>

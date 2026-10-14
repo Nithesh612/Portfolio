@@ -74,11 +74,12 @@ export default function CTA() {
         >
           <h2
             style={{
-              fontSize: "clamp(26px, 6vw, 84px)",
+              fontSize: "clamp(28px, 6vw, 72px)",
               fontWeight: 800,
-              color: "#111111",
-              letterSpacing: "-0.04em",
-              lineHeight: 1,
+              fontFamily: "'Plus Jakarta Sans', 'Instrument Sans', sans-serif",
+              color: "#0f172a",
+              letterSpacing: "-0.035em",
+              lineHeight: 1.1,
               margin: 0,
             }}
           >
@@ -86,14 +87,18 @@ export default function CTA() {
           </h2>
           <h2
             style={{
-              fontSize: "clamp(26px, 6vw, 84px)",
-              fontWeight: 800,
-              background: "linear-gradient(135deg, #e11d48 0%, #f43f5e 35%, #fb7185 65%, #f97316 100%)",
+              fontSize: "clamp(38px, 7.5vw, 92px)",
+              fontWeight: 400,
+              fontFamily: "'Alex Brush', 'Great Vibes', 'Pinyon Script', 'Playball', cursive",
+              color: "#e11d48",
+              background: "linear-gradient(135deg, #e11d48 0%, #be123c 60%, #9f1239 100%)",
               WebkitBackgroundClip: "text",
+              backgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              letterSpacing: "-0.04em",
+              letterSpacing: "0.01em",
               lineHeight: 1.05,
-              margin: 0,
+              margin: "2px 0 0 0",
+              filter: "drop-shadow(0 2px 14px rgba(225, 29, 72, 0.25))",
             }}
           >
             AI-Driven.
