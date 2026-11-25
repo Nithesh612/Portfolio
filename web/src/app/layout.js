@@ -8,6 +8,7 @@ import ScriptLoader from "./SmoothScroll/ScriptLoader";
 import Scroll from "./SmoothScroll/SmoothScroll";
 import Chatbot from "./chatbot/chatbot";
 import { siteMetadata } from "./seo/og-tag";
+import { schema } from "./seo/aeo/schema";
 
 export const metadata = siteMetadata;
 
@@ -15,6 +16,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
