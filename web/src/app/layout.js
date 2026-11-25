@@ -7,14 +7,9 @@ import "./styles/main.css";
 import ScriptLoader from "./SmoothScroll/ScriptLoader";
 import Scroll from "./SmoothScroll/SmoothScroll";
 import Chatbot from "./chatbot/chatbot";
-export const metadata = {
-  title: "Nithesh Kumar R",
-  description:
-    "Nithesh Kumar R - MCA - Personal Portfolio & Full Stack Developer & AI. Fully responsive, creative design.",
-  icons: {
-    icon: "/favicon.ico",
-  },
-};
+import { siteMetadata } from "./seo/og-tag";
+
+export const metadata = siteMetadata;
 
 export default function RootLayout({ children }) {
   return (
@@ -35,6 +30,7 @@ export default function RootLayout({ children }) {
         </Scroll>
         <Chatbot />
         <ScriptLoader />
+
       </body>
     </html>
   );
