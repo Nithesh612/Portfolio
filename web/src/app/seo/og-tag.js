@@ -13,7 +13,7 @@ export const siteMetadata = {
         siteName: "Nithesh Kumar Portfolio",
         images: [
             {
-                url: "/assets/thumbs/ecommerce-thumb.png",
+                url: "/assets/thumbs/cover.png",
                 width: 1200,
                 height: 630,
                 alt: "Nithesh Kumar R Portfolio Preview",
@@ -25,6 +25,6 @@ export const siteMetadata = {
         card: "summary_large_image",
         title: "Nithesh Kumar R | Full Stack Developer & AI",
         description: "Crafting modern web apps and AI-powered digital experiences.",
-        images: ["/assets/thumbs/ecommerce-thumb.png"],
+        images: ["/assets/thumbs/cover.png"],
     },
 };
