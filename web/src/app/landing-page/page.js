@@ -62,7 +62,7 @@ export default function PortfolioPage() {
 
     const timer = setTimeout(() => {
       setShowWelcome(false);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);

@@ -17,7 +17,7 @@ export default function WelcomeScreen() {
       exit={{
         y: "-100%",
         transition: {
-          duration: 0.8,
+          duration: 0.45,
           ease: [0.76, 0, 0.24, 1],
         },
       }}
@@ -96,8 +96,8 @@ export default function WelcomeScreen() {
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
-                delay: 0.1,
-                duration: 0.5,
+                delay: 0.05,
+                duration: 0.35,
                 ease: [0.22, 1, 0.36, 1],
               }}
               style={{
@@ -113,8 +113,8 @@ export default function WelcomeScreen() {
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
-                delay: 0.2,
-                duration: 0.5,
+                delay: 0.1,
+                duration: 0.35,
                 ease: [0.22, 1, 0.36, 1],
               }}
               style={{
@@ -131,8 +131,8 @@ export default function WelcomeScreen() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
-              delay: 0.3,
-              duration: 0.5,
+              delay: 0.15,
+              duration: 0.35,
               ease: [0.22, 1, 0.36, 1],
             }}
             style={{
@@ -155,8 +155,8 @@ export default function WelcomeScreen() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{
-            delay: 0.45,
-            duration: 0.4,
+            delay: 0.2,
+            duration: 0.3,
           }}
           style={{
             padding: "8px 18px",
@@ -177,8 +177,8 @@ export default function WelcomeScreen() {
             initial={{ width: "0ch" }}
             animate={{ width: "29ch" }}
             transition={{
-              delay: 0.5,
-              duration: 0.8,
+              delay: 0.25,
+              duration: 0.45,
               ease: "easeInOut",
             }}
             style={{ display: "inline-block", overflow: "hidden", whiteSpace: "nowrap" }}
@@ -188,7 +188,7 @@ export default function WelcomeScreen() {
 
           <motion.span
             animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 0.4, repeat: Infinity }}
+            transition={{ duration: 0.3, repeat: Infinity }}
             style={{ marginLeft: "2px" }}
           >
             |
@@ -215,7 +215,7 @@ export default function WelcomeScreen() {
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
                 transition={{
-                  duration: 1.8,
+                  duration: 0.85,
                   ease: [0.22, 1, 0.36, 1],
                 }}
                 style={{
@@ -260,7 +260,7 @@ function PercentageCounter() {
 
   useEffect(() => {
     const controls = animate(0, 100, {
-      duration: 1.8,
+      duration: 0.85,
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (latest) => {
         setPercent(Math.round(latest));
