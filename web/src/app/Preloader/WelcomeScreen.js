@@ -1,33 +1,71 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { motion, animate } from "framer-motion";
+import { useLenis } from "lenis/react";
 
 export default function WelcomeScreen() {
+  const lenis = useLenis();
+
   useEffect(() => {
-    if (typeof window !== "undefined" && window.lenis) {
-      window.lenis.stop();
+    // 1. Force scroll position to the top
+    window.scrollTo(0, 0);
+
+    // 2. Stop Lenis immediately if instance is available
+    if (lenis) {
+      lenis.stop();
+      lenis.scrollTo(0, { immediate: true });
     }
 
-    const preventScroll = (e) => {
+    // 3. Lock document body and html overflow so background never scrolls
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    // 4. Block all wheel, touch, and keyboard scroll events
+    const preventDefault = (e) => {
       e.preventDefault();
+      e.stopPropagation();
     };
 
-    window.addEventListener("wheel", preventScroll, { passive: false });
-    window.addEventListener("touchmove", preventScroll, { passive: false });
+    const preventKeys = (e) => {
+      if (["Space", "ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End"].includes(e.code)) {
+        e.preventDefault();
+      }
+    };
+
+    window.addEventListener("wheel", preventDefault, { passive: false });
+    window.addEventListener("touchmove", preventDefault, { passive: false });
+    window.addEventListener("keydown", preventKeys, { passive: false });
+
+    // 5. Keep polling during preloading to catch late-mounted Lenis or any scroll drift
+    const interval = setInterval(() => {
+      if (window.lenis) {
+        window.lenis.stop();
+        window.lenis.scrollTo(0, { immediate: true });
+      }
+      window.scrollTo(0, 0);
+    }, 40);
 
     return () => {
-      window.removeEventListener("wheel", preventScroll);
-      window.removeEventListener("touchmove", preventScroll);
+      clearInterval(interval);
+      window.removeEventListener("wheel", preventDefault);
+      window.removeEventListener("touchmove", preventDefault);
+      window.removeEventListener("keydown", preventKeys);
+
       if (typeof window !== "undefined") {
-        document.body.style.overflow = "";
-        document.documentElement.style.overflow = "";
+        document.body.style.overflow = originalBodyOverflow || "";
+        document.documentElement.style.overflow = originalHtmlOverflow || "";
+
+        window.scrollTo(0, 0);
         if (window.lenis) {
+          window.lenis.scrollTo(0, { immediate: true });
           window.lenis.start();
           window.lenis.resize();
         }
       }
     };
-  }, []);
+  }, [lenis]);
 
   return (
     <motion.div
