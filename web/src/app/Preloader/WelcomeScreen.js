@@ -4,9 +4,28 @@ import { motion, animate } from "framer-motion";
 
 export default function WelcomeScreen() {
   useEffect(() => {
-    document.body.style.overflow = "hidden";
+    if (typeof window !== "undefined" && window.lenis) {
+      window.lenis.stop();
+    }
+
+    const preventScroll = (e) => {
+      e.preventDefault();
+    };
+
+    window.addEventListener("wheel", preventScroll, { passive: false });
+    window.addEventListener("touchmove", preventScroll, { passive: false });
+
     return () => {
-      document.body.style.overflow = "auto";
+      window.removeEventListener("wheel", preventScroll);
+      window.removeEventListener("touchmove", preventScroll);
+      if (typeof window !== "undefined") {
+        document.body.style.overflow = "";
+        document.documentElement.style.overflow = "";
+        if (window.lenis) {
+          window.lenis.start();
+          window.lenis.resize();
+        }
+      }
     };
   }, []);
 

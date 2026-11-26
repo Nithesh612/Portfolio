@@ -1,5 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import WelcomeScreen from "../Preloader/WelcomeScreen";
 import VelocityMarquee from "./About/VelocityMarquee";
 import Header from "./header";
 import HeroSection from "./hero-section";
@@ -27,8 +29,11 @@ const MARQUEE_ROWS = [
 ];
 
 export default function PortfolioPage() {
+  const [showWelcome, setShowWelcome] = useState(true);
+
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.hash) {
+      setShowWelcome(false);
       const id = window.location.hash.substring(1);
       const scrollToTarget = () => {
         const element = document.getElementById(id);
@@ -43,7 +48,14 @@ export default function PortfolioPage() {
       setTimeout(scrollToTarget, 150);
       setTimeout(scrollToTarget, 400);
       setTimeout(scrollToTarget, 800);
+      return;
     }
+
+    const timer = setTimeout(() => {
+      setShowWelcome(false);
+    }, 1200);
+
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -71,6 +83,10 @@ export default function PortfolioPage() {
 
   return (
     <>
+      <AnimatePresence mode="wait">
+        {showWelcome && <WelcomeScreen key="welcome-screen" />}
+      </AnimatePresence>
+
       <div className="overlay"></div>
       <div id="magic-cursor">
         <div id="ball"></div>
