@@ -6,70 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const PROJECTS_DATA = [
   {
-    id: "thunder",
-    num: "01",
-    title: "Thunder",
-    subtitle: "High-Performance Gaming Gear & Hardware E-Commerce Platform",
-    tagline: "Your all-in-one destination for premium esports peripherals and immersive shopping.",
-    accentColor: "#ef4444",
-    accentGlow: "rgba(239, 68, 68, 0.35)",
-    cardGradient: "linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%)",
-    description:
-      "🚀 Thunder is an immersive, high-performance gaming hardware and esports gear e-commerce platform. Built with interactive product showcases, dynamic filtering, real-time cart persistence, and lightning-fast responsive navigation to streamline gear discovery.",
-    features: [
-      "100+ gaming hardware catalog with dynamic category filters and instant search",
-      "Interactive cart drawer with persistent local storage and instant order calculations",
-      "Optimized responsive architecture with custom animations and smooth micro-interactions",
-    ],
-    stack: [
-      { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
-      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
-      { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
-      { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
-      { name: "Motion", icon: "https://cdn.simpleicons.org/framer/0055FF" },
-      { name: "Framer Motion", icon: "https://cdn.simpleicons.org/framer/0055FF" },
-      { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/339933" },
-      { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/FFFFFF" },
-    ],
-    liveUrl: "https://nithesh612.github.io/E-Commerce-clone/",
-    githubUrl: "https://github.com/nithesh612/E-Commerce-clone",
-    desktopImg: "/assets/thumbs/ecommerce-thumb.png",
-    mobileImg1: "/assets/thumbs/ecommerce-thumb.png",
-    mobileImg2: "/assets/thumbs/ecommerce-thumb.png",
-  },
-  {
-    id: "bookshelf",
-    num: "02",
-    title: "BookShelf",
-    subtitle: "Full-Stack Library & Book Inventory Management System",
-    tagline: "Comprehensive system to track, organize reading lists, and manage inventory seamlessly.",
-    accentColor: "#3b82f6",
-    accentGlow: "rgba(59, 130, 246, 0.35)",
-    cardGradient: "linear-gradient(135deg, #2563eb 0%, #1e40af 100%)",
-    description:
-      "📚 BookShelf is a full-stack inventory and digital library management platform. Designed for students, librarians, and avid readers to catalog book collections, track real-time borrow & return lifecycles, and monitor literature availability with instant search and analytics.",
-    features: [
-      "Complete inventory CRUD system with categories, author indexing, and cover previews",
-      "Real-time status tracking for borrowed, available, and archived literature records",
-      "Modular dashboard with responsive layout and clean, accessible data tables",
-    ],
-    stack: [
-      { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
-      { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
-      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
-      { name: "Bootstrap", icon: "https://cdn.simpleicons.org/bootstrap/7952B3" },
-      { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/339933" },
-      { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/FFFFFF" },
-    ],
-    liveUrl: "https://book-management-system-r1.vercel.app/",
-    githubUrl: "https://github.com/nithesh612/book-management-system",
-    desktopImg: "/assets/thumbs/Book-management-system.png",
-    mobileImg1: "/assets/thumbs/Book-management-system.png",
-    mobileImg2: "/assets/thumbs/BMS/image.png",
-  },
-  {
     id: "nexio-hub",
-    num: "03",
+    num: "01",
     title: "Nexio Hub",
     subtitle: "Central Bookmarks, AI Tools & Creative Assets Hub",
     tagline: "The central bookmarks, AI tools, and creative assets hub for modern creators and designers.",
@@ -390,7 +328,7 @@ export default function Project2() {
           position: "relative",
           zIndex: 2,
           display: "grid",
-          gridTemplateColumns: "1.15fr 50px 1.75fr",
+          gridTemplateColumns: PROJECTS_DATA.length > 1 ? "1.15fr 50px 1.75fr" : "1.1fr 1.8fr",
           gap: "36px",
           alignItems: "center",
           padding: "0 20px 40px 20px",
@@ -571,42 +509,44 @@ export default function Project2() {
         </div>
 
         {/* ======================================= */}
-        {/* 2. MIDDLE SPINE: VERTICAL STEP DOTS */}
+        {/* 2. MIDDLE SPINE: VERTICAL STEP DOTS (Only shown if multiple projects) */}
         {/* ======================================= */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "18px",
-            minHeight: "460px",
-            position: "relative",
-          }}
-        >
-          {/* Number Step Dots */}
-          {PROJECTS_DATA.map((proj, idx) => {
-            const isCurr = idx === activeIndex;
-            return (
-              <button
-                key={proj.id}
-                onClick={() => handleSelect(idx)}
-                className="step-dot-btn"
-                title={`Switch to ${proj.title}`}
-                type="button"
-                style={{
-                  backgroundColor: isCurr ? proj.accentColor : "rgba(255, 255, 255, 0.05)",
-                  color: isCurr ? "#ffffff" : "rgba(255, 255, 255, 0.5)",
-                  borderColor: isCurr ? "#ffffff" : "rgba(255, 255, 255, 0.12)",
-                  boxShadow: isCurr ? `0 0 16px ${proj.accentGlow}` : "none",
-                  transform: isCurr ? "scale(1.15)" : "scale(1)",
-                }}
-              >
-                {proj.num}
-              </button>
-            );
-          })}
-        </div>
+        {PROJECTS_DATA.length > 1 && (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "18px",
+              minHeight: "460px",
+              position: "relative",
+            }}
+          >
+            {/* Number Step Dots */}
+            {PROJECTS_DATA.map((proj, idx) => {
+              const isCurr = idx === activeIndex;
+              return (
+                <button
+                  key={proj.id}
+                  onClick={() => handleSelect(idx)}
+                  className="step-dot-btn"
+                  title={`Switch to ${proj.title}`}
+                  type="button"
+                  style={{
+                    backgroundColor: isCurr ? proj.accentColor : "rgba(255, 255, 255, 0.05)",
+                    color: isCurr ? "#ffffff" : "rgba(255, 255, 255, 0.5)",
+                    borderColor: isCurr ? "#ffffff" : "rgba(255, 255, 255, 0.12)",
+                    boxShadow: isCurr ? `0 0 16px ${proj.accentGlow}` : "none",
+                    transform: isCurr ? "scale(1.15)" : "scale(1)",
+                  }}
+                >
+                  {proj.num}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         {/* ======================================= */}
         {/* 3. RIGHT COLUMN: ACTIVE MOCKUPS SHOWCASE */}
@@ -870,51 +810,53 @@ export default function Project2() {
       {/* MOBILE VIEW: CLEAN SINGLE CARD + CAROUSEL NAVIGATION */}
       {/* ========================================================= */}
       <div className="mobile-projects-view" style={{ width: "100%", padding: "0 12px", maxWidth: "560px", margin: "0 auto", position: "relative", zIndex: 3 }}>
-        {/* Mobile Top Step Navigation */}
-        <div className="mobile-project-nav-bar">
-          <div className="mobile-project-tabs-scroll">
-            {PROJECTS_DATA.map((proj, idx) => {
-              const isCurr = idx === activeIndex;
-              return (
-                <button
-                  key={proj.id}
-                  onClick={() => handleSelect(idx)}
-                  type="button"
-                  className={`mobile-project-tab-pill ${isCurr ? "active" : ""}`}
-                  style={{
-                    backgroundColor: isCurr ? proj.accentColor : "rgba(255, 255, 255, 0.06)",
-                    borderColor: isCurr ? proj.accentColor : "rgba(255, 255, 255, 0.15)",
-                    boxShadow: isCurr ? `0 0 16px ${proj.accentGlow}` : "none",
-                  }}
-                >
-                  <span style={{ opacity: isCurr ? 1 : 0.6, fontSize: "11px" }}>{proj.num}.</span>
-                  <span>{proj.title}</span>
-                </button>
-              );
-            })}
-          </div>
+        {/* Mobile Top Step Navigation (Only shown if multiple projects) */}
+        {PROJECTS_DATA.length > 1 && (
+          <div className="mobile-project-nav-bar">
+            <div className="mobile-project-tabs-scroll">
+              {PROJECTS_DATA.map((proj, idx) => {
+                const isCurr = idx === activeIndex;
+                return (
+                  <button
+                    key={proj.id}
+                    onClick={() => handleSelect(idx)}
+                    type="button"
+                    className={`mobile-project-tab-pill ${isCurr ? "active" : ""}`}
+                    style={{
+                      backgroundColor: isCurr ? proj.accentColor : "rgba(255, 255, 255, 0.06)",
+                      borderColor: isCurr ? proj.accentColor : "rgba(255, 255, 255, 0.15)",
+                      boxShadow: isCurr ? `0 0 16px ${proj.accentGlow}` : "none",
+                    }}
+                  >
+                    <span style={{ opacity: isCurr ? 1 : 0.6, fontSize: "11px" }}>{proj.num}.</span>
+                    <span>{proj.title}</span>
+                  </button>
+                );
+              })}
+            </div>
 
-          <div className="mobile-project-arrows">
-            <button
-              onClick={handlePrev}
-              className="project-arrow-btn"
-              style={{ width: "40px", height: "40px" }}
-              aria-label="Previous project"
-              type="button"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
-            </button>
-            <button
-              onClick={handleNext}
-              className="project-arrow-btn"
-              style={{ width: "40px", height: "40px" }}
-              aria-label="Next project"
-              type="button"
-            >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
-            </button>
+            <div className="mobile-project-arrows">
+              <button
+                onClick={handlePrev}
+                className="project-arrow-btn"
+                style={{ width: "40px", height: "40px" }}
+                aria-label="Previous project"
+                type="button"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="15 18 9 12 15 6" /></svg>
+              </button>
+              <button
+                onClick={handleNext}
+                className="project-arrow-btn"
+                style={{ width: "40px", height: "40px" }}
+                aria-label="Next project"
+                type="button"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="9 18 15 12 9 6" /></svg>
+              </button>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Mobile Active Card with Touch Swipe */}
         <AnimatePresence mode="wait">
@@ -1095,33 +1037,35 @@ export default function Project2() {
         </AnimatePresence>
       </div>
 
-      {/* Bottom Quick Switch Controls (Desktop Only) */}
-      <div className="desktop-project-arrows" style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "6px", width: "100%", marginTop: "15px" }}>
-        <button
-          onClick={handlePrev}
-          aria-label="Previous project"
-          className="project-arrow-btn"
-          style={{ width: "38px", height: "38px" }}
-          title="Previous Project (<)"
-          type="button"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </button>
-        <button
-          onClick={handleNext}
-          aria-label="Next project"
-          className="project-arrow-btn"
-          style={{ width: "38px", height: "38px" }}
-          title="Next Project (>)"
-          type="button"
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
-        </button>
-      </div>
+      {/* Bottom Quick Switch Controls (Desktop Only - shown if multiple projects) */}
+      {PROJECTS_DATA.length > 1 && (
+        <div className="desktop-project-arrows" style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "6px", width: "100%", marginTop: "15px" }}>
+          <button
+            onClick={handlePrev}
+            aria-label="Previous project"
+            className="project-arrow-btn"
+            style={{ width: "38px", height: "38px" }}
+            title="Previous Project (<)"
+            type="button"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button
+            onClick={handleNext}
+            aria-label="Next project"
+            className="project-arrow-btn"
+            style={{ width: "38px", height: "38px" }}
+            title="Next Project (>)"
+            type="button"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+      )}
       {/* See More Projects Bottom Callout */}
       <div
         style={{

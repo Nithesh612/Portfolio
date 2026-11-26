@@ -19,19 +19,7 @@
 - **Developer Tools**: Git, GitHub, Vercel, VS Code, Postman
 
 ## Featured Projects
-1. **Thunder E-Commerce Platform**:
-   - Description: High-performance esports gear and gaming hardware e-commerce platform with dynamic product filtering and persistent cart state.
-   - Stack: Next.js, React, TypeScript, Tailwind CSS, Node.js
-   - Live Demo: https://nithesh612.github.io/E-Commerce-clone/
-   - GitHub: https://github.com/nithesh612/E-Commerce-clone
-
-2. **BookShelf Management System**:
-   - Description: Full-stack inventory and library management system to track reading lists, organize archives, and manage borrow/return statuses.
-   - Stack: Next.js, React, TypeScript, Bootstrap, Node.js, Database
-   - Live Demo: https://book-management-system-r1.vercel.app/
-   - GitHub: https://github.com/nithesh612/book-management-system
-
-3. **Nexio Hub**:
+1. **Nexio Hub**:
    - Description: The central bookmarks, AI tools, and creative assets hub for modern creators, designers, and developers.
    - Stack: Next.js, React, Tailwind CSS, Node.js, MongoDB
    - Live Demo: https://nexio-hub.vercel.app/

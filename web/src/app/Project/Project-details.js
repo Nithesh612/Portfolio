@@ -152,22 +152,22 @@ const projectData = {
             { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/FFFFFF", color: "#FFFFFF" }
         ],
         nextProject: {
-            id: "thunder",
-            title: "Thunder E-Commerce"
+            id: "nexio-hub",
+            title: "Nexio Hub"
         }
     }
 };
 
 const slugAliases = {
-    "thunder": "thunder",
-    "thunder-e-commerce": "thunder",
-    "thunder-ecommerce": "thunder",
-    "thunder e-commerce": "thunder",
-    "e-commerce-clone": "thunder",
-    "ecommerce-clone": "thunder",
-    "bookshelf": "bookshelf",
-    "bookshelf-management-system": "bookshelf",
-    "book-management-system": "bookshelf",
+    "thunder": "nexio-hub",
+    "thunder-e-commerce": "nexio-hub",
+    "thunder-ecommerce": "nexio-hub",
+    "thunder e-commerce": "nexio-hub",
+    "e-commerce-clone": "nexio-hub",
+    "ecommerce-clone": "nexio-hub",
+    "bookshelf": "nexio-hub",
+    "bookshelf-management-system": "nexio-hub",
+    "book-management-system": "nexio-hub",
     "nexio": "nexio-hub",
     "nexio-hub": "nexio-hub",
     "nexiohub": "nexio-hub",
@@ -181,7 +181,7 @@ function ProjectDetailContent({ slug }) {
     const normalizedKey = rawParam ? decodeURIComponent(rawParam).toLowerCase().trim() : "";
     const matchedId = slugAliases[normalizedKey] || normalizedKey;
 
-    const project = (matchedId && projectData[matchedId]) ? projectData[matchedId] : projectData.thunder;
+    const project = (matchedId && projectData[matchedId]) ? projectData[matchedId] : projectData["nexio-hub"];
     const [activeImage, setActiveImage] = useState(project.banner);
     const [scrollProgress, setScrollProgress] = useState(0);
 

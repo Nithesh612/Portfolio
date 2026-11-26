@@ -5,40 +5,6 @@ import Image from "next/image";
 
 const allProjectsList = [
   {
-    id: "thunder",
-    title: "Thunder E-Commerce",
-    category: "Web Development",
-    desc: "A modern and immersive e-commerce platform designed for premium gaming gear with interactive product showcases, dynamic filtering, and real-time cart persistence.",
-    logo: "T",
-    thumbnail: "/assets/thumbs/ecommerce-thumb.png",
-    stack: [
-      { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
-      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
-      { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
-      { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4" },
-    ],
-    github: "https://github.com/nithesh612/E-Commerce-clone",
-    preview: "https://nithesh612.github.io/E-Commerce-clone/",
-    detailUrl: "/Project/thunder",
-  },
-  {
-    id: "bookshelf",
-    title: "BookShelf — Management System",
-    category: "Full Stack",
-    desc: "A comprehensive book management and inventory system to track reading lists, organize book archives, and manage borrow-return lifecycles.",
-    logo: "B",
-    thumbnail: "/assets/thumbs/Book-management-system.png",
-    stack: [
-      { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
-      { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
-      { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
-      { name: "Bootstrap", icon: "https://cdn.simpleicons.org/bootstrap/7952B3" },
-    ],
-    github: "https://github.com/nithesh612/book-management-system",
-    preview: "https://book-management-system-r1.vercel.app/",
-    detailUrl: "/Project/bookshelf",
-  },
-  {
     id: "nexio-hub",
     title: "Nexio Hub",
     category: "Full Stack & AI",
@@ -58,7 +24,7 @@ const allProjectsList = [
   },
 ];
 
-const categories = ["All", "Web Development", "Full Stack", "Full Stack & AI"];
+const categories = ["All", "Full Stack & AI"];
 
 export default function AllProjects() {
   const [selectedCategory, setSelectedCategory] = useState("All");

@@ -24,23 +24,7 @@ Passionate Python Full Stack Developer & AI Integrator with hands-on expertise i
 
 ## 🚀 Projects
 
-### 1. Thunder — Gaming E-Commerce Platform
-- **Description**: High-performance esports gear and gaming hardware e-commerce platform with dynamic product filtering and persistent cart system.
-- **Tech Stack**: React, Next.js, TypeScript, Tailwind CSS, Node.js, Vercel
-- **Live Demo**: [https://nithesh612.github.io/E-Commerce-clone/](https://nithesh612.github.io/E-Commerce-clone/)
-- **GitHub**: [https://github.com/nithesh612/E-Commerce-clone](https://github.com/nithesh612/E-Commerce-clone)
-
----
-
-### 2. BookShelf — Library & Inventory Management System
-- **Description**: Full-stack inventory management system to catalog books, track borrow/return statuses, and manage library records in real-time.
-- **Tech Stack**: Next.js, React, TypeScript, Bootstrap, Node.js, Database
-- **Live Demo**: [https://book-management-system-r1.vercel.app/](https://book-management-system-r1.vercel.app/)
-- **GitHub**: [https://github.com/nithesh612/book-management-system](https://github.com/nithesh612/book-management-system)
-
----
-
-### 3. Nexio Hub — Bookmarks, AI Tools & Creative Assets Hub
+### 1. Nexio Hub — Bookmarks, AI Tools & Creative Assets Hub
 - **Description**: Centralized platform curating top AI tools, creative assets, and design inspiration for modern creators and developers.
 - **Tech Stack**: Next.js, React, Tailwind CSS, Node.js, MongoDB, Vercel
 - **Live Demo**: [https://nexio-hub.vercel.app/](https://nexio-hub.vercel.app/)
