@@ -1,5 +1,5 @@
 # Nithesh Kumar R
-**Full Stack Developer & AI** | MCA (Master of Computer Applications)  
+**Python Full Stack Developer & AI** | MCA (Master of Computer Applications)  
 📧 **Email**: [nitheshkumar1206@gmail.com](mailto:nitheshkumar1206@gmail.com)  
 🐙 **GitHub**: [github.com/nithesh612](https://github.com/nithesh612)  
 💼 **LinkedIn**: [linkedin.com/in/nitheshkumar](https://www.linkedin.com/)  
@@ -8,14 +8,15 @@
 ---
 
 ## 👨‍💻 Summary
-Passionate Full Stack Developer with hands-on expertise in building scalable, responsive, and performance-driven web applications using modern JavaScript/TypeScript ecosystems, Next.js, React, and Node.js.
+Passionate Python Full Stack Developer & AI Integrator with hands-on expertise in building scalable, responsive, and performance-driven web applications using modern Python, Next.js, React, Node.js, and modern databases.
 
 ---
 
 ## 🛠️ Technical Skills & Tools
 
-- **Frontend**: React.js, Next.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, Tailwind CSS, Vite, Framer Motion
-- **Backend**: Node.js, Express.js, Python, REST APIs
+- **Programming**: Python, JavaScript (ES6+), TypeScript
+- **Frontend**: React.js, Next.js, HTML5, CSS3, Tailwind CSS, Framer Motion, GSAP
+- **Backend**: Python, Node.js, Express.js, REST APIs
 - **Databases**: MongoDB, MySQL
 - **Tools & Platforms**: Git, GitHub, Vercel, VS Code, Postman, WordPress
 
@@ -34,16 +35,16 @@ Passionate Full Stack Developer with hands-on expertise in building scalable, re
 ### 2. BookShelf — Library & Inventory Management System
 - **Description**: Full-stack inventory management system to catalog books, track borrow/return statuses, and manage library records in real-time.
 - **Tech Stack**: Next.js, React, TypeScript, Bootstrap, Node.js, Database
-- **Live Demo**: [https://github.com/nithesh612](https://github.com/nithesh612)
-- **GitHub**: [https://github.com/nithesh612](https://github.com/nithesh612)
+- **Live Demo**: [https://book-management-system-r1.vercel.app/](https://book-management-system-r1.vercel.app/)
+- **GitHub**: [https://github.com/nithesh612/book-management-system](https://github.com/nithesh612/book-management-system)
 
 ---
 
-### 3. FlowAI Hub — AI Workflow & Productivity Assistant
-- **Description**: AI-powered productivity platform that streamlines developer workflows, code assistance, and task management.
-- **Tech Stack**: Next.js, React, Tailwind CSS, OpenAI API, Framer Motion
-- **Live Demo**: [https://github.com/nithesh612](https://github.com/nithesh612)
-- **GitHub**: [https://github.com/nithesh612](https://github.com/nithesh612)
+### 3. Nexio Hub — Bookmarks, AI Tools & Creative Assets Hub
+- **Description**: Centralized platform curating top AI tools, creative assets, and design inspiration for modern creators and developers.
+- **Tech Stack**: Next.js, React, Tailwind CSS, Node.js, MongoDB, Vercel
+- **Live Demo**: [https://nexio-hub.vercel.app/](https://nexio-hub.vercel.app/)
+- **GitHub**: [https://github.com/Nithesh612/Nexio](https://github.com/Nithesh612/Nexio)
 
 ---
 

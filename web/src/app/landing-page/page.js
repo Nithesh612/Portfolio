@@ -1,7 +1,5 @@
 "use client";
 import React, { useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
-import WelcomeScreen from "../Preloader/WelcomeScreen";
 import VelocityMarquee from "./About/VelocityMarquee";
 import Header from "./header";
 import HeroSection from "./hero-section";
@@ -29,42 +27,23 @@ const MARQUEE_ROWS = [
 ];
 
 export default function PortfolioPage() {
-  const [showWelcome, setShowWelcome] = React.useState(true);
-
   useEffect(() => {
-    const skipWelcome = typeof window !== "undefined" && sessionStorage.getItem("skip_welcome");
-    const hasHash = typeof window !== "undefined" && window.location.hash;
-
-    if (skipWelcome || hasHash) {
-      if (skipWelcome) {
-        sessionStorage.removeItem("skip_welcome");
-      }
-      setShowWelcome(false);
-
-      if (hasHash) {
-        const id = window.location.hash.substring(1);
-        const scrollToTarget = () => {
-          const element = document.getElementById(id);
-          if (element) {
-            if (typeof window !== "undefined" && window.lenis && typeof window.lenis.scrollTo === "function") {
-              window.lenis.scrollTo(element, { offset: -70, immediate: false });
-            } else {
-              element.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
+    if (typeof window !== "undefined" && window.location.hash) {
+      const id = window.location.hash.substring(1);
+      const scrollToTarget = () => {
+        const element = document.getElementById(id);
+        if (element) {
+          if (typeof window !== "undefined" && window.lenis && typeof window.lenis.scrollTo === "function") {
+            window.lenis.scrollTo(element, { offset: -70, immediate: false });
+          } else {
+            element.scrollIntoView({ behavior: "smooth", block: "start" });
           }
-        };
-        setTimeout(scrollToTarget, 150);
-        setTimeout(scrollToTarget, 400);
-        setTimeout(scrollToTarget, 800);
-      }
-      return;
+        }
+      };
+      setTimeout(scrollToTarget, 150);
+      setTimeout(scrollToTarget, 400);
+      setTimeout(scrollToTarget, 800);
     }
-
-    const timer = setTimeout(() => {
-      setShowWelcome(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
@@ -92,10 +71,6 @@ export default function PortfolioPage() {
 
   return (
     <>
-      <AnimatePresence mode="wait">
-        {showWelcome && <WelcomeScreen key="welcome-screen" />}
-      </AnimatePresence>
-
       <div className="overlay"></div>
       <div id="magic-cursor">
         <div id="ball"></div>

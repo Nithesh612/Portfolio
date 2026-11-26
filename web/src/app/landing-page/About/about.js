@@ -178,7 +178,7 @@ export default function About() {
                           letterSpacing: "0.02em",
                         }}
                       >
-                        Full Stack Developer & AI
+                        Python Full Stack Developer & AI
                       </h4>
                       <p style={{ color: "#4B5563", fontSize: "16px", lineHeight: "1.8", margin: "0 0 20px 0", fontWeight: "500", whiteSpace: "normal", wordWrap: "break-word" }}>
                         I&apos;m a creative and motivated Full Stack Developer with a strong passion for building modern, responsive, and user-friendly web applications. I thrive on exploring new challenges and opportunities that push the boundaries of my coding skills. Known for bridging the gap between elegant frontend interfaces and robust backend architectures, I focus on delivering impactful digital solutions.

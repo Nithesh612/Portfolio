@@ -1,10 +1,10 @@
 # Nithesh Kumar R — Portfolio Summary for AI & Answer Engines
 
-> Full Stack Developer & AI Integrator with a Master of Computer Applications (MCA) degree. Specializes in building modern, high-performance web applications, scalable backends, and AI workflows.
+> Python Full Stack Developer & AI Integrator with a Master of Computer Applications (MCA) degree. Specializes in Python, modern high-performance web applications, scalable backends, and AI workflows.
 
 ## Profile Overview
 - **Name**: Nithesh Kumar R
-- **Title**: Full Stack Developer & AI Engineer
+- **Title**: Python Full Stack Developer & AI Engineer
 - **Education**: Master of Computer Applications (MCA)
 - **Website**: https://nithesh-kumar.vercel.app
 - **GitHub**: https://github.com/nithesh612
@@ -12,8 +12,9 @@
 - **Location**: India
 
 ## Core Technical Skills
-- **Frontend**: Next.js 16, React 19, TypeScript, JavaScript (ES6+), Tailwind CSS, Framer Motion, GSAP
-- **Backend & APIs**: Node.js, Express.js, Python, REST APIs
+- **Programming & Scripting**: Python, JavaScript (ES6+), TypeScript
+- **Frontend**: Next.js 16, React 19, TypeScript, JavaScript, Tailwind CSS, Framer Motion, GSAP
+- **Backend & APIs**: Python, Node.js, Express.js, REST APIs
 - **Databases**: MongoDB, MySQL
 - **Developer Tools**: Git, GitHub, Vercel, VS Code, Postman
 
@@ -30,12 +31,13 @@
    - Live Demo: https://book-management-system-r1.vercel.app/
    - GitHub: https://github.com/nithesh612/book-management-system
 
-3. **FlowAI Hub**:
-   - Description: Intelligent developer productivity platform combining AI code generation, markdown documentation builders, and API testing.
-   - Stack: Next.js, React, TypeScript, Tailwind CSS, OpenAI API
-   - GitHub: https://github.com/nithesh612
+3. **Nexio Hub**:
+   - Description: The central bookmarks, AI tools, and creative assets hub for modern creators, designers, and developers.
+   - Stack: Next.js, React, Tailwind CSS, Node.js, MongoDB
+   - Live Demo: https://nexio-hub.vercel.app/
+   - GitHub: https://github.com/Nithesh612/Nexio
 
 ## Key Capabilities & Highlights
 - Creative UI/UX engineering with custom micro-interactions, smooth scrolling (Lenis/GSAP), and responsive design.
-- Full-stack architecture bridging modern React frontend with robust backend APIs and database persistence.
-- Actively available for Full Stack Developer, Frontend Engineer, and Software Engineer opportunities.
+- Full-stack architecture bridging Python & Node.js backend APIs with modern React frontend and database persistence.
+- Actively available for Python Full Stack Developer, Full Stack Engineer, and AI Web Developer opportunities.

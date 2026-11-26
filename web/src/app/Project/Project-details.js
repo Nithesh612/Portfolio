@@ -101,60 +101,59 @@ const projectData = {
             { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032", color: "#F05032" }
         ],
         nextProject: {
-            id: "flowai",
-            title: "FlowAI Hub"
+            id: "nexio-hub",
+            title: "Nexio Hub"
         }
     },
-    flowai: {
-        id: "flowai",
-        title: "FlowAI Hub",
-        category: "Full Stack & AI Development",
-        tagline: "An intelligent developer productivity suite combining AI code generation, markdown documentation builders, and API testing tools.",
-        logo: "F",
+    "nexio-hub": {
+        id: "nexio-hub",
+        title: "Nexio Hub",
+        category: "Full Stack & Creative Tools",
+        tagline: "The central bookmarks, AI tools, and creative assets hub for modern creators and designers.",
+        logo: "N",
         banner: "/assets/thumbs/flowai-hub-1.png",
         gallery: [
             "/assets/thumbs/flowai-hub-1.png",
             "/assets/thumbs/flowai-hub-2.png",
             "/assets/thumbs/flowai-hub-3.png"
         ],
-        preview: "https://github.com/nithesh612",
-        github: "https://github.com/nithesh612",
-        role: "Full Stack & AI Developer",
+        preview: "https://nexio-hub.vercel.app/",
+        github: "https://github.com/Nithesh612/Nexio",
+        role: "Full Stack Developer",
         timeline: "2025 - 2026",
-        status: "🟢 In Active Development",
-        overview: "FlowAI Hub connects modern developer workflows with cutting-edge AI utilities. Featuring real-time code snippet generators, markdown documentation builders, regex & JSON formatters, and smart project planning assistants to accelerate engineering speed 10x.",
-        challenge: "Developers often bounce across dozens of fragmented web tools for documentation, regex parsing, API testing, and AI prompts, disrupting focus and slowing down engineering output.",
-        solution: "Built a centralized, highly responsive unified hub that integrates all daily developer utility modules into an elegant dashboard with persistent state and instant AI integration.",
+        status: "🟢 Live in Production",
+        overview: "Nexio Hub is a centralized platform curating the best AI tools, design inspirations, and creative resources. Built with modern web architecture to help creators, designers, and developers discover and organize top-tier productivity tools effortlessly.",
+        challenge: "Creators and designers constantly struggle with fragmented bookmarks, scattered AI tools, and lost inspiration links across multiple browser tabs and platforms.",
+        solution: "Built a sleek, high-performance central asset directory that categorizes AI tools, design systems, and creative inspiration into a clean, searchable dashboard.",
         features: [
             {
-                title: "AI-Powered Code Assistant",
-                desc: "Real-time automated code generation, syntax diagnostics, and markdown documentation builder."
+                title: "Curated AI & Design Directory",
+                desc: "Handpicked collection of top-tier AI utilities, photo/video editing tools, and web design inspirations."
             },
             {
-                title: "Full Developer Tool Suite",
-                desc: "Integrated REST API client tester, JSON validator & formatter, and interactive regex debugger."
+                title: "Real-Time Categorization & Search",
+                desc: "Instant filtering across categories, tags, and tools to find what you need in seconds."
             },
             {
-                title: "Cloud Synchronization",
-                desc: "Secure user session storage with MongoDB and JWT-based authentication to save workspaces."
+                title: "Robust Full-Stack Architecture",
+                desc: "Powered by Next.js, Node.js API, and MongoDB backend persistence deployed on Vercel."
             },
             {
-                title: "Sleek Dark Cyberpunk UI",
-                desc: "Ultra-fast Next.js architecture with Tailwind CSS styling and fluid micro-interactions."
+                title: "Modern Responsive UI",
+                desc: "Fluid dark mode interface with micro-interactions, responsive grids, and fast load times."
             }
         ],
         stack: [
             { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF", color: "#FFFFFF" },
             { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB", color: "#61DAFB" },
-            { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6", color: "#3178C6" },
             { name: "Tailwind CSS", icon: "https://cdn.simpleicons.org/tailwindcss/06B6D4", color: "#06B6D4" },
             { name: "Node.js", icon: "https://cdn.simpleicons.org/nodedotjs/339933", color: "#339933" },
             { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb/47A248", color: "#47A248" },
             { name: "Vercel", icon: "https://cdn.simpleicons.org/vercel/FFFFFF", color: "#FFFFFF" }
         ],
         nextProject: {
-            id: "bookshelf",
-            title: "BookShelf — Management System"
+            id: "thunder",
+            title: "Thunder E-Commerce"
         }
     }
 };
@@ -169,8 +168,11 @@ const slugAliases = {
     "bookshelf": "bookshelf",
     "bookshelf-management-system": "bookshelf",
     "book-management-system": "bookshelf",
-    "flowai": "flowai",
-    "flowai-hub": "flowai",
+    "nexio": "nexio-hub",
+    "nexio-hub": "nexio-hub",
+    "nexiohub": "nexio-hub",
+    "flowai": "nexio-hub",
+    "flowai-hub": "nexio-hub",
 };
 
 function ProjectDetailContent({ slug }) {

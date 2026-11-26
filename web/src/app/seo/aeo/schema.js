@@ -5,7 +5,7 @@ export const schema = {
       "@type": "Person",
       "@id": "https://nithesh-kumar.vercel.app/#person",
       name: "Nithesh Kumar R",
-      jobTitle: "Full Stack Developer & AI",
+      jobTitle: "Python Full Stack Developer & AI",
       url: "https://nithesh-kumar.vercel.app",
       image: "https://nithesh-kumar.vercel.app/assets/thumbs/cover.png",
       sameAs: [
@@ -18,24 +18,25 @@ export const schema = {
         name: "Master of Computer Applications (MCA)",
       },
       knowsAbout: [
+        "Python",
+        "Full Stack Development",
         "Next.js",
         "React",
         "Node.js",
         "TypeScript",
         "Tailwind CSS",
         "Artificial Intelligence",
-        "Full Stack Development",
         "REST APIs",
         "MongoDB",
       ],
       description:
-        "Full Stack Developer specializing in Next.js, React, Node.js, and modern AI integrations.",
+        "Python Full Stack Developer specializing in Python, Next.js, React, Node.js, and modern AI integrations.",
     },
     {
       "@type": "WebSite",
       "@id": "https://nithesh-kumar.vercel.app/#website",
       url: "https://nithesh-kumar.vercel.app",
-      name: "Nithesh Kumar R | Full Stack Developer & AI",
+      name: "Nithesh Kumar R | Python Full Stack Developer & AI",
       publisher: {
         "@id": "https://nithesh-kumar.vercel.app/#person",
       },

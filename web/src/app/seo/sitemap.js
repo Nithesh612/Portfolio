@@ -1,7 +1,7 @@
 const baseUrl = "https://nithesh-kumar.vercel.app";
 
 export default function sitemap() {
-  const projects = ["thunder", "bookshelf", "flowai"];
+  const projects = ["thunder", "bookshelf", "nexio-hub"];
 
   const projectUrls = projects.map((slug) => ({
     url: `${baseUrl}/Project/${slug}`,

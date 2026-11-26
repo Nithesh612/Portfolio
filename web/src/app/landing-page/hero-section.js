@@ -669,7 +669,7 @@ export default function HeroSection() {
         >
           {" "}
           <strong style={{ color: toggleActive ? "#FFFFFF" : "#111827", fontWeight: 800, transition: "color 0.45s ease" }}>
-            Full Stack Developer {"&"} AI
+            Python Full Stack Developer {"&"} AI
           </strong>{" "}
 
         </p>
