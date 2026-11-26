@@ -31,9 +31,9 @@ const PROJECTS_DATA = [
     ],
     liveUrl: "https://nexio-hub.vercel.app/",
     githubUrl: "https://github.com/Nithesh612/Nexio",
-    desktopImg: "/assets/thumbs/flowai-hub-1.png",
-    mobileImg1: "/assets/thumbs/flowai-hub-2.png",
-    mobileImg2: "/assets/thumbs/flowai-hub-3.png",
+    desktopImg: "/assets/thumbs/nexio-desktop.png",
+    mobileImg1: "/assets/thumbs/nexio-tablet.png",
+    mobileImg2: "/assets/thumbs/nexio-laptop.png",
   },
 ];
 

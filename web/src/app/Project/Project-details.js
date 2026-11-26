@@ -111,11 +111,11 @@ const projectData = {
         category: "Full Stack & Creative Tools",
         tagline: "The central bookmarks, AI tools, and creative assets hub for modern creators and designers.",
         logo: "N",
-        banner: "/assets/thumbs/flowai-hub-1.png",
+        banner: "/assets/thumbs/nexio-desktop.png",
         gallery: [
-            "/assets/thumbs/flowai-hub-1.png",
-            "/assets/thumbs/flowai-hub-2.png",
-            "/assets/thumbs/flowai-hub-3.png"
+            "/assets/thumbs/nexio-desktop.png",
+            "/assets/thumbs/nexio-tablet.png",
+            "/assets/thumbs/nexio-laptop.png"
         ],
         preview: "https://nexio-hub.vercel.app/",
         github: "https://github.com/Nithesh612/Nexio",

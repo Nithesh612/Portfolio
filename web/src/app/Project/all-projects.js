@@ -10,7 +10,7 @@ const allProjectsList = [
     category: "Full Stack & AI",
     desc: "The central bookmarks, AI tools, and creative assets hub for modern creators, designers, and developers.",
     logo: "N",
-    thumbnail: "/assets/thumbs/flowai-hub-1.png",
+    thumbnail: "/assets/thumbs/nexio-desktop.png",
     stack: [
       { name: "Next.js", icon: "https://cdn.simpleicons.org/nextdotjs/FFFFFF" },
       { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
