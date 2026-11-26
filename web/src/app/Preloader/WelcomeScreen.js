@@ -12,8 +12,8 @@ export default function WelcomeScreen() {
 
     // 2. Stop Lenis immediately if instance is available
     if (lenis) {
-      lenis.stop();
-      lenis.scrollTo(0, { immediate: true });
+      if (typeof lenis.stop === "function") lenis.stop();
+      if (typeof lenis.scrollTo === "function") lenis.scrollTo(0, { immediate: true });
     }
 
     // 3. Lock document body and html overflow so background never scrolls
@@ -40,9 +40,9 @@ export default function WelcomeScreen() {
 
     // 5. Keep polling during preloading to catch late-mounted Lenis or any scroll drift
     const interval = setInterval(() => {
-      if (window.lenis) {
-        window.lenis.stop();
-        window.lenis.scrollTo(0, { immediate: true });
+      if (typeof window !== "undefined" && window.lenis) {
+        if (typeof window.lenis.stop === "function") window.lenis.stop();
+        if (typeof window.lenis.scrollTo === "function") window.lenis.scrollTo(0, { immediate: true });
       }
       window.scrollTo(0, 0);
     }, 40);
@@ -59,9 +59,9 @@ export default function WelcomeScreen() {
 
         window.scrollTo(0, 0);
         if (window.lenis) {
-          window.lenis.scrollTo(0, { immediate: true });
-          window.lenis.start();
-          window.lenis.resize();
+          if (typeof window.lenis.scrollTo === "function") window.lenis.scrollTo(0, { immediate: true });
+          if (typeof window.lenis.start === "function") window.lenis.start();
+          if (typeof window.lenis.resize === "function") window.lenis.resize();
         }
       }
     };
